@@ -2,26 +2,38 @@
   <div class="header">
     <div class="header-top">
       <span class="header-title">
-        <img
-          class="img-logo"
-          src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-        />
-        酒业大数据平台
+        <img class="img-logo" src="@/assets/wine-logo.png" />
       </span>
+      <div class="nav-table">
+        <a
+          @click="goTo(item.path)"
+          class="nav-item"
+          v-for="(item, index) in navs"
+          :key="index"
+        >{{ item.name }}</a>
+      </div>
       <div class="login-status">
-        <span>企业登录</span>
-
-        <span>企业注册</span>
+        <a @click="goLogin">企业登录</a>
+        <span>|</span>
+        <a @click="goSign">企业注册</a>
       </div>
     </div>
-    <div class="nav-table">
-      <div
-        @click="goTo(item.path)"
-        class="nav-item"
-        v-for="(item, index) in navs"
-        :key="index"
-      >{{ item.name }}</div>
-    </div>
+
+    <swiper class="header-swiper" :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
+      <!-- slides -->
+      <swiper-slide>
+        <img src="../assets/wine-top.png" alt />
+      </swiper-slide>
+      <swiper-slide>I'm Slide 2</swiper-slide>
+      <swiper-slide>I'm Slide 3</swiper-slide>
+      <swiper-slide>I'm Slide 4</swiper-slide>
+      <swiper-slide>I'm Slide 5</swiper-slide>
+      <swiper-slide>I'm Slide 6</swiper-slide>
+      <swiper-slide>I'm Slide 7</swiper-slide>
+      <!-- Optional controls -->
+      <div class="swiper-pagination" slot="pagination"></div>
+      <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
+    </swiper>
   </div>
 </template>
 
@@ -30,6 +42,11 @@ export default {
   name: "Header",
   data() {
     return {
+      swiperOption: {
+        // some swiper options/callbacks
+        // 所有的参数同 swiper 官方 api 参数
+        // ...
+      },
       navs: [
         {
           name: "诚信体系概述",
@@ -74,9 +91,24 @@ export default {
       ]
     };
   },
+  computed: {
+    swiper() {
+      return this.$refs.mySwiper.swiper;
+    }
+  },
+  mounted() {
+    console.log("this is current swiper instance object", this.swiper);
+    this.swiper.slideTo(0, 1000, false);
+  },
   methods: {
     goTo(path) {
       this.$router.push(path);
+    },
+    goLogin() {
+      this.$router.push("/login");
+    },
+    goSign() {
+      this.$router.push("/sign");
     }
   }
 };
@@ -85,45 +117,60 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
 .header {
-  // background: #cccccc;
   width: 100%;
-  height: 200px;
-  .img-logo {
-    width: 40px;
-    height: 40px;
-  }
+  height: 500px;
 }
 .header-top {
   display: flex;
   align-content: center;
+  width: 80%;
+  margin: auto;
 }
 .header-title {
-  font-size: 20px;
+  font-size: 40px;
   font-weight: bold;
   height: 50px;
-  width: 50%;
+  width: 20%;
   display: inline-block;
   text-align: left;
+  img {
+    width: 200px;
+    height: 50px;
+  }
 }
 .login-status {
-  width: 50%;
+  width: 15%;
   height: 50px;
   line-height: 50px;
   text-align: right;
   padding-right: 20px;
+  a:hover {
+    color: #ccc;
+  }
 }
 .nav-table {
-  background: #cccccc;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   align-content: space-between;
-  height: 100px;
+  height: 30px;
+  line-height: 30px;
   .nav-item {
-    width: 20%;
+    // width: 10%;
+    margin-left: 10px;
+    font-size: 12px;
+    width: 80px;
     height: 40px;
     line-height: 40px;
-    background: #c8c8c8;
+    // background: #c8c8c8;
+  }
+  a:hover {
+    color: red;
+  }
+}
+.header-swiper{
+  img{
+    width: 100%
   }
 }
 </style>

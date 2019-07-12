@@ -1,16 +1,20 @@
 <template>
-  <div class="content">
-    <div class="tab-content">
-      <div @click="scrollTab(index)" class="tab-item" v-for="(tab, index) in tabs" :key="index">{{ tab }}</div>
-    </div>
-    <div ref="content0" class="tab1-content">1</div>
-    <div ref="content1" class="tab2-content">2</div>
-    <div ref="content2" class="tab3-content">3</div>
-    <div ref="content3" class="tab4-content">4</div>
+  <div id="home">
+    <Header />
+    <router-view />
+    <Footer />
+    <template>
+      Scroll down to see the bottom-right button.
+      <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>
+    </template>
+  </div>
+</template>
   </div>
 </template>
 
 <script>
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 export default {
   name: "Home",
   data() {
@@ -18,11 +22,14 @@ export default {
       tabs: ["政府背景", "建设宗旨", "评价模式和流程", "建设动态"]
     };
   },
+  components: {
+    Header,
+    Footer
+  },
   methods: {
-    scrollTab(index){
-      let farTop = this.$refs['content'+ index].offsetHeight
-      console.log(11111111, farTop)
-      
+    scrollTab(index) {
+      let farTop = this.$refs["content" + index].offsetHeight;
+      console.log(11111111, farTop);
     }
     // scrollTop
     // var city_top = $('#city_top').offset().top;
@@ -33,7 +40,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
 .content {
   // height: 500px;
