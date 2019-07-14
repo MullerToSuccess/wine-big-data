@@ -9,7 +9,13 @@
       >{{ tab }}</a>
     </div>
     <div ref="content0" class="tab1-content">
-      <img src="@/assets/wine-2.png" alt />
+      <div class="content-title">政策背景</div>
+      <div class="content-text">
+        <span>以“铸诚信中国酒”为目标，构建基于大数据的诚信建设机制、规范标准、技术架构、应用门户，引导生产、流通酒企广泛参与诚信评价，形成以数据归集共享为基础、数据发布公示为手段、主体认证评价为核心的新型行业诚信自律机制和联合征信模式</span>
+      </div>
+      <div class="tab2-content-item">
+        
+      </div>
     </div>
     <div ref="content1" class="tab2-content">
       <div class="content-title">建设宗旨</div>
@@ -236,7 +242,15 @@ export default {
   background: #ffffff;
   margin: 10px 0;
 }
-
+.tab1-content {
+  background: #fff;
+  font-size: 12px;
+  .content-title {
+    font-size: 30px;
+    color: #803030;
+    height: 40px;
+  }
+}
 .tab2-content {
   background: #803030;
   color: #ffffff;

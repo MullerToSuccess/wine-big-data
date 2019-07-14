@@ -123,14 +123,14 @@ export default {
 .header-top {
   display: flex;
   align-content: center;
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 .header-title {
   font-size: 40px;
   font-weight: bold;
   height: 50px;
-  width: 20%;
+  width: 15%;
   display: inline-block;
   text-align: left;
   img {
