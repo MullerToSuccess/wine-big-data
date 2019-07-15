@@ -1,25 +1,29 @@
 <template>
   <div class="header">
     <div class="header-top">
-      <span class="header-title">
-        <img class="img-logo" src="@/assets/wine-logo.png" />
-      </span>
-      <div class="nav-table">
-        <a
-          @click="goTo(item.path)"
-          class="nav-item"
-          v-for="(item, index) in navs"
-          :key="index"
-        >{{ item.name }}</a>
+      <div class="header-title">
+        <img class="img-logo" src="@/assets/logo.png" />
       </div>
       <div class="login-status">
-        <a @click="goLogin">企业登录</a>
+        <a @click="goLogin">登录</a>
         <span>|</span>
-        <a @click="goSign">企业注册</a>
+        <a @click="goSign">注册</a>
       </div>
     </div>
-
-    <swiper class="header-swiper" :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
+    <div class="nav-table">
+      <a
+        :class="{'nav-item': true, activeNav: item.name == activeNav}"
+        @click="goTo(item)"
+        v-for="(item, index) in navs"
+        :key="index"
+      >{{ item.name }}</a>
+    </div>
+    <swiper
+      class="header-swiper"
+      :options="swiperOption"
+      ref="mySwiper"
+      @someSwiperEvent="callback"
+    >
       <!-- slides -->
       <swiper-slide>
         <img src="../assets/wine-top.png" alt />
@@ -50,6 +54,7 @@ export default {
         // 所有的参数同 swiper 官方 api 参数
         // ...
       },
+      activeNav: "诚信体系概述",
       navs: [
         {
           name: "诚信体系概述",
@@ -104,8 +109,9 @@ export default {
     this.swiper.slideTo(0, 1000, false);
   },
   methods: {
-    goTo(path) {
-      this.$router.push(path);
+    goTo(item) {
+      this.$router.push(item.path);
+      this.activeNav = item.name;
     },
     goLogin() {
       this.$router.push("/login");
@@ -121,35 +127,59 @@ export default {
 <style scoped lang='scss'>
 .header {
   width: 100%;
-  height: 500px;
+  // height: 500px;
 }
 .header-top {
   display: flex;
   align-content: center;
-  width: 100%;
+  width: 70%;
   margin: auto;
 }
 .header-title {
-  font-size: 40px;
-  font-weight: bold;
-  height: 50px;
-  width: 15%;
-  display: inline-block;
   text-align: left;
-  img {
-    width: 200px;
-    height: 50px;
-  }
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 30px;
+  font-family: "FZZHJW--GB1-0";
+  font-weight: bold;
+  color: rgba(230, 32, 32, 1);
+  // img {
+  //   width: 200px;
+  //   height: 50px;
+  // }
 }
 .login-status {
-  width: 15%;
+  width: 50%;
   height: 50px;
   line-height: 50px;
   text-align: right;
-  padding-right: 20px;
+  // padding-right: 200px;
+  a {
+    width: 29px;
+    height: 12px;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
+    line-height: 22px;
+  }
   a:hover {
     color: #ccc;
   }
+}
+.activeNav {
+  color: rgba(230, 32, 32, 1) !important;
+  // font-weight: bold;
+  // text-decoration: underline;
+  // transform: scale(1);
+  // content: "";
+  // position: absolute;
+  // left: 0;
+  // bottom: -10px;
+  // height: 2px;
+  // width: 100%;
+  // background: rgba(230, 32, 32, 1);
 }
 .nav-table {
   display: flex;
@@ -158,22 +188,45 @@ export default {
   align-content: space-between;
   height: 30px;
   line-height: 30px;
+  margin-top: 20px;
+  width: 70%;
+  margin: 10px auto;
   .nav-item {
-    // width: 10%;
+    width: 101px;
+    height: 16px;
     margin-left: 10px;
-    font-size: 12px;
-    width: 80px;
-    height: 40px;
-    line-height: 40px;
-    // background: #c8c8c8;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    line-height: 22px;
   }
-  a:hover {
-    color: red;
+  a {
+    position: relative;
+    text-decoration: none;
+    font-size: 20px;
+    color: #333;
+  }
+  a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    height: 2px;
+    width: 100%;
+    background: rgba(230, 32, 32, 1);
+    transform: scale(0);
+    transition: all 0.3s;
+  }
+  a:hover::before {
+    font-weight: bold;
+    color: rgba(230, 32, 32, 1);
+    text-decoration: underline;
+    transform: scale(1);
   }
 }
-.header-swiper{
-  img{
-    width: 100%
+.header-swiper {
+  img {
+    width: 1920px;
+    height: 640px;
   }
 }
 </style>
