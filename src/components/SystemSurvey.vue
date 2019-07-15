@@ -17,16 +17,47 @@
       <div class="content-text">
         <span>以“铸诚信中国酒”为目标，构建基于大数据的诚信建设机制、规范标准、技术架构、应用门户，引导生产、流通酒企广泛参与诚信评价，形成以数据归集共享为基础、数据发布公示为手段、主体认证评价为核心的新型行业诚信自律机制和联合征信模式</span>
       </div>
-      <!-- <div class="point"></div>
-      <div class="point"></div>
-      <div class="point"></div>
-      <div class="point"></div> -->
       
       <canvas id="cvs" width="500" height="500">
         
       </canvas>
-      <div class="point"></div>
-      <div class="point1"></div>
+      <div class="point point1">
+        <div class="point-content-1">《关于同意调整社会信用体系建设部际联席会议职责和成员单位的批复》</div>
+        <div class="point-content-2">国务院</div>
+        <div class="point-content-3">2012年7月</div>                            
+      </div>
+      <div class="circle circle1"></div>
+      <div class="point point2">
+        <div class="point-content-1">《关于同意调整社会信用体系建设部际联席会议职责和成员单位的批复》</div>
+        <div class="point-content-2">国务院</div>
+        <div class="point-content-3">2012年7月</div>   
+      </div>
+      <div class="circle circle2"></div>
+      <div class="point point3">
+        <div class="point-content-1">《关于同意调整社会信用体系建设部际联席会议职责和成员单位的批复》</div>
+        <div class="point-content-2">国务院</div>
+        <div class="point-content-3">2012年7月</div>   
+      </div>
+      <div class="circle circle3"></div>
+      <!-- <div class="point point4">
+        <div class="point-content-1">《关于同意调整社会信用体系建设部际联席会议职责和成员单位的批复》</div>
+        <div class="point-content-2">国务院</div>
+        <div class="point-content-3">2012年7月</div>   
+      </div> -->
+      <div class="circle circle4"></div>
+      <!-- <div class="point point5">
+        <div class="point-content-1">《关于同意调整社会信用体系建设部际联席会议职责和成员单位的批复》</div>
+        <div class="point-content-2">国务院</div>
+        <div class="point-content-3">2012年7月</div>   
+      </div> -->
+      <div class="circle circle5"></div>
+      <!-- <div class="point point6">
+        <div class="point-content-1">《关于同意调整社会信用体系建设部际联席会议职责和成员单位的批复》</div>
+        <div class="point-content-2">国务院</div>
+        <div class="point-content-3">2012年7月</div>   
+      </div> -->
+      <div class="circle circle6"></div>
+
       <div class="tab2-content-item"></div>
     </div>
     <div ref="content1" class="tab2-content">
@@ -324,25 +355,21 @@ export default {
       ]
     };
   },
-  mounted(){
+  mounted() {
     var canvas = document.getElementById("cvs");
 
-        canvas.width = 1520;
-        canvas.height = 800;
-        var context = canvas.getContext('2d');
+    canvas.width = 1520;
+    canvas.height = 800;
+    var context = canvas.getContext("2d");
 
-        context.moveTo(0,800);
-        context.quadraticCurveTo(100,200,400,400)
-        context.moveTo(400,400);
-        context.quadraticCurveTo(400,100,800,500)
-        context.moveTo(800,500);
-        context.quadraticCurveTo(1000,100,1500,200)
-        // context.lineTo(500,400);
-        // context.lineTo(300,600);
-        context.lineWidth = 4;
-        context.strokeStyle = "#c8c8c8";
+    context.moveTo(0, 500);
+    context.quadraticCurveTo(350, 100, 600, 400);
+    context.moveTo(600, 400);
+    context.quadraticCurveTo(700, 500, 1200, 20);
+    context.lineWidth = 1;
+    context.strokeStyle = "#c8c8c8";
 
-        context.stroke();
+    context.stroke();
   },
   methods: {
     scrollTab(index) {
@@ -401,28 +428,95 @@ export default {
     margin: 10px auto;
   }
   .point {
-    width: 270px;
-    height: 235px;
+    width: 200px;
+    height: 175px;
     background: rgba(255, 255, 255, 1);
     box-shadow: 0px 0px 15px 0px rgba(134, 229, 158, 0.35);
     border-radius: 4px;
     background: url("../assets/point-back.png");
-    z-index: 10000;
+    background-size: 100% 100%;
+    z-index: 1000;
     position: absolute;
-    top: 1000px;
-    left: 200px;;
+    padding-top: 15px;
+    .point-content-1 {
+      width: 180px;
+      height: 63px;
+      margin: auto;
+
+      font-size: 14px;
+      font-family: "MicrosoftYaHei";
+      font-weight: 400;
+      color: rgba(60, 60, 75, 1);
+      line-height: 18px;
+    }
+    .point-content-2 {
+      color: rgba(151, 150, 166, 1);
+    }
+    .point-content-3 {
+      font-size: 18px;
+      font-family: "MicrosoftYaHei-Bold";
+      font-weight: bold;
+      color: rgba(27, 27, 27, 1);
+    }
   }
-  .point1{
-    width: 270px;
-    height: 235px;
+  .circle {
+    width: 16px;
+    height: 16px;
     background: rgba(255, 255, 255, 1);
     box-shadow: 0px 0px 15px 0px rgba(134, 229, 158, 0.35);
     border-radius: 4px;
-    background: url("../assets/point-back.png");
-    z-index: 10000;
+    background: url("../assets/circle.png");
+    background-size: 100% 100%;
+    z-index: 1001;
     position: absolute;
-    top: 900px;
-    left: 1000px;;
+  }
+  .circle1 {
+    left: 355px;
+    top: 1123px;
+  }
+  .point1 {
+    top: 940px;
+    left: 245px;
+  }
+  .point2 {
+    top: 1060px;
+    left: 480px;
+  }
+  .circle2 {
+    top: 1142px;
+    left: 455px;
+  }
+  .point3 {
+    top: 940px;
+    left: 780px;
+  }
+  .circle3 {
+    top: 1242px;
+    left: 584px;
+  }
+  // .point4 {
+  //   top: 900px;
+  //   left: 1000px;
+  // }
+  .circle4 {
+    top: 1242px;
+    left: 724px;
+  }
+  // .point5 {
+  //   top: 900px;
+  //   left: 1000px;
+  // }
+  .circle5 {
+    top: 1128px;
+    left: 900px;
+  }
+  // .point6 {
+  //   top: 1000px;
+  //   left: 1400px;
+  // }
+  .circle6 {
+    top: 1044px;
+    left: 1000px;
   }
 }
 .tab2-content {
@@ -571,8 +665,8 @@ export default {
     flex-wrap: wrap;
     div {
       text-align: center;
-      padding: 2px;
-      width: 32%;
+      // padding: 2px;
+      width: 31%;
       height: 300px;
       .content-1 {
         width: 100%;
