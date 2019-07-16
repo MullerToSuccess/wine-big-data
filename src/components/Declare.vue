@@ -1,22 +1,22 @@
 <template>
   <div id="declare">
     <div class="declare-form">
-      <img src="@/assets/wine-back1.png" />
+      <img src="@/assets/images/wine-icon.png" />
       <div class="declare-title">资质填报</div>
       <div class="declare-status">去更新</div>
     </div>
     <div class="declare-form">
-      <img src="@/assets/wine-back1.png" />
+      <img src="@/assets/images/wine-icon.png" />
       <div class="declare-title">奖励填报</div>
       <div class="declare-status">去更新</div>
     </div>
     <div class="declare-form">
-      <img src="@/assets/wine-back1.png" />
+      <img src="@/assets/images/wine-icon.png" />
       <div class="declare-title">财务数据填报</div>
       <div class="declare-status">去更新</div>
     </div>
     <div class="declare-form">
-      <img src="@/assets/wine-back1.png" />
+      <img src="@/assets/images/wine-icon.png" />
       <div class="declare-title">管理数据填报</div>
       <div class="declare-status">去更新</div>
     </div>

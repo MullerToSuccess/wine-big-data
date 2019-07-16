@@ -23,13 +23,13 @@
         </div>-->
       </div>
       <div class="footer-right">
-        <div style="margin-bottom: 10px; font-size: 12px;text-align: left">
+        <div style="margin-bottom: 10px;text-align: left">
           <i class="el-icon-phone"></i>028-87554326
         </div>
-        <div style="margin-bottom: 10px; font-size: 12px;text-align: left">
+        <div style="margin-bottom: 10px;text-align: left">
           <i class="el-icon-s-home"></i>shuzhilian@unionbigdata.com
         </div>
-        <div style="margin-bottom: 10px; font-size: 12px;text-align: left">
+        <div style="margin-bottom: 10px;text-align: left">
           <i class="el-icon-message"></i>
           四川省成都市高新区吉泰五路88号香年广场T3栋5楼
         </div>
@@ -63,18 +63,19 @@ export default {
   font-size: 14px;
   width: 100%;
   .footer-top {
-    width: 100%;
+    width: 80%;
+    margin: auto;
     height: 200px;
     display: flex;
     align-content: center;
     align-items: center;
     .footer-left {
-      width: 50%;
+      width: 60%;
       padding: 30px;
       text-align: right;
       display: flex;
       div {
-        width: 250px;
+        width: 80%;
         margin-top: 10px;
         .content {
           color: #c8c8c8;
@@ -82,7 +83,7 @@ export default {
       }
     }
     .footer-right {
-      width: 50%;
+      width: 40%;
       i {
         margin-right: 10px;
       }

@@ -20,7 +20,7 @@
       </div>
       <div class="tab2-content-item">
         <div class="item-aim" v-for="(item, index) in aims" :key="index">
-          <img src="@/assets/wine-icon.png" />
+          <img src="@/assets/images/wine-icon.png" />
           <div class="item-name">{{ item.name }}</div>
           <div class="item-content">{{ item.content }}</div>
         </div>
@@ -97,52 +97,52 @@ export default {
       ],
       aims: [
         {
-          src: "@/assets/wine-icon.png",
+          src: "@/assets/images/wine-icon.png",
           name: "张晓月",
           content: "副总裁"
         },
         {
-          src: "@/assets/wine-icon.png",
+          src: "@/assets/images/wine-icon.png",
           name: "张晓月",
           content: "副总裁"
         },{
-          src: "@/assets/wine-icon.png",
+          src: "@/assets/images/wine-icon.png",
           name: "张晓月",
           content: "副总裁"
         },{
-          src: "@/assets/wine-icon.png",
+          src: "@/assets/images/wine-icon.png",
           name: "张晓月",
           content: "副总裁"
         },{
-          src: "@/assets/wine-icon.png",
+          src: "@/assets/images/wine-icon.png",
           name: "张晓月",
           content: "副总裁"
         },{
-          src: "@/assets/wine-icon.png",
+          src: "@/assets/images/wine-icon.png",
           name: "张晓月",
           content: "副总裁"
         },{
-          src: "@/assets/wine-icon.png",
+          src: "@/assets/images/wine-icon.png",
           name: "张晓月",
           content: "副总裁"
         },{
-          src: "@/assets/wine-icon.png",
+          src: "@/assets/images/wine-icon.png",
           name: "张晓月",
           content: "副总裁"
         },{
-          src: "@/assets/wine-icon.png",
+          src: "@/assets/images/wine-icon.png",
           name: "张晓月",
           content: "副总裁"
         },{
-          src: "@/assets/wine-icon.png",
+          src: "@/assets/images/wine-icon.png",
           name: "张晓月",
           content: "副总裁"
         },{
-          src: "@/assets/wine-icon.png",
+          src: "@/assets/images/wine-icon.png",
           name: "张晓月",
           content: "副总裁"
         },{
-          src: "@/assets/wine-icon.png",
+          src: "@/assets/images/wine-icon.png",
           name: "张晓月",
           content: "副总裁"
         }

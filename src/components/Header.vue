@@ -2,7 +2,7 @@
   <div class="header">
     <div class="header-top">
       <div class="header-title">
-        <img class="img-logo" src="@/assets/logo.png" />
+        <img class="img-logo" src="@/assets/images/logo.png" />
       </div>
       <div class="login-status">
         <a @click="goLogin">登录</a>
@@ -18,29 +18,26 @@
         :key="index"
       >{{ item.name }}</a>
     </div>
-    <swiper
+    <!-- <swiper
       class="header-swiper"
       :options="swiperOption"
       ref="mySwiper"
       @someSwiperEvent="callback"
     >
-      <!-- slides -->
       <swiper-slide>
-        <img src="../assets/wine-top.png" alt />
+        <img src="../assets/images/wine-top.png" alt />
       </swiper-slide>
       <swiper-slide>
-        <img src="../assets/wine-top.png" alt />
+        <img src="../assets/images/wine-top.png" alt />
       </swiper-slide>
       <swiper-slide>
-        <img src="../assets/wine-top.png" alt />
+        <img src="../assets/images/wine-top.png" alt />
       </swiper-slide>
       <swiper-slide>
-        <img src="../assets/wine-top.png" alt />
+        <img src="../assets/images/wine-top.png" alt />
       </swiper-slide>
-      <!-- Optional controls -->
       <div class="swiper-pagination" slot="pagination"></div>
-      <!-- <div class="swiper-scrollbar" slot="scrollbar"></div> -->
-    </swiper>
+    </swiper> -->
   </div>
 </template>
 
@@ -99,14 +96,14 @@ export default {
       ]
     };
   },
-  computed: {
-    swiper() {
-      return this.$refs.mySwiper.swiper;
-    }
-  },
+  // computed: {
+  //   swiper() {
+  //     return this.$refs.mySwiper.swiper;
+  //   }
+  // },
   mounted() {
-    console.log("this is current swiper instance object", this.swiper);
-    this.swiper.slideTo(0, 1000, false);
+    // console.log("this is current swiper instance object", this.swiper);
+    // this.swiper.slideTo(0, 1000, false);
   },
   methods: {
     goTo(item) {
@@ -137,7 +134,7 @@ export default {
 }
 .header-title {
   text-align: left;
-  width: 50%;
+  width: 40%;
   height: 50px;
   line-height: 50px;
   font-size: 30px;
@@ -150,7 +147,7 @@ export default {
   // }
 }
 .login-status {
-  width: 50%;
+  width: 40%;
   height: 50px;
   line-height: 50px;
   text-align: right;
