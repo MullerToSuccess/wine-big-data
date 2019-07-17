@@ -1,5 +1,6 @@
 <template>
   <div id="example">
+    <div class="banner"></div>
     <div class="industry-content">
       <div class="content-title">
         <span style="font-size: 20px;font-weight: bold">诚信示范酒企</span>
@@ -153,11 +154,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 #example {
-  width: 80%;
+  width: 100%;
   margin: auto;
-  .industry-content {
+  .banner {
     width: 100%;
+    height: 400px;
+    background: url("../assets/images/supervision-bg.png");
+  }
+  .industry-content {
+    width: 80%;
     height: 500px;
+    margin: auto;
     .content-title {
       margin-bottom: 20px;
       span {

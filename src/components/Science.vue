@@ -1,9 +1,13 @@
 <template>
   <div id="science">
-    <el-table :data="tableData" stripe style="width: 100%">
-      <el-table-column prop="date" label="知识名称"></el-table-column>
-      <el-table-column prop="name" label="发布时间"></el-table-column>
-    </el-table>
+    <div class="banner"></div>
+    <div class="science-content">
+      <el-table :data="tableData" stripe style="width: 100%">
+        <el-table-column prop="date" label="知识名称"></el-table-column>
+        <el-table-column prop="name" label="发布时间"></el-table-column>
+      </el-table>
+    </div>
+
     <div class="pagination">
       <el-row type="flex" justify="center">
         <el-col :span="22">
@@ -22,35 +26,35 @@ export default {
       tableData: [
         {
           date: "药酒到底是什么，是药还是酒？",
-          name: "药酒到底是什么，是药还是酒？"
+          name: "2019-05-21"
         },
         {
           date: "药酒到底是什么，是药还是酒？",
-          name: "药酒到底是什么，是药还是酒？"
+          name: "2019-05-21"
         },
         {
           date: "药酒到底是什么，是药还是酒？",
-          name: "药酒到底是什么，是药还是酒？"
+          name: "2019-05-21"
         },
         {
           date: "药酒到底是什么，是药还是酒？",
-          name: "药酒到底是什么，是药还是酒？"
+          name: "2019-05-21"
         },
         {
           date: "药酒到底是什么，是药还是酒？",
-          name: "药酒到底是什么，是药还是酒？"
+          name: "2019-05-21"
         },
         {
           date: "药酒到底是什么，是药还是酒？",
-          name: "药酒到底是什么，是药还是酒？"
+          name: "2019-05-21"
         },
         {
           date: "药酒到底是什么，是药还是酒？",
-          name: "药酒到底是什么，是药还是酒？"
+          name: "2019-05-21"
         },
         {
           date: "药酒到底是什么，是药还是酒？",
-          name: "药酒到底是什么，是药还是酒？"
+          name: "2019-05-21"
         }
       ]
     };
@@ -59,18 +63,26 @@ export default {
 </script>
 <style lang='scss' scoped>
 #science {
-  width: 80%;
+  width: 100%;
   margin: auto;
-  height: 500px;
-
-  .science-content {
-    width: 200px;
-    height: 200px;
-    border: 1px solid red;
-    margin-left: 20px;
+  // height: 500px;
+  .banner {
+    width: 100%;
+    height: 400px;
+    background: url("../assets/images/supervision-bg.png");
   }
-  .pagination{
-      margin-top: 20px;
+  .science-content {
+    width: 1200px;
+    margin: 40px auto;
+    // height: 913px;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(224, 224, 224, 1);
+  }
+  .pagination {
+    margin-top: 20px;
+  }
+  .el-table th {
+    background: #cccccc !important;
   }
 }
 </style>

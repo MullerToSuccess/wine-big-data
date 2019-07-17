@@ -1,7 +1,6 @@
 import Vue from "vue"
 import Router from "vue-router"
 
-
 const Home = resolve => {
   import("@/components/Home").then(module => {
     resolve(module)
@@ -88,11 +87,22 @@ const Detail = resolve => {
 }
 
 const searchDetail = resolve => {
-  import("@/components/searchDetail").then(module => {
+  import("@/components/details/searchDetail").then(module => {
     resolve(module)
   })
 }
 
+const newsDetail = resolve => {
+  import("@/components/details/newsDetail").then(module => {
+    resolve(module)
+  })
+}
+
+const integrityDetail = resolve => {
+  import("@/components/details/integrityDetail").then(module => {
+    resolve(module)
+  })
+}
 Vue.use(Router)
 
 export default new Router({
@@ -125,14 +135,19 @@ export default new Router({
         {
           path: "/search",
           name: "Search",
-          component: Search,
-          children: [
-            {
-              path: "/search/searchDetail",
-              name: "searchDetail",
-              component: searchDetail
-            }
-          ]
+          component: Search
+          // children: [
+          //   {
+          //     path: "/search/newsDetail",
+          //     name: "newsDetail",
+          //     component: newsDetail
+          //   },
+          //   {
+          //     path: "/search/searchDetail",
+          //     name: "searchDetail",
+          //     component: searchDetail
+          //   }
+          // ]
         },
         {
           path: "/declare",
@@ -159,10 +174,26 @@ export default new Router({
           name: "Support",
           component: Support
         },
+        // 详情
         {
           path: "/detail",
           name: "Detail",
           component: Detail
+        },
+        {
+          path: "/search/newsDetail",
+          name: "newsDetail",
+          component: newsDetail
+        },
+        {
+          path: "/search/searchDetail",
+          name: "searchDetail",
+          component: searchDetail
+        },
+        {
+          path: "/search/integrityDetail",
+          name: "integrityDetail",
+          component: integrityDetail
         }
       ]
     },

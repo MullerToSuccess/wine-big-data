@@ -151,17 +151,26 @@
           <div>
             <a>评价方式</a>
           </div>
+          <div :class="{'point': checkTab == 0}">
+            <div>111</div>
+          </div>
         </div>
         <div class="content-tab" @click="chooseTab(1)">
           <img src="@/assets/images/tab-2.png" />
           <div>
             <a>评价维度</a>
           </div>
+          <div :class="{'point': checkTab == 1}">
+            <div>11</div>
+          </div>
         </div>
         <div class="content-tab" @click="chooseTab(2)">
           <img src="@/assets/images/tab-3.png" />
           <div>
             <a>评分方法</a>
+          </div>
+          <div :class="{'point': checkTab == 2}">
+            <div>11</div>
           </div>
         </div>
       </div>
@@ -196,15 +205,99 @@
       </div>
       <div class="content-tab-text" v-show="checkTab == 1">
         <div class="title">酒企评价维度</div>
-        <div
-          class="text"
-        >酒企诚信评级，严格按照工信部、商务部等联合印发的《行业诚信评价工作要求及流程》，中国酒业协会根据酒企的诚信评分，将酒企信用等级划分为三级九等，每级每等赋予一个分值段，分值越高则评级越高。中国酒业协会将根据评价年份、酒协编码、酒企诚信评级、参评酒企流水号生成酒企诚信等级编码，并核发“中国酒业协会诚信评价证书”。“中国酒业诚信大数据门户网站”将对参评酒企的诚信评级情况进行公示。</div>
+        <div class="text-content">
+          <div class="text-item text-item2">
+            <div class="top">
+              <div>
+                <div style="text-align: center">企业资质</div>
+                <div style="width:32px;
+height:2px;
+background:rgba(255,255,255,1);margin:auto"></div>
+              </div>
+            </div>
+            <div class="grade">经营资质年限</div>
+            <div class="grade">机构人员配置</div>
+            <div class="grade">制度流程编制</div>
+            <div class="grade">治理水平评价</div>
+          </div>
+          <div class="text-item text-item2">
+            <div class="top">
+              <div>
+                <div style="text-align: center">财务指标</div>
+                <div style="width:32px;
+height:2px;
+background:rgba(255,255,255,1);margin:auto"></div>
+              </div>
+            </div>
+            <div class="grade">主营业务指标</div>
+            <div class="grade">盈利能力指标</div>
+            <div class="grade">营运能力指标</div>
+            <div class="grade">偿债能力指标</div>
+          </div>
+          <div class="text-item text-item2">
+            <div class="top">
+              <div>
+                <div style="text-align: center">管理水平</div>
+                <div style="width:32px;
+height:2px;
+background:rgba(255,255,255,1);margin:auto"></div>
+              </div>
+            </div>
+            <div class="grade">人力资源管理</div>
+            <div class="grade">生产质量管理</div>
+            <div class="grade">品牌建设水平</div>
+            <div class="grade">供应链管理</div>
+          </div>
+          <div class="text-item text-item2">
+            <div class="top">
+              <div>
+                <div style="text-align: center">企业征信</div>
+                <div style="width:32px;
+height:2px;
+background:rgba(255,255,255,1);margin:auto"></div>
+              </div>
+            </div>
+            <div class="grade">诉讼违法记录</div>
+            <div class="grade">纳税履约记录</div>
+            <div class="grade">银行工商评级</div>
+            <div class="grade">企业公共记录</div>
+          </div>
+          <div class="text-item text-item2">
+            <div class="top">
+              <div>
+                <div style="text-align: center">高管征信</div>
+                <div style="width:32px;
+height:2px;
+background:rgba(255,255,255,1);margin:auto"></div>
+              </div>
+            </div>
+            <div class="grade">个人信贷记录</div>
+            <div class="grade">民事判决记录</div>
+            <div class="grade">强制执行记录</div>
+            <div class="grade">行政处罚记录</div>
+          </div>
+          <div class="text-item text-item2">
+            <div class="top">
+              <div>
+                <div style="text-align: center">惩戒与嘉奖</div>
+                <div style="width:32px;
+height:2px;
+background:rgba(255,255,255,1);margin:auto"></div>
+              </div>
+            </div>
+            <div class="grade">行业监管记录</div>
+            <div class="grade">参评嘉奖荣誉</div>
+            <div class="grade">重大售假制假</div>
+            <div class="grade">重大舆论事件</div>
+          </div>
+        </div>
       </div>
       <div class="content-tab-text" v-show="checkTab == 2">
         <div class="title">酒企评分方法</div>
         <div
           class="text"
         >酒企诚信评分，中国酒业协会将采用赋值方法对酒企进行评分。其中，按照中国酒业诚信大数据评分专家组设计的计分项权重，以大数据征信评分为基础分值，以政府相关部门、行业协会给予的奖项、惩戒、监督等记录和信息为增减分项，根据中国酒业大数据中心实时监测的不良互联网表现进行减分，动态管理酒企的诚信综合评价得分。</div>
+        <div class="method"></div>
       </div>
     </div>
     <div ref="content3" class="tab4-content">
@@ -684,6 +777,31 @@ export default {
           text-align: center;
         }
       }
+      .text-item2 {
+        width: 150px;
+        height: 432px;
+        .top {
+          line-height: 50px;
+          font-size: 16px;
+        }
+        .grade {
+          width: 150px;
+          font-size: 16px;
+        }
+      }
+      .text-item2 {
+        margin-right: 15px;
+      }
+      .text-item2:last-child {
+        margin-left: 0px;
+      }
+    }
+    .method {
+      width: 440px;
+      height: 346px;
+      margin: auto;
+      background: url("../assets/images/method-bg.png");
+      background-size: 100% 100%;
     }
   }
   .content-tabs {
@@ -692,12 +810,23 @@ export default {
     align-items: center;
     width: 50%;
     margin: 20px auto;
+    margin-bottom: 0px;
     .content-tab {
       width: 33%;
       text-align: center;
       img {
         width: 40px;
         height: 40px;
+      }
+      .point {
+        // width: 30px;
+        // height: 30px;
+        text-align: center;
+        div {
+          width: 10%;
+          margin: auto;
+          background: #fff;
+        }
       }
     }
     .content-tab:hover {
