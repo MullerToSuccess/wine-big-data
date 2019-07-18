@@ -69,7 +69,7 @@ export default {
   .banner {
     width: 100%;
     height: 400px;
-    background: url("../assets/images/supervision-bg.png");
+    background: url("../assets/images/science-bg.png");
   }
   .science-content {
     width: 1200px;

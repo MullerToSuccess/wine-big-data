@@ -2,32 +2,36 @@
   <div id="declare">
     <div class="banner"></div>
     <div class="declare-form">
-      <img src="@/assets/images/wine-icon.png" />
+      <img src="@/assets/images/declare-1.png" />
       <div class="declare-title">资质填报</div>
       <div :class='{"declare-status": true, "status-other": status1 }'>
         {{ status1 ? '去更新' : '去填报' }}
       </div>
+      <div :class="{finish: true, finishIcon: status1}"></div>
     </div>
     <div class="declare-form">
-      <img src="@/assets/images/wine-icon.png" />
+      <img src="@/assets/images/declare-2.png" />
       <div class="declare-title">奖励填报</div>
       <div :class='{"declare-status": true, "status-other": status2 }'>
         {{ status2 ? '去更新' : '去填报' }}
       </div>
+      <div :class="{finish: true, finishIcon: status2}"></div>
     </div>
     <div class="declare-form">
-      <img src="@/assets/images/wine-icon.png" />
+      <img src="@/assets/images/declare-3.png" />
       <div class="declare-title">财务数据填报</div>
       <div :class='{"declare-status": true, "status-other": status3 }'>
         {{ status3 ? '去更新' : '去填报' }}
       </div>
+      <div :class="{finish: true, finishIcon: status3}"></div>
     </div>
     <div class="declare-form">
-      <img src="@/assets/images/wine-icon.png" />
+      <img src="@/assets/images/declare-4.png" />
       <div class="declare-title">管理数据填报</div>
       <div :class='{"declare-status": true, "status-other": status4 }'>
         {{ status4 ? '去更新' : '去填报' }}
       </div>
+      <div :class="{finish: true, finishIcon: status4}"></div>
     </div>
   </div>
 </template>
@@ -51,7 +55,7 @@ export default {
   .banner {
     width: 100%;
     height: 400px;
-    background: url("../assets/images/supervision-bg.png");
+    background: url("../assets/images/declare-bg.png");
   }
   .declare-form {
     margin: auto;
@@ -80,17 +84,27 @@ export default {
       font-family:"MicrosoftYaHeiLight";
       width: 80%;
     }
+    .finish{
+      width: 80px;
+      height: 80px;
+      
+    }
+    .finishIcon{
+      background: url('../assets/images/finish.png');
+      display: absolute;
+      margin-top: -30px;
+    }
     .declare-status {
       float: right;
       width: 88px;
       height: 35px;
-      border: 2px solid rgba(64, 205, 49, 1);
+      border: 2px solid #40CD31;
       border-radius: 18px;
       line-height: 35px;
       font-size: 14px;
       font-family: "MicrosoftYaHeiLight";
       font-weight: 300;
-      color: rgba(64, 205, 49, 1);
+      color: #40CD31;
     }
     .declare-status:hover{
       cursor: pointer;

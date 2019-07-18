@@ -18,26 +18,7 @@
         :key="index"
       >{{ item.name }}</a>
     </div>
-    <!-- <swiper
-      class="header-swiper"
-      :options="swiperOption"
-      ref="mySwiper"
-      @someSwiperEvent="callback"
-    >
-      <swiper-slide>
-        <img src="../assets/images/wine-top.png" alt />
-      </swiper-slide>
-      <swiper-slide>
-        <img src="../assets/images/wine-top.png" alt />
-      </swiper-slide>
-      <swiper-slide>
-        <img src="../assets/images/wine-top.png" alt />
-      </swiper-slide>
-      <swiper-slide>
-        <img src="../assets/images/wine-top.png" alt />
-      </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
-    </swiper> -->
+    <div class="line"></div>
   </div>
 </template>
 
@@ -46,11 +27,6 @@ export default {
   name: "Header",
   data() {
     return {
-      swiperOption: {
-        // some swiper options/callbacks
-        // 所有的参数同 swiper 官方 api 参数
-        // ...
-      },
       activeNav: "诚信体系概述",
       navs: [
         {
@@ -167,8 +143,8 @@ export default {
 }
 .activeNav {
   color: rgba(230, 32, 32, 1) !important;
-  // font-weight: bold;
-  // text-decoration: underline;
+  font-weight: bold;
+  text-decoration: underline;
   // transform: scale(1);
   // content: "";
   // position: absolute;
@@ -207,7 +183,7 @@ export default {
     position: absolute;
     left: 0;
     bottom: -10px;
-    height: 2px;
+    height: 3px;
     width: 100%;
     background: rgba(230, 32, 32, 1);
     transform: scale(0);
@@ -219,11 +195,26 @@ export default {
     text-decoration: underline;
     transform: scale(1);
   }
+  // a:visited {
+  //   content: "";
+  //   position: absolute;
+  //   left: 0;
+  //   bottom: -10px;
+  //   height: 2px;
+  //   width: 100%;
+  //   background: rgba(230, 32, 32, 1);
+  // }
 }
 .header-swiper {
   img {
     width: 1920px;
     height: 640px;
   }
+}
+.line {
+  width: 1920px;
+  height: 1px;
+  background: rgba(0, 0, 0, 1);
+  opacity: 0.1;
 }
 </style>

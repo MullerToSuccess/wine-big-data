@@ -1,17 +1,24 @@
 <template>
   <div class="searchDetail">
     <div class="search-content">
-      <el-select v-model="value" placeholder="请选择">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        ></el-option>
-      </el-select>
-      <el-input placeholder v-model="searchText">
-        <el-button slot="append" icon="el-icon-search" @click="search()"></el-button>
-      </el-input>
+      <div class="select-group">
+        <img :src="selSrc" class="search-image" />
+        <el-select v-model="value" placeholder="请选择" class="search-select" @select="changeSel">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+      </div>
+      <div class="gap"></div>
+
+      <el-input placeholder="请输入内容"  v-model="searchText"></el-input>
+      <div class="search-btn" @click="goSearch()">
+        <img src="@/assets/images/search-btn.png" alt />
+      </div>
     </div>
     <div class="table">
       <el-table :data="tableData" style="width: 100%">
@@ -23,9 +30,18 @@
                 :class="{status: true,  off: scope.row.status }"
               >{{ scope.row.status ? '注销' : '存续' }}</span>
             </div>
-            <span class="name-item">统一社会信用代码:{{ scope.row.name }}</span>
-            <span class="name-item">法定代表人:{{ scope.row.name }}</span>
-            <span class="name-item">地址:{{ scope.row.name }}</span>
+            <span class="name-item">
+              <img src="@/assets/images/phone-small.png" />
+              统一社会信用代码:{{ scope.row.name }}
+            </span>
+            <span class="name-item">
+              <img src="@/assets/images/people-small.png" />
+              法定代表人:{{ scope.row.name }}
+            </span>
+            <span class="name-item">
+              <img src="@/assets/images/address-small.png" />
+              地址:{{ scope.row.name }}
+            </span>
           </template>
         </el-table-column>
         <el-table-column label="评级" width="220">
@@ -40,7 +56,10 @@
         </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
-            <el-button @click="goSearch(scope.$index, scope.row)">查看企业诚信</el-button>
+            <div class="operate-btn" @click="goSearch(scope.$index, scope.row)">
+              <span>查看企业诚信</span>
+            </div>
+            <!-- <el-button  @click="goSearch(scope.$index, scope.row)">查看企业诚信</el-button> -->
           </template>
         </el-table-column>
       </el-table>
@@ -52,231 +71,17 @@
         </el-col>
       </el-row>
     </div>
-
-    <!-- 测试 -->
-    <div class="menu-wrapper" ref='menuWrapper'>
-      <ul>
-        <!--  :class="{'current':currentIndex === $index}" 就是根据currentIndex应用左侧列表被点中的样式 -->
-        <li
-          v-for="(item, index) in goods"
-          class="menu-item"
-          :key="index"
-          :class="{'current':currentIndex === index}"
-          @click="selectMenu(index,$event)"
-        >
-          <span class="text border-1px">{{item.name}}</span>
-        </li>
-      </ul>
-    </div>
-    <div class="food-wrapper" ref='foodWrapper'>
-      <ul>
-        <li v-for="(item, index) in goods" :key="index" class="food-list food-list-hook">
-          <h1 class="title1">{{item.name}}</h1>
-          <ul>
-            <li v-for="(food, index) in item.foods" :key="index" class="food-item border-1px">
-              <div class="content1">
-                <h2 class="name">{{food.name}}</h2>
-                <p class="desc">{{food.description}}</p>
-                <div class="extra">
-                  <span class="count">月售{{food.sellCount}}份</span>
-                  <span>好评率{{food.rating}}%</span>
-                  <div class="price">
-                    <span class="now">¥{{food.price}}</span>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
   </div>
 </template>
 <script>
-import BScroll from 'better-scroll';
-
+import src2 from "../../assets/images/search-people.png";
+import src1 from "../../assets/images/search-company.png";
 export default {
   name: "searchDetail",
   data() {
     return {
+      selSrc: src1,
       listHeight: [],
-      goods: [
-        {
-          name: "测试",
-          foods: [
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            }
-          ]
-        },
-        {
-          name: "测试",
-          foods: [
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            }
-          ]
-        },
-        {
-          name: "测试",
-          foods: [
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            }
-          ]
-        },
-        {
-          name: "测试",
-          foods: [
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            }
-          ]
-        },
-        {
-          name: "测试",
-          foods: [
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            },
-            {
-              name: "ceshi",
-              description: "xxxxxxxxxxx",
-              rating: 11,
-              price: 1111
-            }
-          ]
-        }
-      ],
       searchText: "",
       options: [
         {
@@ -288,7 +93,7 @@ export default {
           label: "法人代表"
         }
       ],
-      value: "",
+      value: "1",
       tableData: [
         {
           name: "宜宾五粮液股份有限公司",
@@ -335,63 +140,27 @@ export default {
       ]
     };
   },
-  mounted() {
-    this.$nextTick(() => {
-      this._initScroll();
-      this._calculateHeight();
-    });
-  },
-  computed: {
-    currentIndex() {
-      for (let i = 0; i < this.listHeight.length; i++) {
-        let height1 = this.listHeight[i];
-        let height2 = this.listHeight[i + 1];
-        if (!height2 || (this.scrollY >= height1 && this.scrollY < height2)) {
-          return i;
-        }
+  watch: {
+    value: function(newVal) {
+      if (newVal == 1) {
+        console.log(this.selSrc);
+        this.selSrc = src1;
+      } else {
+        console.log(this.selSrc);
+        this.selSrc = src2;
       }
-      return 0;
+      // newVal == 1 ? this.selSrc = src1 : this.selSrc = src2
     }
   },
+  mounted() {},
   methods: {
     search() {},
-    _initScroll() {
-      this.menuScroll = new BScroll(this.$refs.menuWrapper, {
-        click: true
-      });
-      this.foodsScroll = new BScroll(this.$refs.foodWrapper, {
-        probeType: 3
-      });
-      this.foodsScroll.on("scroll", pos => {
-        this.scrollY = Math.abs(Math.round(pos.y));
-      });
-    },
-    _calculateHeight() {
-      let foodList = this.$refs.foodWrapper.getElementsByClassName(
-        "food-list-hook"
-      );
-      let height = 0;
-      this.listHeight.push(height);
-      for (let i = 0; i < foodList.length; i++) {
-        let item = foodList[i];
-        height += item.clientHeight;
-        this.listHeight.push(height);
-      }
-    },
     goSearch(index, row) {
       console.log(index, row);
       this.$router.push({ name: "integrityDetail" });
     },
-    selectMenu(index, event) {
-      if (!event._constructed) {
-        return;
-      }
-      let foodList = this.$refs.foodWrapper.getElementsByClassName(
-        "food-list-hook"
-      );
-      let el = foodList[index];
-      console.log(111111111, el)
-      this.foodsScroll.scrollToElement(el, 300);
+    changeSel(val) {
+      console.log(val);
     }
   }
 };
@@ -402,47 +171,122 @@ export default {
   width: 100%;
 
   /* ceshi  */
-  display: flex;
-  .menu-wrapper{
-    width: 30%;
-    height: 500px;
-  }
-  .food-wrapper{
-    width: 60%;
-    height: 300px;
-    overflow: hidden;
-  }
+  // display: flex;
 
   .search-content {
-    width: 60%;
-    margin: auto;
+    width: 1017px;
+    // margin: auto;
+    margin-left: 365px;
+    margin-top: 20px;
     display: flex;
+    border: 1px solid rgba(224, 224, 224, 1);
+    .select-group {
+      // height: 58px;
+      width: 200px;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      // border: 1px solid rgba(224, 224, 224, 1);
+      // border-right: 0;
+      // padding: 2px;
+    }
+    .gap{
+      width: 2px;
+      height: 30px;
+      background: #ccc;
+      margin-top: 15px; 
+      // line-height: 20px;
+    }
   }
   .table {
     width: 60%;
-    margin: auto;
+    // margin: 20px auto;
+    margin-left: 365px;
+    margin-top: 20px;
+    border: 1px solid rgba(224, 224, 224, 1);
     .title {
+      // width: 219px;
+      // height: 20px;
       font-size: 20px;
-      font-weight: bold;
+      font-family: "MicrosoftYaHei";
+      font-weight: 400;
+      color: rgba(22, 22, 22, 1);
+      line-height: 24px;
       .status {
-        font-size: 14px;
-        width: 20px;
-        height: 20px;
         background: #ccc;
         border-radius: 5px;
-        padding: 5px;
-        background: greenyellow;
+        padding: 2px;
+        // background: greenyellow;
+        width: 44px;
+        height: 19px;
+        border: 1px solid rgba(0, 0, 0, 1);
+        width: 24px;
+        font-size: 12px;
+        font-family: "MicrosoftYaHeiLight";
+        font-weight: 300;
+        color: rgba(22, 22, 22, 1);
+        line-height: 24px;
       }
       .off {
-        background: red;
+        // background: red;
       }
     }
     .name-item {
       display: inline-block;
+      font-size: 14px;
+      font-family: "MicrosoftYaHeiLight";
+      font-weight: bold;
+      color: rgba(22, 22, 22, 0.5);
+      line-height: 24px;
+      // opacity: 0.8;
+      img {
+        margin-right: 5px;
+      }
     }
   }
   .pagination {
     margin-top: 20px;
+  }
+  .operate-btn {
+    width: 124px;
+    height: 35px;
+    background: rgba(227, 36, 42, 1);
+    border: 1px solid rgba(252, 13, 27, 1);
+    border-radius: 18px;
+    // line-height: 35px;
+    text-align: center;
+    span {
+      width: 81px;
+      height: 14px;
+      font-size: 14px;
+      font-family: "MicrosoftYaHeiLight";
+      font-weight: 300;
+      color: rgba(255, 255, 255, 1);
+      line-height: 35px;
+    }
+    span:hover {
+      cursor: pointer;
+    }
+  }
+  .search-btn {
+    width: 81px;
+    height: 60px;
+    background-color: rgba(227, 36, 42, 1);
+    img {
+      width: 20px;
+      height: 20px;
+      margin: 20px auto;
+    }
+  }
+  .search-btn:hover {
+    cursor: pointer;
+  }
+  .option-image {
+    width: 20px;
+    height: 20px;
+  }
+  .search-image {
+    margin-left: 20px;
   }
 }
 </style>

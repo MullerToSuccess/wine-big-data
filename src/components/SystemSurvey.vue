@@ -152,7 +152,7 @@
             <a>评价方式</a>
           </div>
           <div :class="{'point': checkTab == 0}">
-            <div>111</div>
+            <div class="triangle"></div>
           </div>
         </div>
         <div class="content-tab" @click="chooseTab(1)">
@@ -161,7 +161,7 @@
             <a>评价维度</a>
           </div>
           <div :class="{'point': checkTab == 1}">
-            <div>11</div>
+            <div class="triangle"></div>
           </div>
         </div>
         <div class="content-tab" @click="chooseTab(2)">
@@ -170,7 +170,7 @@
             <a>评分方法</a>
           </div>
           <div :class="{'point': checkTab == 2}">
-            <div>11</div>
+            <div class="triangle"></div>
           </div>
         </div>
       </div>
@@ -501,7 +501,9 @@ export default {
       this.checkTab = index;
     },
     goDetail(item) {
-      this.$router.push("/detail");
+      this.$router.push({
+        name: 'newsDetail'
+      });
     }
   }
 };
@@ -822,10 +824,11 @@ export default {
         // width: 30px;
         // height: 30px;
         text-align: center;
-        div {
+        .triangle {
           width: 10%;
           margin: auto;
-          background: #fff;
+          // background: #fff;
+          visibility: visible;
         }
       }
     }
@@ -955,5 +958,12 @@ ul {
   li:hover {
     cursor: pointer;
   }
+}
+.triangle{
+  width: 22.5px;
+  height: 13px;
+  background: url('../assets/images/triangle.png');
+  background-size: 100% 100%; 
+  visibility: hidden;
 }
 </style>

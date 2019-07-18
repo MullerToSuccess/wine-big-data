@@ -79,7 +79,11 @@ const Support = resolve => {
     resolve(module)
   })
 }
-
+const Dynamics= resolve => {
+  import("@/components/Dynamics").then(module => {
+    resolve(module)
+  })
+}
 const Detail = resolve => {
   import("@/components/Detail").then(module => {
     resolve(module)
@@ -103,6 +107,31 @@ const integrityDetail = resolve => {
     resolve(module)
   })
 }
+
+const bussinessDetail = resolve => {
+  import("@/components/details/bussinessDetail").then(module => {
+    resolve(module)
+  })
+}
+
+const bossDetail = resolve => {
+  import("@/components/details/bossDetail").then(module => {
+    resolve(module)
+  })
+}
+
+const storeDetail = resolve => {
+  import("@/components/details/storeDetail").then(module => {
+    resolve(module)
+  })
+}
+
+const goodsDetail = resolve => {
+  import("@/components/details/goodsDetail").then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 export default new Router({
@@ -174,6 +203,11 @@ export default new Router({
           name: "Support",
           component: Support
         },
+        {
+          path: "/dynamics",
+          name: "Dynamics",
+          component: Dynamics
+        },
         // 详情
         {
           path: "/detail",
@@ -194,6 +228,26 @@ export default new Router({
           path: "/search/integrityDetail",
           name: "integrityDetail",
           component: integrityDetail
+        },
+        {
+          path: "/detail/bussinessDetail",
+          name: "bussinessDetail",
+          component: bussinessDetail
+        },
+        {
+          path: "/detail/goodsDetail",
+          name: "goodsDetail",
+          component: goodsDetail
+        },
+        {
+          path: "/detail/storeDetail",
+          name: "storeDetail",
+          component: storeDetail
+        },
+        {
+          path: "/detail/bossDetail",
+          name: "bossDetail",
+          component: bossDetail
         }
       ]
     },

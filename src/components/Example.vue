@@ -1,6 +1,7 @@
 <template>
   <div id="example">
     <div class="banner"></div>
+    <!-- 酒企 -->
     <div class="industry-content">
       <div class="content-title">
         <span style="font-size: 20px;font-weight: bold">诚信示范酒企</span>
@@ -14,25 +15,27 @@
         <el-table-column prop="name" label="证书编号"></el-table-column>
       </el-table>
     </div>
+    <!-- 企业家 -->
     <div class="industry-content">
       <div class="content-title">
         <span style="font-size: 20px;font-weight: bold">诚信示范企业家</span>
         <span>更新日期：{{updateTime}}</span>
       </div>
       <div class="tab2-content-item">
-        <div class="item-aim" v-for="(item, index) in aims" :key="index">
+        <div class="item-aim" v-for="(item, index) in aims" :key="index" @row-click='clickBoss'>
           <img src="@/assets/images/wine-icon.png" />
           <div class="item-name">{{ item.name }}</div>
           <div class="item-content">{{ item.content }}</div>
         </div>
       </div>
     </div>
+    <!-- 酒商 -->
     <div class="industry-content">
       <div class="content-title">
         <span style="font-size: 20px;font-weight: bold">诚信示范酒商</span>
         <span>更新日期：{{updateTime}}</span>
       </div>
-      <el-table :data="tableData" stripe style="width: 100%">
+      <el-table :data="tableData" stripe style="width: 100%" @row-click='clickBusiness'>
         <el-table-column prop="date" label="酒企名称"></el-table-column>
         <el-table-column prop="name" label="统一社会信用代码"></el-table-column>
         <el-table-column prop="name" label="地区"></el-table-column>
@@ -40,12 +43,13 @@
         <el-table-column prop="name" label="证书编号"></el-table-column>
       </el-table>
     </div>
+    <!-- 酒品 -->
     <div class="industry-content">
       <div class="content-title">
         <span style="font-size: 20px;font-weight: bold">诚信示范酒品</span>
         <span>更新日期：{{updateTime}}</span>
       </div>
-      <el-table :data="tableData" stripe style="width: 100%">
+      <el-table :data="tableData" stripe style="width: 100%" @row-click='clickGoods'>
         <el-table-column prop="date" label="酒企名称"></el-table-column>
         <el-table-column prop="name" label="统一社会信用代码"></el-table-column>
         <el-table-column prop="name" label="地区"></el-table-column>
@@ -53,12 +57,13 @@
         <el-table-column prop="name" label="证书编号"></el-table-column>
       </el-table>
     </div>
+    <!-- 门店 -->
     <div class="industry-content">
       <div class="content-title">
         <span style="font-size: 20px;font-weight: bold">诚信示范门店</span>
         <span>更新日期：{{updateTime}}</span>
       </div>
-      <el-table :data="tableData" stripe style="width: 100%">
+      <el-table :data="tableData" stripe style="width: 100%" @row-click='clickStore'>
         <el-table-column prop="date" label="酒企名称"></el-table-column>
         <el-table-column prop="name" label="统一社会信用代码"></el-table-column>
         <el-table-column prop="name" label="地区"></el-table-column>
@@ -149,6 +154,20 @@ export default {
         }
       ]
     };
+  },
+  methods:{
+    clickBusiness(row, column, event){
+      this.$router.push({name:'bussinessDetail'})
+    },
+    clickStore(row, column, event){
+      this.$router.push({name:'storeDetail'})
+    },
+    clickBoss(){
+      this.$router.push({name:'bossDetail'})
+    },
+    clickGoods(row, column, event){
+      this.$router.push({name:'goodsDetail'})
+    },
   }
 };
 </script>

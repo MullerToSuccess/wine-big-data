@@ -2,7 +2,7 @@ import axios from "./axios"
 
 /* 公用接口： 登录等 */
 let apis = {
-  login: "/login/login", // 登录
+  login: "/login", // 登录
   sign: "/sign", // 注册
 
   

@@ -1,6 +1,6 @@
 import axios from "axios"
-// const baseUrl = "http://172.27.7.43:8080" // 
-const baseUrl = "http://172.27.7.26:3010" // 
+const baseUrl = "http://172.27.7.43:8080" // 
+// const baseUrl = "http://172.27.7.26:3010" // 
 
 axios.interceptors.request.use(
   config => {

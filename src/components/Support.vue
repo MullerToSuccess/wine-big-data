@@ -3,11 +3,11 @@
     <div class="banner"></div>
     <div class="content">
       <div class="support-content">
-        <img src="../assets/images/wine-icon.png" alt />
+        <img src="../assets/images/support-1.png" alt />
         <div class="title">酒店诚信大数据接入</div>
       </div>
       <div class="support-content otherback">
-        <img src="../assets/images/wine-icon.png" alt />
+        <img src="../assets/images/support-2.png" alt />
         <div class="title">更多平台服务咨询</div>
       </div>
     </div>
@@ -27,7 +27,7 @@ export default {
   .banner {
     width: 100%;
     height: 400px;
-    background: url("../assets/images/supervision-bg.png");
+    background: url("../assets/images/support-bg.png");
   }
   .content {
     width: 1000px;
