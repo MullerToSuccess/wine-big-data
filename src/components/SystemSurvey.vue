@@ -7,7 +7,7 @@
       @someSwiperEvent="callback"
     >
       <swiper-slide>
-        <img src="../assets/images/wine-top.png" alt />
+        <img src="../assets/images/banner.png" alt />
       </swiper-slide>
       <swiper-slide>
         <img src="../assets/images/wine-top.png" alt />
@@ -548,7 +548,7 @@ export default {
   .en-title {
     height: 14px;
     font-size: 14px;
-    font-family: MicrosoftYaHei;
+    font-family: "MicrosoftYaHei";
     font-weight: 400;
     // color: rgba(255, 255, 255, 1);
     line-height: 24px;
@@ -559,9 +559,9 @@ export default {
     width: 200px;
     height: 175px;
     background: rgba(255, 255, 255, 1);
-    box-shadow: 0px 0px 15px 0px rgba(134, 229, 158, 0.35);
+    // box-shadow: 0px 0px 15px 0px rgba(134, 229, 158, 0.35);
     border-radius: 4px;
-    background: url("../assets/images/point-back.png");
+    background: url("../assets/images/point-back-normal.png");
     background-size: 100% 100%;
     z-index: 1000;
     position: absolute;
@@ -586,6 +586,10 @@ export default {
       font-weight: bold;
       color: rgba(27, 27, 27, 1);
     }
+  }
+  .point:hover{
+    box-shadow: 0px 0px 15px 0px rgba(134, 229, 158, 0.35);
+    cursor: pointer;
   }
   .circle {
     width: 16px;

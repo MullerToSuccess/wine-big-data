@@ -6,6 +6,7 @@
         <ul>
           <li @click="goContent()" v-for="(item1, index1) in news" :key="index1">
             <span class="content-title">{{item1.title}}</span>
+            <span class="content-date">138937人参与</span>
           </li>
         </ul>
       </div>
@@ -45,43 +46,43 @@ export default {
     return {
       news: [
         {
-          title: "市场监管总局关于30批次食品不合格情况的通告",
+          title: "怎么从产量看五粮液的稀缺度？",
           date: "2018-5-12"
         },
         {
-          title: "市场监管总局关于30批次食品不合格情况的通告",
+          title: "怎么从产量看五粮液的稀缺度？",
           date: "2018-5-12"
         },
         {
-          title: "市场监管总局关于30批次食品不合格情况的通告",
+          title: "怎么从产量看五粮液的稀缺度？",
           date: "2018-5-12"
         },
         {
-          title: "市场监管总局关于30批次食品不合格情况的通告",
+          title: "怎么从产量看五粮液的稀缺度？",
           date: "2018-5-12"
         },
         {
-          title: "市场监管总局关于30批次食品不合格情况的通告",
+          title: "怎么从产量看五粮液的稀缺度？",
           date: "2018-5-12"
         },
         {
-          title: "市场监管总局关于30批次食品不合格情况的通告",
+          title: "怎么从产量看五粮液的稀缺度？",
           date: "2018-5-12"
         },
         {
-          title: "市场监管总局关于30批次食品不合格情况的通告",
+          title: "怎么从产量看五粮液的稀缺度？",
           date: "2018-5-12"
         },
         {
-          title: "市场监管总局关于30批次食品不合格情况的通告",
+          title: "怎么从产量看五粮液的稀缺度？",
           date: "2018-5-12"
         },
         {
-          title: "市场监管总局关于30批次食品不合格情况的通告",
+          title: "怎么从产量看五粮液的稀缺度？",
           date: "2018-5-12"
         },
         {
-          title: "市场监管总局关于30批次食品不合格情况的通告",
+          title: "怎么从产量看五粮液的稀缺度？",
           date: "2018-5-12"
         }
       ],
@@ -274,20 +275,30 @@ export default {
 </script>
 <style lang='scss' scoped>
 #hotspot {
-  width: 80%;
-  margin: auto;
+  width: 90%;
+  margin: 30px auto;
   //   height: 500px;
   display: flex;
   .hotspot-left {
     width: 30%;
     .topic {
-      height: 400px;
-      border: 1px solid #cccccc;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      width: 500px;
+      height: 451px;
+      background: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(204, 209, 223, 1);
+      li{
+        height: 40px;
+        width: 400px;
+        line-height: 40px;
+      }
+
     }
     .echart-ditch {
-      height: 300px;
-      border: 1px solid #cccccc;
+      width: 500px;
+      height: 452px;
+      background: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(204, 209, 223, 1);
       #chartDitch {
         width: 100%;
         height: 100%;
@@ -296,9 +307,10 @@ export default {
   }
   .hotspot-center {
     margin: 0 20px;
-    width: 40%;
-    height: 700px;
-    border: 1px solid #cccccc;
+    width: 835px;
+    height: 923px;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(204, 209, 223, 1);
     .echart-num {
       height: 400px;
       margin-bottom: 10px;
@@ -318,13 +330,22 @@ export default {
   .hotspot-right {
     width: 30%;
     .news {
-      height: 400px;
-      border: 1px solid #cccccc;
-      margin-bottom: 10px;
+      width: 500px;
+      height: 451px;
+      background: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(204, 209, 223, 1);
+      margin-bottom: 20px;
+      li{
+        height: 40px;
+        width: 400px;
+        line-height: 40px;
+      }
     }
     .top10 {
-      height: 300px;
-      border: 1px solid #cccccc;
+      width: 500px;
+      height: 454px;
+      background: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(204, 209, 223, 1);
       #chartTop10 {
         width: 100%;
         height: 100%;
@@ -347,6 +368,14 @@ export default {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
+    margin-left: 24px;
+    width: 112px;
+    height: 18px;
+    font-size: 18px;
+    font-family: "MicrosoftYaHei-Bold";
+    font-weight: bold;
+    color: rgba(81, 97, 128, 1);
+    line-height: 34px;
   }
 }
 </style>

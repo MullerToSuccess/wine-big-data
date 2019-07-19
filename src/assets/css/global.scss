@@ -39,21 +39,75 @@ a:hover {
     opacity: 0.7;
     text-align: left;
   }
-  input{
+  input {
     height: 60px !important;
     border-radius: 0;
     border: 0;
   }
-  .search-select{
-    input{
-      border: 0 !important; 
+  .search-select {
+    input {
+      border: 0 !important;
     }
   }
 }
-#search{
-  input{
+#search {
+  input {
     height: 60px !important;
     border-radius: 0;
     border: 0;
+  }
+}
+.integrityDetail {
+  .el-table th {
+    width: 934px;
+    height: 40px;
+    background: rgba(246, 246, 246, 1);
+    border: 1px solid rgba(229, 229, 229, 1);
+  }
+  .el-table th > .cell {
+    // width: 27px;
+    // height: 14px;
+    font-size: 14px;
+    font-family: "MicrosoftYaHeiLight";
+    font-weight: 300;
+    color: rgba(22, 22, 22, 0.8);
+    line-height: 24px;
+  }
+  .el-tree-node__content {
+    height: 49px;
+    border-bottom: 1px solid rgba(229, 229, 229, 1);
+    // background: #ccc;
+    font-family: "MicrosoftYaHei";
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+  }
+  .el-icon-caret-right:before {
+    content: "";
+  }
+  .el-tree-node__content:hover {
+    background: rgba(255, 0, 0, 0.04);
+    // opacity: 0.04;
+  }
+}
+#example {
+  .el-table th {
+    width: 934px;
+    height: 40px;
+    background: rgba(246, 246, 246, 1);
+    // border: 1px solid rgba(229, 229, 229, 1);
+    font-size: 14px;
+    font-family: "MicrosoftYaHeiLight";
+    font-weight: 300;
+    color: rgba(22, 22, 22, 1);
+    line-height: 24px;
+  }
+  .el-table th > .cell {
+    // width: 27px;
+    // height: 14px;
+    font-size: 14px;
+    font-family: "MicrosoftYaHeiLight";
+    font-weight: 300;
+    color: rgba(22, 22, 22, 0.8);
+    line-height: 24px;
   }
 }

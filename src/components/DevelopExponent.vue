@@ -1,16 +1,6 @@
 <template>
   <div id="exponent">
     <div class="banner"></div>
-    <!-- <swiper
-      class="header-swiper"
-      :options="swiperOption"
-      ref="mySwiper"
-      @someSwiperEvent="callback"
-    >
-      <swiper-slide>
-        <img src="../assets/images/develop-bg.png" alt />
-      </swiper-slide>
-    </swiper>-->
     <div class="content exponent-integrity">
       <div class="content-title">产品诚信指数</div>
       <div class="en-title">Production area integrity index</div>
@@ -92,11 +82,6 @@ export default {
   name: "Exponent",
   data() {
     return {
-      // swiperOption: {
-      //   // some swiper options/callbacks
-      //   // 所有的参数同 swiper 官方 api 参数
-      //   // ...
-      // },
       // 地图相关
       //   center: { lng: 0, lat: 0 },
       center: "四川",
