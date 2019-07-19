@@ -141,7 +141,8 @@
           <img src="../assets/images/line-red.png" />
         </div>
       </div>
-      <baidu-map
+      <img src="../assets/images/map-bg.png" />
+      <!-- <baidu-map
         id="mapContainer1"
         class="map-content"
         :center="center"
@@ -164,7 +165,7 @@
           </ul>
           <button @click="clear">Clear</button>
         </bm-info-window>
-      </baidu-map>
+      </baidu-map> -->
     </div>
   </div>
 </template>
@@ -437,6 +438,12 @@ export default {
     background: rgba(248, 248, 248, 1);
     padding-top: 20px;
     overflow: hidden;
+  }
+  .content-5{
+     width: 80%;
+    padding-top: 20px;
+    height: 871px;
+    
   }
   .tab2-content-item {
     display: flex;
