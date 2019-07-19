@@ -8,7 +8,8 @@
         <img src="../assets/images/line-red.png" alt />
       </div>
       <div class="sub-title">“ 产区诚信指数为产区下所有品牌综合诚信评分得分 ”</div>
-      <baidu-map id="mapContainer" class="map-content" :center="center" :zoom="zoom" @ready="handler">
+      <img src="../assets/images/map1-bg.png" alt="">
+      <!-- <baidu-map id="mapContainer" class="map-content" :center="center" :zoom="zoom" @ready="handler">
         <bm-info-window
           :position="{lng: 116.404, lat: 39.915}"
           title="Info Window Title"
@@ -25,7 +26,7 @@
           </ul>
           <button @click="clear">Clear</button>
         </bm-info-window>
-      </baidu-map>
+      </baidu-map> -->
     </div>
     <div class="content exponent-develop">
       <div class="content-title">香型发展指数</div>
