@@ -174,9 +174,9 @@ export default {
   // display: flex;
 
   .search-content {
-    width: 1017px;
+    width: 60%;
     // margin: auto;
-    margin-left: 365px;
+    margin-left: 20%;
     margin-top: 20px;
     display: flex;
     border: 1px solid rgba(224, 224, 224, 1);
@@ -201,7 +201,7 @@ export default {
   .table {
     width: 60%;
     // margin: 20px auto;
-    margin-left: 365px;
+    margin-left: 20%;
     margin-top: 20px;
     border: 1px solid rgba(224, 224, 224, 1);
     .title {

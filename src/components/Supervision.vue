@@ -146,7 +146,11 @@ export default {
     handleClick(tab, event) {
       console.log(tab, event);
     },
-    goContent() {}
+    goContent(item) {
+      this.$router.push({
+        name:'newsDetail'
+      })
+    }
   }
 };
 </script>

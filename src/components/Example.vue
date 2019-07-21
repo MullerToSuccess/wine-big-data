@@ -117,7 +117,7 @@
         </div>
       </div>
       <div class="tab4-content-item">
-        <div class="item-aim" v-for="(item, index) in wines" :key="index" @click="clickBoss">
+        <div class="item-aim" v-for="(item, index) in wines" :key="index" @click="clickQuality">
           <img style="width:100%;height: 180px" src="@/assets/images/wine-icon.png" />
           <div class="item-name">
             <span style="float: left; margin-left: 20px;">52度五粮国宾酒精品500ml</span>
@@ -325,7 +325,7 @@ export default {
   },
   methods: {
     clickBusiness(row, column, event) {
-      this.$router.push({ name: "bussinessDetail" });
+      this.$router.push({ name: "integrityDetail" });
     },
     clickStore(row, column, event) {
       this.$router.push({ name: "storeDetail" });
@@ -334,8 +334,11 @@ export default {
       this.$router.push({ name: "bossDetail" });
     },
     clickGoods(row, column, event) {
-      this.$router.push({ name: "goodsDetail" });
+      this.$router.push({ name: "bussinessDetail" });
     },
+    clickQuality(){
+      this.$router.push({ name: "goodsDetail" });
+    },    
     handler({ BMap, map }) {
       this.getBoundary('成都市');
       map.enableScrollWheelZoom(true);

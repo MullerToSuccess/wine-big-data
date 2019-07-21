@@ -4,7 +4,7 @@
       <div class="topic">
         <div class="title">今日热门话题</div>
         <ul>
-          <li @click="goContent()" v-for="(item1, index1) in news" :key="index1">
+          <li class="newLi" @click="goContent()" v-for="(item1, index1) in news" :key="index1">
             <span class="content-title">{{item1.title}}</span>
             <span class="content-date">138937人参与</span>
           </li>
@@ -27,7 +27,7 @@
       <div class="news">
         <div class="title">行业突发新闻</div>
         <ul>
-          <li @click="goContent()" v-for="(item1, index1) in news" :key="index1">
+          <li class="newLi" @click="goContent()" v-for="(item1, index1) in news" :key="index1">
             <span class="content-title">{{item1.title}}</span>
           </li>
         </ul>
@@ -98,7 +98,7 @@ export default {
         legend: {
           orient: "vertical",
           x: "left",
-          data: ["直接访问", "邮件营销", "联盟广告", "视频广告", "搜索引擎"]
+          data: ["主题1", "主题2", "主题3", "主题4", "主题5"]
         },
         series: [
           {
@@ -125,11 +125,11 @@ export default {
               }
             },
             data: [
-              { value: 335, name: "直接访问" },
-              { value: 310, name: "邮件营销" },
-              { value: 234, name: "联盟广告" },
-              { value: 135, name: "视频广告" },
-              { value: 1548, name: "搜索引擎" }
+              { value: 335, name: "主题1" },
+              { value: 310, name: "主题2" },
+              { value: 234, name: "主题3" },
+              { value: 135, name: "主题4" },
+              { value: 1548, name: "主题5" }
             ]
           }
         ]
@@ -142,11 +142,12 @@ export default {
         xAxis: {
           type: "category",
           boundaryGap: false,
-          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+          data: ["01.01", "01.06", "01.01", "01.01", "01.01", "01.01", "01.01"]
         },
         yAxis: {
           type: "value"
         },
+        color: ['#40A2D4'],
         series: [
           {
             data: [820, 932, 901, 934, 1290, 1330, 1320],
@@ -236,13 +237,14 @@ export default {
         xAxis: {
           type: "value"
         },
+        color: ['#40A2D4'],
         yAxis: {
           type: "category",
-          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+          data: ["白酒网", "糖酒网", "酿酒网","白酒网", "糖酒网", "酿酒网","白酒网", "糖酒网", "酿酒网", "酿酒网"]
         },
         series: [
           {
-            data: [120, 200, 150, 80, 70, 110, 130],
+            data: [120, 200, 150, 80, 70, 110, 130,70, 110, 130],
             type: "bar"
           }
         ]
@@ -288,8 +290,9 @@ export default {
       background: rgba(255, 255, 255, 1);
       border: 1px solid rgba(204, 209, 223, 1);
       li{
+        padding-right: 40px;
         height: 40px;
-        width: 400px;
+        // width: 400px;
         line-height: 40px;
       }
 
@@ -318,6 +321,7 @@ export default {
         width: 100%;
         height: 100%;
       }
+      margin-bottom: 200px;
     }
     .echart-trend {
       height: 300px;
@@ -337,7 +341,8 @@ export default {
       margin-bottom: 20px;
       li{
         height: 40px;
-        width: 400px;
+        padding-right: 40px;
+        // width: 400px;
         line-height: 40px;
       }
     }
@@ -376,6 +381,9 @@ export default {
     font-weight: bold;
     color: rgba(81, 97, 128, 1);
     line-height: 34px;
+  }
+  .newLi:nth-child(odd){
+    background: #ccc;
   }
 }
 </style>
