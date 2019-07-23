@@ -2,9 +2,8 @@
   <div class="newsDetail">
     <div class="routerTip">
       当前位置：
-      <span @click="goRouter('/SystemSurvey')">首页</span> >
-      <span @click="goRouter('/dynamics')">建设动态</span> >
-      <span @click="goRouter('/')">部委诚信新闻</span>
+      <span @click="goRouter('/Supervision')">监管公示</span> >
+      <span @click="goRouter('/Supervision')">部委监管公示</span>
     </div>
     <div class="content">
       <div class="content-top">
@@ -26,7 +25,7 @@
 </template>
 <script>
 export default {
-  name: "newsDetail",
+  name: "newsDetail2",
   data() {
     return {};
   },

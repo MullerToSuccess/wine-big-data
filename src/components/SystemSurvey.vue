@@ -12,14 +12,15 @@
       <swiper-slide>
         <img src="../assets/images/wine-top.png" alt />
       </swiper-slide>
-      <swiper-slide>
+      <!-- <swiper-slide>
         <img src="../assets/images/wine-top.png" alt />
       </swiper-slide>
       <swiper-slide>
         <img src="../assets/images/wine-top.png" alt />
-      </swiper-slide>
+      </swiper-slide>-->
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
+    <div class="swiper-pagination"></div>
     <div ref="content0" class="tab1-content">
       <div class="content-title">政策背景</div>
       <div class="en-title">Policy background</div>
@@ -27,7 +28,7 @@
         <img src="../assets/images/line-red.png" alt />
       </div>
 
-      <canvas style="z-index: 1002" id="cvs" width="1520" height="800"></canvas>
+      <!-- <canvas style="z-index: 1002" id="cvs" width="1520" height="800"></canvas>
       <div class="point point1">
         <div class="point-content-1">《关于同意调整社会信用体系建设部际联席会议职责和成员单位的批复》</div>
         <div class="point-content-2">国务院</div>
@@ -80,7 +81,7 @@
       </div>
       <div class="circle circle6"></div>
 
-      <div class="tab2-content-item"></div>
+      <div class="tab2-content-item"></div>-->
     </div>
     <div ref="content1" class="tab2-content">
       <div class="content-title">建设宗旨</div>
@@ -205,8 +206,8 @@
       </div>
       <div class="content-tab-text" v-show="checkTab == 1">
         <div class="title">酒企评价维度</div>
-        <div class="text-content">
-          <div class="text-item text-item2">
+        <div class="text-content" style="margin-top: 50px;">
+          <div class="text-item text-item2" >
             <div class="top">
               <div>
                 <div style="text-align: center">企业资质</div>
@@ -310,7 +311,7 @@ background:rgba(255,255,255,1);margin:auto"></div>
         <div
           style="height: 460px; border:1px solid #ccc;margin-right:10px;border:1px solid rgba(224,224,224,1);"
         >
-          <div class="content content-1">——部委诚信新闻——</div>
+          <div @click="goNews()" style="text-align: center; height: 170px;line-height: 170px" class="content content-1">——&nbsp;部委诚信新闻&nbsp;——</div>
           <ul>
             <li @click="goDetail(item1)" v-for="(item1, index1) in dynamic[0].news" :key="index1">
               <span class="content-title-1">{{item1.title}}</span>
@@ -321,7 +322,7 @@ background:rgba(255,255,255,1);margin:auto"></div>
         <div
           style="height: 460px; border:1px solid #ccc;margin:0 10px;border:1px solid rgba(224,224,224,1);"
         >
-          <div class="content content-2">——部委诚信新闻——</div>
+          <div @click="goNews()" style="text-align: center;height: 170px;line-height: 170px" class="content content-2">——&nbsp;协会诚信资讯&nbsp;——</div>
           <ul>
             <li @click="goDetail(item1)" v-for="(item1, index1) in dynamic[0].news" :key="index1">
               <span class="content-title-1">{{item1.title}}</span>
@@ -329,8 +330,8 @@ background:rgba(255,255,255,1);margin:auto"></div>
             </li>
           </ul>
         </div>
-        <div style="height: 460px; border:1px solid #ccc;border:1px solid rgba(224,224,224,1);">
-          <div class="content content-3">——部委诚信新闻——</div>
+        <div @click="goNews()" style="height: 460px; border:1px solid #ccc;border:1px solid rgba(224,224,224,1);">
+          <div style="text-align: center;height: 170px;line-height: 170px" class="content content-3">——&nbsp;地方诚信动态&nbsp;——</div>
           <ul>
             <li @click="goDetail(item1)" v-for="(item1, index1) in dynamic[0].news" :key="index1">
               <span class="content-title-1">{{item1.title}}</span>
@@ -349,9 +350,19 @@ export default {
   data() {
     return {
       swiperOption: {
-        // some swiper options/callbacks
-        // 所有的参数同 swiper 官方 api 参数
-        // ...
+        pagination: {
+          el: ".swiper-pagination",
+          type: "bullets",
+          //type: 'fraction',
+          //type : 'progressbar',
+          //type : 'custom',
+          progressbarOpposite: true, //使进度条分页器与Swiper的direction参数相反
+          bulletElement: "li", //设定分页器指示器（小点）的HTML标签。
+          dynamicBullets: true, //动态分页器，当你的slide很多时，开启后，分页器小点的数量会部分隐藏。
+          dynamicMainBullets: 2, //动态分页器的主指示点的数量
+          hideOnClick: true, //默认分页器会一直显示。这个选项设置为true时点击Swiper会隐藏/显示分页器。
+          clickable: true //此参数设置为true时，点击分页器的指示点分页器会控制Swiper切换。
+        }
       },
       tabs: ["政府背景", "建设宗旨", "评价模式和流程", "建设动态"],
       aims: [
@@ -421,11 +432,7 @@ export default {
             {
               title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒4",
               date: "2018-5-12"
-            }
-          ]
-        },
-        {
-          news: [
+            },
             {
               title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒",
               date: "2018-5-12"
@@ -446,6 +453,58 @@ export default {
         },
         {
           news: [
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒2",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒3",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒4",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒2",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒3",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒4",
+              date: "2018-5-12"
+            }
+          ]
+        },
+        {
+          news: [
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒2",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒3",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒4",
+              date: "2018-5-12"
+            },
             {
               title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒",
               date: "2018-5-12"
@@ -502,8 +561,11 @@ export default {
     },
     goDetail(item) {
       this.$router.push({
-        name: 'newsDetail'
+        name: "newsDetail"
       });
+    },
+    goNews(){
+      this.$router.push("/dynamics");
     }
   }
 };
@@ -543,6 +605,7 @@ export default {
   .content-title {
     font-size: 30px;
     // color: #803030;
+    padding-top: 40px;
     height: 40px;
   }
   .en-title {
@@ -566,16 +629,20 @@ export default {
     z-index: 1000;
     position: absolute;
     padding-top: 15px;
+    text-align: left;
+    padding-left: 20px;
     .point-content-1 {
       width: 180px;
       height: 63px;
-      margin: auto;
+      // margin: auto;
 
       font-size: 14px;
       font-family: "MicrosoftYaHei";
       font-weight: 400;
       color: rgba(60, 60, 75, 1);
-      line-height: 18px;
+      line-height: 22px;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
     .point-content-2 {
       color: rgba(151, 150, 166, 1);
@@ -587,13 +654,13 @@ export default {
       color: rgba(27, 27, 27, 1);
     }
   }
-  .point:hover{
-    box-shadow: 0px 0px 15px 0px rgba(134, 229, 158, 0.35);
+  .point:hover {
+    // box-shadow: 0px 0px 15px 0px rgba(134, 229, 158, 0.35);
     cursor: pointer;
   }
   .circle {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     background: rgba(255, 255, 255, 1);
     box-shadow: 0px 0px 15px 0px rgba(134, 229, 158, 0.35);
     border-radius: 4px;
@@ -603,16 +670,16 @@ export default {
     position: absolute;
   }
   .circle1 {
-    left: 555px;
-    top: 1108px;
+    left: 545px;
+    top: 1138px;
   }
   .point1 {
-    top: 990px;
-    left: 245px;
+    top: 1030px;
+    left: 265px;
   }
   .point2 {
     top: 1156px;
-    left: 460px;
+    left: 480px;
     background: url("../assets/images/point-back-1.png");
     background-size: 100% 100%;
     .point-content-3 {
@@ -620,19 +687,19 @@ export default {
     }
   }
   .circle2 {
-    top: 1185px;
-    left: 355px;
+    top: 1225px;
+    left: 340px;
   }
   .point3 {
-    top: 1038px;
-    left: 670px;
+    top: 1078px;
+    left: 700px;
   }
   .circle3 {
-    top: 1228px;
-    left: 784px;
+    top: 1268px;
+    left: 794px;
   }
   .point4 {
-    top: 1250px;
+    top: 1270px;
     left: 850px;
     background: url("../assets/images/point-back-1.png");
     background-size: 100% 100%;
@@ -641,20 +708,20 @@ export default {
     }
   }
   .circle4 {
-    top: 1228px;
+    top: 1258px;
     left: 924px;
   }
   .point5 {
-    top: 914px;
-    left: 985px;
+    top: 964px;
+    left: 1025px;
   }
   .circle5 {
-    top: 1114px;
-    left: 1100px;
+    top: 1154px;
+    left: 1086px;
   }
   .point6 {
-    top: 960px;
-    left: 1250px;
+    top: 990px;
+    left: 1230px;
     background: url("../assets/images/point-back-1.png");
     background-size: 100% 100%;
     .point-content-3 {
@@ -663,8 +730,8 @@ export default {
   }
 
   .circle6 {
-    top: 930px;
-    left: 1310px;
+    top: 970px;
+    left: 1300px;
   }
 }
 .tab2-content {
@@ -705,8 +772,9 @@ export default {
 
   .content-title {
     font-size: 30px;
-    color: #803030;
+    // color: #803030;
     height: 40px;
+    padding-top: 40px;
   }
   .en-title {
     height: 14px;
@@ -719,9 +787,9 @@ export default {
     margin: 10px auto;
   }
   .content-tab-text {
-    padding: 10px;
+    padding: 60px;
     width: 1198px;
-    height: 638px;
+    height: 588px;
     background: rgba(255, 255, 255, 1);
     box-shadow: 0px 7px 5px 0px rgba(166, 166, 166, 0.06);
     border-radius: 10px 10px 10px 10px;
@@ -734,7 +802,7 @@ export default {
     .text {
       margin: auto;
       width: 1009px;
-      height: 120px;
+      // height: 120px;
       font-size: 14px;
       font-family: "MicrosoftYaHei";
       font-weight: 400;
@@ -751,7 +819,7 @@ export default {
       align-items: center;
       height: 440px;
       width: 1009px;
-      margin: auto;
+      margin: 20px auto;
       .text-item:first-child {
         margin-right: 20px;
       }
@@ -762,7 +830,7 @@ export default {
         width: 320px;
         height: 342px;
         background: rgba(255, 255, 255, 1);
-        border: 1px solid rgba(190, 43, 43, 1);
+        border: 1px solid rgba(190, 43, 43, 1) !important;
         .top {
           width: 100%;
           height: 70px;
@@ -778,9 +846,12 @@ export default {
           width: 320px;
           height: 90px;
           line-height: 90px;
-          background: rgba(232, 232, 232, 1);
-          border-bottom: 1px solid rgba(190, 43, 43, 1);
+          background: #fff;
+          border-top: 1px solid rgba(229,229,229,1);
           text-align: center;
+        }
+        .grade:last-child{
+          border-bottom: 1px solid rgba(190, 43, 43, 1);
         }
       }
       .text-item2 {
@@ -805,7 +876,7 @@ export default {
     .method {
       width: 440px;
       height: 346px;
-      margin: auto;
+      margin: 70px auto;
       background: url("../assets/images/method-bg.png");
       background-size: 100% 100%;
     }
@@ -815,7 +886,7 @@ export default {
     align-content: center;
     align-items: center;
     width: 50%;
-    margin: 20px auto;
+    margin: 40px auto;
     margin-bottom: 0px;
     .content-tab {
       width: 33%;
@@ -838,11 +909,12 @@ export default {
     }
     .content-tab:hover {
       cursor: pointer;
+      color: rgba(230, 32, 32, 1);
     }
   }
 }
 .tab4-content {
-  height: 1029px;
+  height: 780px;
   background: url("../assets/images/dynamic-bg.png");
   .tab-content-news {
     height: 703px;
@@ -851,12 +923,12 @@ export default {
     align-items: center;
     width: 68%;
     background: #fff;
-    margin: auto;
+    margin: -40px auto;
     flex-wrap: wrap;
     div {
-      text-align: center;
+      text-align: left;
       // padding: 2px;
-      width: 31%;
+      width: 385px;
       height: 300px;
       .content {
         width: 100%;
@@ -912,6 +984,7 @@ export default {
   height: 800px;
   width: 50%;
   margin: auto;
+  margin-top: 40px;
   .item-aim {
     width: 33%;
     height: 200px;
@@ -922,6 +995,7 @@ export default {
     }
     .item-name {
       // color: #000;
+      font-size: 16px;
     }
     .item-content {
       color: #c8c8c8;
@@ -938,7 +1012,7 @@ ul {
   li {
     // padding-left: 14px;
     // border-bottom: 1px solid #ccc;
-    padding: 10px;
+    padding: 10px 20px;
     // width: 330px;
     height: 13px;
     font-size: 14px;
@@ -963,11 +1037,11 @@ ul {
     cursor: pointer;
   }
 }
-.triangle{
+.triangle {
   width: 22.5px;
   height: 13px;
-  background: url('../assets/images/triangle.png');
-  background-size: 100% 100%; 
+  background: url("../assets/images/triangle.png");
+  background-size: 100% 100%;
   visibility: hidden;
 }
 </style>

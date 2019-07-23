@@ -2,11 +2,11 @@
   <div id="accusation">
     <div class="banner"></div>
     <div class="content">
-      <div class="accusation-content">
+      <div class="accusation-content" @click="goForm1">
         <div class="image-content content1"></div>
         <span class="title">消费者举报</span>
       </div>
-      <div class="accusation-content">
+      <div class="accusation-content" @click="goForm2">
         <div class="image-content content2"></div>
         <span class="title">酒企申诉</span>
       </div>
@@ -19,6 +19,14 @@ export default {
   name: "Accusation",
   data() {
     return {};
+  },
+  methods: {
+    goForm1() {
+      this.$router.push({ name: "accusation1" });
+    },
+    goForm2() {
+      this.$router.push({ name: "accusation2" });
+    }
   }
 };
 </script>
@@ -30,38 +38,38 @@ export default {
     background: url("../assets/images/accusation-bg.png");
   }
   .content {
-    width: 70%;
-    margin: auto;
-    height: 500px;
+    width: 1200px;
+    margin: 40px auto;
+    // height: 500px;
     display: flex;
     align-content: center;
     align-items: center;
     .accusation-content {
       width: 578px;
-      height: 327px;
+      height: 346px;
       border: 1px solid #ccc;
-      margin: 20px auto;
+      margin: 10px auto;
       .image-content {
         height: 287px;
         background-size: 100% 100%;
       }
-      .content1{
+      .content1 {
         background: url("../assets/images/accusation-1.png");
       }
-      .content2{
+      .content2 {
         background: url("../assets/images/accusation-2.png");
       }
       .title {
         height: 40px;
-        line-height: 40px;
+        line-height: 60px;
         font-size: 20px;
         font-family: "MicrosoftYaHei";
         font-weight: 400;
         color: rgba(22, 22, 22, 1);
       }
     }
-    .accusation-content:hover{
-        cursor: pointer;
+    .accusation-content:hover {
+      cursor: pointer;
     }
   }
 }

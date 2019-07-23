@@ -6,7 +6,7 @@
       </div>
       <div class="login-status">
         <a @click="goLogin">登录</a>
-        <span>|</span>
+        <span style="color:#ccc">|</span>
         <a @click="goSign">注册</a>
       </div>
     </div>
@@ -178,6 +178,10 @@ export default {
     font-size: 20px;
     color: #333;
   }
+  a:hover {
+    font-size: 16px;
+    color: rgba(230, 32, 32, 1);
+  }
   a::before {
     content: "";
     position: absolute;
@@ -188,6 +192,7 @@ export default {
     background: rgba(230, 32, 32, 1);
     transform: scale(0);
     transition: all 0.3s;
+    font-size: 16px;
   }
   a:hover::before {
     font-weight: bold;

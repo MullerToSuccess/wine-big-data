@@ -1,14 +1,14 @@
 <template>
-  <div class="form">
+  <div class="form form3">
     <div class="routerTip">
       当前位置：
       <span @click="goRouter('/declare')">诚信自主申报</span> >
-      <span @click="goRouter('/declare/form')">资质填报</span> 
+      <span @click="goRouter('/declare/form')">财务数据填报</span>
     </div>
     <div class="container">
-      <div class="title">资质填报</div>
+      <div class="title">财务数据填报</div>
       <div class="form1">
-        <div class="sub-title"><div class="tip-gap"></div>工商信息</div>
+        <div class="sub-title"><div class="tip-gap"></div>基本信息</div>
         <div class="content">
           <el-form
             :model="loginForm"
@@ -57,7 +57,7 @@
               prop="password"
               label="三位一体证件"
               :rules="[
-      { required: true, message: '', trigger: 'blur' }
+      { required: true, message: '请输入密码', trigger: 'blur' }
     ]"
             >
               <el-upload
@@ -75,7 +75,7 @@
               prop="password"
               label="统一社会信用代码"
               :rules="[
-      { required: true, message: '请输入统一社会信用代码', trigger: 'blur' }
+      { required: true, message: '统一社会信用代码', trigger: 'blur' }
     ]"
             >
               <el-input v-model="loginForm.password"></el-input>
@@ -84,7 +84,7 @@
         </div>
       </div>
       <div class="form2">
-        <div class="sub-title"><div class="tip-gap"></div>资质信息</div>
+        <div class="sub-title"><div class="tip-gap"></div>财务信息</div>
         <div class="content">
           <el-form
             :model="loginForm"
@@ -95,41 +95,51 @@
           >
             <el-form-item
               prop="phone"
-              label="经营年限"
+              label="年度"
               :rules="[
-      { required: true, message: '请输入经营年限', trigger: 'blur' }
+      { required: true, message: '请输入年度', trigger: 'blur' }
     ]"
             >
               <el-input v-model="loginForm.phone"></el-input>
             </el-form-item>
             <el-form-item
               prop="password"
-              label="人员构成"
+              label="主营业务"
               :rules="[
-      { required: true, message: '请输入人员构成', trigger: 'blur' }
+      { required: true, message: '请输入主营业务', trigger: 'blur' }
     ]"
             >
               <el-input :rows="8" type="textarea" v-model="loginForm.password"></el-input>
             </el-form-item>
             <el-form-item
               prop="password"
-              label="制作流程"
+              label="盈利数据"
               :rules="[
-      { required: true, message: '请输入制作流程', trigger: 'blur' }
+      { required: true, message: '请输入盈利数据', trigger: 'blur' }
     ]"
             >
-              <el-upload
-                class="upload-demo"
-                ref="upload"
-                action="https://jsonplaceholder.typicode.com/posts/"
-                :on-preview="handlePreview"
-                :on-remove="handleRemove"
-                :file-list="fileList"
-                :auto-upload="false"
-              >
-                <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-                <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-              </el-upload>
+              <el-input :rows="8" type="textarea" v-model="loginForm.password"></el-input>
+            </el-form-item>
+            <el-form-item
+              prop="password"
+              label="是否有债务"
+              :rules="[
+      { required: true, message: '请输入是否有债务', trigger: 'blur' }
+    ]"
+            >
+              <el-radio-group v-model="loginForm.isHave">
+                <el-radio label="是"></el-radio>
+                <el-radio label="否"></el-radio>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item
+              prop="password"
+              label="债务明细"
+              :rules="[
+      { required: true, message: '请输入债务明细', trigger: 'blur' }
+    ]"
+            >
+              <el-input :rows="8" type="textarea" v-model="loginForm.password"></el-input>
             </el-form-item>
           </el-form>
         </div>
@@ -143,15 +153,21 @@
 </template>
 <script>
 export default {
-  name: "form",
+  name: "form3",
   data() {
     return {
       loginForm: {
         phone: "",
-        password: ""
+        password: "",
+        isHave: false,
       },
       imageUrl: ""
     };
+  },
+  methods:{
+      goRouter(path){
+      this.$router.push(path)
+    }
   }
 };
 </script>
@@ -177,7 +193,7 @@ export default {
   }
   .container {
     width: 1201px;
-    height: 1286px;
+    // height: 1286px;
     margin: 10px auto;
     background: rgba(255, 255, 255, 1);
     border: 1px solid rgba(229, 229, 229, 1);
@@ -196,7 +212,7 @@ export default {
       text-align: left;
     }
     .content {
-      height: 422px;
+    //   height: 422px;
 
       .left {
         width: 100%;

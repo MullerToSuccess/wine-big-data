@@ -31,17 +31,18 @@ export default {
   }
   .content {
     width: 1000px;
-    height: 500px;
+    // height: 500px;
     margin: auto;
     display: flex;
     align-content: center;
     align-items: center;
     text-align: center;
     .support-content {
-      width: 490px;
-      height: 180px;
+      width: 590px;
+      height: 288px;
       border: 1px solid #ccc;
-      margin-left: 10px;
+      border-radius: 10px;
+      margin: 40px 10px;
       line-height: 180px;
       background: rgba(47, 97, 155, 1);
       border: 1px solid rgba(224, 224, 224, 1);

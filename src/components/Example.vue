@@ -13,7 +13,7 @@
           <img src="../assets/images/line-red.png" />
         </div>
       </div>
-      <el-table :data="tableData" style="width: 100%" @row-click='clickBusiness'>
+      <el-table :data="tableData" style="width: 100%" @row-click="clickBusiness">
         <el-table-column label type="index" show-overflow-tooltip width="100">
           <template slot-scope="scope">
             <img
@@ -43,7 +43,7 @@
     </div>
     <!-- 企业家 -->
     <div class="industry-content content-2">
-      <div class="content-title">
+      <div class="content-title" style="margin-top: 40px">
         <span class="title">诚信示范企业家</span>
         <div class="time">
           更新日期：
@@ -76,7 +76,7 @@
           <img src="../assets/images/line-red.png" />
         </div>
       </div>
-      <el-table :data="tableData" style="width: 100%" @row-click='clickGoods'>
+      <el-table :data="tableData" style="width: 100%" @row-click="clickGoods">
         <el-table-column label type="index" show-overflow-tooltip width="100">
           <template slot-scope="scope">
             <img
@@ -105,8 +105,8 @@
       </el-table>
     </div>
     <!-- 酒品 -->
-    <div class="industry-content content-4">
-      <div class="content-title">
+    <div class="industry-content content-4" >
+      <div class="content-title" style="margin-top: 40px">
         <span class="title">诚信示范酒品</span>
         <div class="time">
           更新日期：
@@ -119,7 +119,7 @@
       <div class="tab4-content-item">
         <div class="item-aim" v-for="(item, index) in wines" :key="index" @click="clickQuality">
           <img style="width:100%;height: 180px" src="@/assets/images/wine-icon.png" />
-          <div class="item-name">
+          <div class="item-name" style="margin-top: 20px">
             <span style="float: left; margin-left: 20px;">52度五粮国宾酒精品500ml</span>
             <span style="float:right;margin-right:20px;color: #c8c8c8;">酱香型</span>
           </div>
@@ -141,7 +141,15 @@
           <img src="../assets/images/line-red.png" />
         </div>
       </div>
-      <img src="../assets/images/map-bg.png" />
+      <img style="z-index: 1000;position:absolute;left:300px" src="../assets/images/map-bg.png" />
+      <!-- <div style="width: 100%;z-index: 1001;position:absolute;left: 1080px;width: 400px">
+        <div style="background: #ccc;height: 60px;line-height: 60px">诚信示范门店</div>
+        <el-table :data="tableData2" @row-click='clickStore'>
+          <el-table-column prop="name" label="企业名称"></el-table-column>
+          <el-table-column prop="date" label="证书编号"></el-table-column>
+        </el-table>
+      </div> -->
+
       <!-- <baidu-map
         id="mapContainer1"
         class="map-content"
@@ -165,7 +173,7 @@
           </ul>
           <button @click="clear">Clear</button>
         </bm-info-window>
-      </baidu-map> -->
+      </baidu-map>-->
     </div>
   </div>
 </template>
@@ -190,6 +198,14 @@ export default {
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       },
       updateTime: "2019-7-1",
+      tableData2: [
+        { name: "宜宾五粮液股份有限公司", date: "CXP-2018-00548" },
+        { name: "宜宾五粮液股份有限公司", date: "CXP-2018-00548" },
+        { name: "宜宾五粮液股份有限公司", date: "CXP-2018-00548" },
+        { name: "宜宾五粮液股份有限公司", date: "CXP-2018-00548" },
+        { name: "宜宾五粮液股份有限公司", date: "CXP-2018-00548" },
+        { name: "宜宾五粮液股份有限公司", date: "CXP-2018-00548" },
+      ],
       tableData: [
         {
           date: "宜宾五粮液股份有限公司",
@@ -336,11 +352,14 @@ export default {
     clickGoods(row, column, event) {
       this.$router.push({ name: "bussinessDetail" });
     },
-    clickQuality(){
+    clickQuality() {
       this.$router.push({ name: "goodsDetail" });
-    },    
+    },
+    clickStore(){
+      this.$router.push({ name: "storeDetail" });
+    },
     handler({ BMap, map }) {
-      this.getBoundary('成都市');
+      this.getBoundary("成都市");
       map.enableScrollWheelZoom(true);
       var myZoomCtrl = new ZoomControl();
       map.addControl(myZoomCtrl);
@@ -360,7 +379,6 @@ export default {
       this.infoWindow.contents = "";
     },
     getBoundary(name) {
-      
       var map1 = new BMap.Map("mapContainer1");
       var bdary = new BMap.Boundary();
       bdary.get(name, function(rs) {
@@ -395,8 +413,8 @@ export default {
   }
   .industry-content {
     width: 100%;
-    height: 500px;
-    margin: auto;
+    height: 520px;
+    margin: 40px auto;
     .content-title {
       margin: 20px auto;
       text-align: center;
@@ -437,16 +455,15 @@ export default {
     padding-top: 20px;
   }
   .content-4 {
-    height: 871px;
+    height: 840px;
     background: rgba(248, 248, 248, 1);
     padding-top: 20px;
     overflow: hidden;
   }
-  .content-5{
-     width: 80%;
+  .content-5 {
+    width: 80%;
     padding-top: 20px;
     height: 871px;
-    
   }
   .tab2-content-item {
     display: flex;
@@ -462,11 +479,12 @@ export default {
       background: rgba(255, 255, 255, 1);
       border-radius: 6px;
       margin: 10px 10px;
-      padding-top: 37px;
+      padding-top: 50px;
       line-height: 30px;
       img {
         width: 60px;
         height: 60px;
+        margin-bottom: 30px;
       }
       .item-content {
         color: #c8c8c8;
@@ -504,7 +522,7 @@ export default {
       }
     }
   }
-  .item-aim:hover{
+  .item-aim:hover {
     cursor: pointer;
   }
 }

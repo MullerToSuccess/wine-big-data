@@ -2,19 +2,19 @@
   <div id="science">
     <div class="banner"></div>
     <div class="science-content">
-      <el-table :data="tableData" stripe style="width: 100%">
+      <el-table :data="tableData" stripe style="width: 100%" @row-click='goDetail()'>
         <el-table-column prop="date" label="知识名称"></el-table-column>
         <el-table-column prop="name" label="发布时间"></el-table-column>
       </el-table>
     </div>
 
-    <div class="pagination">
+    <!-- <div class="pagination">
       <el-row type="flex" justify="center">
         <el-col :span="22">
           <el-pagination class="right" layout="total, prev, pager, next" :total="100"></el-pagination>
         </el-col>
       </el-row>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -58,6 +58,13 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    goDetail(item) {
+      this.$router.push({
+        name: "newsDetail"
+      });
+    }
   }
 };
 </script>
@@ -81,8 +88,8 @@ export default {
   .pagination {
     margin-top: 20px;
   }
-  .el-table th {
-    background: #cccccc !important;
-  }
+  // .el-table th {
+  //   background:  rgba(246, 246, 246, 1) !important;
+  // }
 }
 </style>

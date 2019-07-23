@@ -38,6 +38,7 @@ a:hover {
     line-height: 24px;
     opacity: 0.7;
     text-align: left;
+    padding-left: 20px;
   }
   input {
     height: 60px !important;
@@ -110,4 +111,133 @@ a:hover {
     color: rgba(22, 22, 22, 0.8);
     line-height: 24px;
   }
+}
+#science {
+  .el-table th {
+    width: 934px;
+    height: 40px;
+    background: rgba(246, 246, 246, 1);
+    // border: 1px solid rgba(229, 229, 229, 1);
+    font-size: 14px;
+    font-family: "MicrosoftYaHeiLight";
+    font-weight: 300;
+    color: rgba(22, 22, 22, 1);
+    line-height: 24px;
+    margin-left: 10px;
+  }
+  .el-table th > .cell {
+    margin-left: 10px;
+    // width: 27px;
+    // height: 14px;
+    font-size: 14px;
+    font-family: "MicrosoftYaHeiLight";
+    font-weight: 300;
+    color: rgba(22, 22, 22, 0.8);
+    line-height: 24px;
+  }
+  .el-table .cell{
+    margin-left: 10px;
+  }
+}
+.form {
+  .el-form-item {
+    display: inline-block;
+    width: 460px;
+  }
+  .el-button--primary {
+    color: #fff;
+    background-color: #ff0000;
+    border-color: #ff0000;
+  }
+  .el-button--success {
+    color: #FFF;
+    background-color: #FF0000;
+    border-color: #FF0000;
+}
+.el-button--info {
+  color: rgba(169,169,169,1);;
+  background-color:rgba(232,232,232,1);
+  border-color: rgba(232,232,232,1);
+}
+  .form2 {
+    .el-form-item {
+      display: block;
+      width: 900px;
+      margin: 30px auto;
+    }
+  }
+  .avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: #409eff;
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+  }
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
+}
+.form4 {
+  .upload-demo {
+    text-align: left;
+    margin-left: 20px;
+  }
+}
+.form3 {
+  .el-form-item__content {
+    text-align: left;
+  }
+}
+.form2 {
+  .el-form-item__content {
+    text-align: left;
+  }
+}
+.accusation1 {
+  .el-form-item {
+    display: block;
+    width: 900px;
+    margin: 30px auto;
+    text-align: left;
+  }
+}
+.accusation2 {
+  input {
+    height: 60px !important;
+    border-radius: 0;
+    border: 0;
+  }
+  .search-select {
+    input {
+      border: 0 !important;
+    }
+  }
+}
+.tip-gap {
+  width: 6px;
+  height: 14px;
+  margin-right: 7px;
+  background: rgba(255, 0, 0, 0.1);
+  display: inline-block;
+}
+.swiper-pagination-bullet-active{
+  background: #fff !important;
+}
+.swiper-pagination-bullet{
+  height: 12px !important;
+  width: 12px !important;
+  margin-bottom: 10px !important;
 }

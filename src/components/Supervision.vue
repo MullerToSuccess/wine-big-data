@@ -6,7 +6,11 @@
         <div
           style="height: 460px; border:1px solid #ccc;margin-right:10px;border:1px solid rgba(224,224,224,1);"
         >
-          <div class="content content-1">——部委监管公式——</div>
+          <div
+            @click="goDetail"
+            style="text-align: center; height: 170px;line-height: 170px"
+            class="content content-1"
+          >——&nbsp;部委监管公式&nbsp;——</div>
           <ul>
             <li @click="goDetail(item1)" v-for="(item1, index1) in dynamic[0].news" :key="index1">
               <span class="content-title-1">{{item1.title}}</span>
@@ -17,7 +21,11 @@
         <div
           style="height: 460px; border:1px solid #ccc;margin:0 10px;border:1px solid rgba(224,224,224,1);"
         >
-          <div class="content content-2">——社会监督公示——</div>
+          <div
+            @click="goDetail"
+            style="text-align: center; height: 170px;line-height: 170px"
+            class="content content-2"
+          >——&nbsp;社会监督公示&nbsp;——</div>
           <ul>
             <li @click="goDetail(item1)" v-for="(item1, index1) in dynamic[0].news" :key="index1">
               <span class="content-title-1">{{item1.title}}</span>
@@ -53,11 +61,7 @@ export default {
             {
               title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒4",
               date: "2018-5-12"
-            }
-          ]
-        },
-        {
-          news: [
+            },
             {
               title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒",
               date: "2018-5-12"
@@ -78,6 +82,58 @@ export default {
         },
         {
           news: [
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒2",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒3",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒4",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒2",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒3",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒4",
+              date: "2018-5-12"
+            }
+          ]
+        },
+        {
+          news: [
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒2",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒3",
+              date: "2018-5-12"
+            },
+            {
+              title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒4",
+              date: "2018-5-12"
+            },
             {
               title: " 国家发改委等7部门严查虚标能耗 对造假者实行联合惩戒",
               date: "2018-5-12"
@@ -148,8 +204,13 @@ export default {
     },
     goContent(item) {
       this.$router.push({
-        name:'newsDetail'
-      })
+        name: "newsDetail"
+      });
+    },
+    goDetail(){
+      this.$router.push({
+        name: "newsDetail2"
+      });
     }
   }
 };
@@ -198,16 +259,16 @@ export default {
       }
     }
     .tab-content-news {
-      height: 703px;
+      // height: 703px;
       display: flex;
       align-content: center;
       align-items: center;
       width: 70%;
       background: #fff;
-      margin: auto;
+      margin: 40px auto;
       flex-wrap: wrap;
       div {
-        text-align: center;
+        text-align: left;
         // padding: 2px;
         // width: 45%;
         height: 300px;
@@ -243,7 +304,7 @@ export default {
       li {
         // padding-left: 14px;
         // border-bottom: 1px solid #ccc;
-        padding: 10px;
+        padding: 10px 20px;
         // width: 330px;
         height: 13px;
         font-size: 14px;
@@ -255,7 +316,7 @@ export default {
           overflow: hidden;
           text-overflow: ellipsis;
           font-weight: 400;
-          width: 200px;
+          width: 280px;
           display: inline-block;
         }
         .content-date {

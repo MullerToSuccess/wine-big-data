@@ -22,7 +22,7 @@
     </div>
     <div class="table">
       <el-table :data="tableData" style="width: 100%">
-        <el-table-column label="名称">
+        <el-table-column label="名称" width="420">
           <template slot-scope="scope">
             <div class="title">
               {{ scope.row.name }}
@@ -49,7 +49,7 @@
             <span style="margin-left: 10px; font-weight:bold">{{ scope.row.rank }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="评分" width="220">
+        <el-table-column label="评分" width="300">
           <template slot-scope="scope">
             <span style="margin-left: 10px; font-weight:bold">{{ scope.row.grade }}</span>
           </template>
@@ -64,13 +64,13 @@
         </el-table-column>
       </el-table>
     </div>
-    <div class="pagination">
+    <!-- <div class="pagination">
       <el-row type="flex" justify="center">
         <el-col :span="22">
           <el-pagination class="right" layout="total, prev, pager, next" :total="100"></el-pagination>
         </el-col>
       </el-row>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -149,7 +149,6 @@ export default {
         console.log(this.selSrc);
         this.selSrc = src2;
       }
-      // newVal == 1 ? this.selSrc = src1 : this.selSrc = src2
     }
   },
   mounted() {},
@@ -174,6 +173,7 @@ export default {
   // display: flex;
 
   .search-content {
+    
     width: 60%;
     // margin: auto;
     margin-left: 20%;
@@ -203,6 +203,7 @@ export default {
     // margin: 20px auto;
     margin-left: 20%;
     margin-top: 20px;
+    margin-bottom: 40px;
     border: 1px solid rgba(224, 224, 224, 1);
     .title {
       // width: 219px;
@@ -212,6 +213,7 @@ export default {
       font-weight: 400;
       color: rgba(22, 22, 22, 1);
       line-height: 24px;
+      padding-left: 20px;
       .status {
         background: #ccc;
         border-radius: 5px;
@@ -232,6 +234,7 @@ export default {
       }
     }
     .name-item {
+      padding-left: 20px;
       display: inline-block;
       font-size: 14px;
       font-family: "MicrosoftYaHeiLight";

@@ -1,10 +1,11 @@
 <template>
   <div id="declare">
     <div class="banner"></div>
-    <div class="declare-form">
+    <div class="container" style="height: 560px;padding: 20px">
+      <div class="declare-form">
       <img src="@/assets/images/declare-1.png" />
       <div class="declare-title">资质填报</div>
-      <div :class='{"declare-status": true, "status-other": status1 }'>
+      <div @click="goForm(1)" :class='{"declare-status": true, "status-other": status1 }'>
         {{ status1 ? '去更新' : '去填报' }}
       </div>
       <div :class="{finish: true, finishIcon: status1}"></div>
@@ -12,7 +13,7 @@
     <div class="declare-form">
       <img src="@/assets/images/declare-2.png" />
       <div class="declare-title">奖励填报</div>
-      <div :class='{"declare-status": true, "status-other": status2 }'>
+      <div @click="goForm(2)" :class='{"declare-status": true, "status-other": status2 }'>
         {{ status2 ? '去更新' : '去填报' }}
       </div>
       <div :class="{finish: true, finishIcon: status2}"></div>
@@ -20,7 +21,7 @@
     <div class="declare-form">
       <img src="@/assets/images/declare-3.png" />
       <div class="declare-title">财务数据填报</div>
-      <div :class='{"declare-status": true, "status-other": status3 }'>
+      <div @click="goForm(3)" :class='{"declare-status": true, "status-other": status3 }'>
         {{ status3 ? '去更新' : '去填报' }}
       </div>
       <div :class="{finish: true, finishIcon: status3}"></div>
@@ -28,11 +29,13 @@
     <div class="declare-form">
       <img src="@/assets/images/declare-4.png" />
       <div class="declare-title">管理数据填报</div>
-      <div :class='{"declare-status": true, "status-other": status4 }'>
+      <div @click="goForm(4)" :class='{"declare-status": true, "status-other": status4 }'>
         {{ status4 ? '去更新' : '去填报' }}
       </div>
       <div :class="{finish: true, finishIcon: status4}"></div>
     </div>
+    </div>
+    
   </div>
 </template>
 <script>
@@ -45,6 +48,26 @@ export default {
       status3: false,
       status4: false
     };
+  },
+  methods:{
+    goForm(index){
+      switch(index){
+        case 1:
+          this.$router.push({name: 'form'});
+          break;
+        case 2:
+          this.$router.push({name: 'form2'})
+          break;
+        case 3:
+          this.$router.push({name: 'form3'})
+          break;
+        case 4:
+          this.$router.push({name: 'form4'})
+            break;
+        default:
+           break;
+      }
+    }
   }
 };
 </script>
@@ -52,6 +75,7 @@ export default {
 #declare {
   width: 100%;
   margin: auto;
+  // padding: 20px auto;
   .banner {
     width: 100%;
     height: 400px;
@@ -59,8 +83,8 @@ export default {
   }
   .declare-form {
     margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    // margin-bottom: 30px;
     display: flex;
     // width: 60%;
     // height: 120px;

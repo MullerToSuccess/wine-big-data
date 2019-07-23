@@ -3,9 +3,8 @@
   <div class="integrityDetail">
     <div class="routerTip">
       当前位置：
-      <span @click="goRouter('/SystemSurvey')">首页</span> >
-      <span @click="goRouter('/dynamics')">建设动态</span> >
-      <span @click="goRouter('/')">部委诚信新闻</span>
+      <span @click="goRouter('/search')">酒企诚信查询</span> >
+      <span @click="goRouter('/search/integrityDetail')">诚信查询详情</span>
     </div>
     <div class="content">
       <div class="content-left">
@@ -14,6 +13,7 @@
           :props="defaultProps"
           @node-click="handleNodeClick"
           :render-content="renderContent"
+          default-expand-all
         ></el-tree>
       </div>
       <!-- 详情 -->
@@ -44,7 +44,11 @@
                 </div>
                 <div class="right">
                   <span class="right-tip">企业评分与评级</span>
-                  <span class="name-item contact">关联图谱分析</span>
+                  <span><img style="margin-top: 30px" src="../../assets/images/echart-1.png" alt=""></span>
+                  <span class="name-item contact" @click="goContact">
+                    <img src="../../assets/images/icon-contact.png">
+                    <div>关联图谱分析</div>
+                    </span>
                 </div>
               </div>
               <div class="risk">
@@ -63,7 +67,7 @@
                     关联方风险：
                     <span class="value">5项</span>
                   </span>
-                  <!-- <div class="item">查看详情</div> -->
+                  <span class="name-item contact" @click="goInfo">查看详情</span>
                 </div>
               </div>
             </div>
@@ -83,58 +87,58 @@
                 <el-table-column prop="name" label="地区"></el-table-column>
                 <el-table-column prop="name" label="诚信评级"></el-table-column>
                 <el-table-column prop="name" label="证书编号"></el-table-column>
-              </el-table> -->
+              </el-table>-->
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>股东
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="姓名"></el-table-column>
-                <el-table-column prop="name" label="认缴出资金额"></el-table-column>
-                <el-table-column prop="name" label="认缴出资比例"></el-table-column>
-                <el-table-column prop="name" label="认缴出资方式"></el-table-column>
+              <el-table :data="tableData1" style="width: 100%">
+                <el-table-column prop="name" label="姓名"></el-table-column>
+                <el-table-column prop="more" label="认缴出资金额"></el-table-column>
+                <el-table-column prop="date" label="认缴出资比例"></el-table-column>
+                <el-table-column prop="more" label="认缴出资方式"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>高管
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="姓名"></el-table-column>
-                <el-table-column prop="name" label="职务"></el-table-column>
+              <el-table :data="tableData2" style="width: 100%">
+                <el-table-column prop="name" label="姓名"></el-table-column>
+                <el-table-column prop="date" label="职务"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>分支机构
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
+              <el-table :data="tableData3" style="width: 100%">
+                <el-table-column prop="index" label="序号"></el-table-column>
                 <el-table-column prop="name" label="名称"></el-table-column>
-                <el-table-column prop="name" label="地址"></el-table-column>
-                <el-table-column prop="name" label="负责人"></el-table-column>
+                <el-table-column prop="address" label="地址"></el-table-column>
+                <el-table-column prop="date" label="负责人"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>对外投资
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="姓名"></el-table-column>
-                <el-table-column prop="name" label="职务"></el-table-column>
+              <el-table :data="tableData4" style="width: 100%">
+                <el-table-column prop="name" label="公司名称"></el-table-column>
+                <el-table-column prop="date" label="投资日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>海外投资机构
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
+              <el-table :data="tableData5" style="width: 100%">
+                <el-table-column prop="index" label="序号"></el-table-column>
                 <el-table-column prop="name" label="公司名称"></el-table-column>
-                <el-table-column prop="name" label="经营范围"></el-table-column>
-                <el-table-column prop="name" label="国家/地区"></el-table-column>
-                <el-table-column prop="name" label="核准日期"></el-table-column>
+                <el-table-column prop="more1" label="经营范围"></el-table-column>
+                <el-table-column prop="more2" label="国家/地区"></el-table-column>
+                <el-table-column prop="more3" label="核准日期"></el-table-column>
               </el-table>
             </div>
           </div>
@@ -444,8 +448,7 @@
 </template>
 <script>
 import BScroll from "better-scroll";
-import industryInfo from '../common/industryInfo';
-
+import industryInfo from "../common/industryInfo";
 
 export default {
   name: "integrityDetail",
@@ -461,7 +464,7 @@ export default {
       return 0;
     }
   },
-  components:{
+  components: {
     industryInfo
   },
   data() {
@@ -635,26 +638,57 @@ export default {
       listHeight: [],
       tableData: [
         {
-          date: "2016-05-02",
-          name: "王小虎",
+          date: "1",
+          name: "xxx",
           address: "上海市普陀区金沙江路 1518 弄"
         },
         {
-          date: "2016-05-04",
-          name: "王小虎",
+          date: "2",
+          name: "xxx",
           address: "上海市普陀区金沙江路 1517 弄"
         },
         {
-          date: "2016-05-01",
-          name: "王小虎",
+          date: "3",
+          name: "xxx",
           address: "上海市普陀区金沙江路 1519 弄"
         },
         {
-          date: "2016-05-03",
-          name: "王小虎",
+          date: "4",
+          name: "xxx",
           address: "上海市普陀区金沙江路 1516 弄"
         }
-      ]
+      ],
+      tableData1: [
+        {
+          more: "",
+          date: "0.50%",
+          name:
+            "国泰君安证券资管-中国银行-国泰君安君享五粮液1号集合资产管理计划"
+        },
+        {
+          more: "",
+          date: "0.50%",
+          name:
+            "国泰君安证券资管-中国银行-国泰君安君享五粮液1号集合资产管理计划"
+        }
+      ],
+      tableData2: [
+        { name: "蒋文格", date: "董事" },
+        { name: "唐圣云", date: "副总经理" },
+        { name: "邱萍对", date: "监事" }
+      ],
+      tableData3: [
+        { name: "四川省宜宾五粮液酒厂", address:'宜宾市岷江西路150号', date: "王国春", index:1},
+        { name: "四川省宜宾五粮液供销有限公司", address:'四川省宜宾市岷江西路150号', date: "李曙光", index: 2},
+      ],
+      tableData4: [
+        { name: "宜宾五粮液创艺酒产业有限公司", date: "2015-01-19" },
+        { name: "瞭望东方传媒有限公司", date: "2015-01-08" },
+        { name: "河南五谷春酒业股份有限公司", date: "2014-11-28" }
+      ],
+      tableData5: [
+        { name: "五粮液集团有限公司", more1: "进出口贸易" , index: 1, more2:'中国香港', more3:'2018/7/5'}
+      ],
     };
   },
   mounted() {
@@ -689,10 +723,13 @@ export default {
         }
       } else {
         html = (
-            <span class="custom-tree-node" style="font-weight: 400;font-size: 18px">
-              <span style="margin-left:5px;">{node.data.label}</span>
-            </span>
-          );
+          <span
+            class="custom-tree-node"
+            style="font-weight: 400;font-size: 18px"
+          >
+            <span style="margin-left:5px;">{node.data.label}</span>
+          </span>
+        );
       }
 
       return html;
@@ -726,6 +763,21 @@ export default {
         height += item.clientHeight;
         this.listHeight.push(height);
       }
+    },
+    // 图谱关系详情
+    goContact() {
+      this.$router.push({
+        name: "contact"
+      });
+    },
+    // 风险
+    goInfo() {
+      this.$router.push({
+        name: "riskInfo"
+      });
+    },
+    goRouter(path) {
+      this.$router.push(path);
     }
   }
 };
@@ -736,7 +788,7 @@ export default {
   //   height: 500px;
   .routerTip {
     height: 50px;
-    width: 1200px;
+    width: 1240px;
     text-align: left;
     margin: auto;
     line-height: 50px;
@@ -758,6 +810,7 @@ export default {
   .content {
     width: 65%;
     margin: auto;
+    margin-bottom: 20px;
     display: flex;
     align-content: center;
     align-items: center;
@@ -777,7 +830,7 @@ export default {
       width: 20%;
     }
     .content-right {
-      padding: 20px;
+      // padding: 20px;
 
       width: 80%;
       .content1,
@@ -785,6 +838,7 @@ export default {
       .content3,
       .content4,
       .content5 {
+        padding: 20px;
         // width: 90%;
         margin: auto;
         // border: 1px solid #ccc;
@@ -803,6 +857,7 @@ export default {
           font-weight: bold;
           text-align: left;
           // margin-left: 20px;
+          margin-bottom: 10px;
           width: 200px;
           // height: 17px;
           font-size: 16px;
@@ -819,7 +874,7 @@ export default {
           }
         }
       }
-      .industryInfo{
+      .industryInfo {
         height: 291px;
         margin-bottom: 10px;
       }
@@ -887,7 +942,7 @@ export default {
             height: 35px;
             line-height: 35px;
             text-align: center;
-            margin-top: 80px;
+            margin-top: 40px;
             background: rgba(227, 36, 42, 1);
             border: 1px solid rgba(252, 13, 27, 1);
             border-radius: 18px;
@@ -895,6 +950,18 @@ export default {
             font-family: "MicrosoftYaHeiLight";
             font-weight: 300;
             color: rgba(255, 255, 255, 1);
+            display: flex;
+            align-content: center;
+            align-items: center;
+            // text-align: center;
+            // margin: auto;
+            img{
+              margin-left: 20px;
+              margin-right: 2px;
+            }
+          }
+          .contact:hover {
+            cursor: pointer;
           }
         }
       }
@@ -903,6 +970,24 @@ export default {
         width: 100%;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        .contact {
+          width: 80px;
+          float: right;
+          height: 35px;
+          line-height: 35px;
+          text-align: center;
+          margin-top: 10px;
+          background: rgba(227, 36, 42, 1);
+          border: 1px solid rgba(252, 13, 27, 1);
+          border-radius: 18px;
+          font-size: 14px;
+          font-family: "MicrosoftYaHeiLight";
+          font-weight: 300;
+          color: rgba(255, 255, 255, 1);
+        }
+        .contact:hover {
+          cursor: pointer;
+        }
         .title {
           width: 64px;
           height: 17px;

@@ -1,14 +1,17 @@
 <template>
-  <div class="form">
+  <div class="form form4">
     <div class="routerTip">
       当前位置：
-      <span @click="goRouter('/declare')">诚信自主申报</span> >
-      <span @click="goRouter('/declare/form')">资质填报</span> 
+      <span @click="goRouter('/declare')">诚信申诉举报</span> >
+      <span @click="goRouter('/declare/form5')">酒企申诉</span> >
+      <span>申请申诉</span>
     </div>
     <div class="container">
-      <div class="title">资质填报</div>
+      <div class="title">申诉申请</div>
       <div class="form1">
-        <div class="sub-title"><div class="tip-gap"></div>工商信息</div>
+        <div class="sub-title">
+          <div class="tip-gap"></div>基本信息
+        </div>
         <div class="content">
           <el-form
             :model="loginForm"
@@ -84,38 +87,41 @@
         </div>
       </div>
       <div class="form2">
-        <div class="sub-title"><div class="tip-gap"></div>资质信息</div>
+        <div class="sub-title">
+          <div class="tip-gap"></div>申诉信息
+        </div>
         <div class="content">
+            
           <el-form
             :model="loginForm"
             ref="loginForm"
-            label-width="100px"
+            label-width="150px"
             class="demo-dynamic"
             style="text-align: center"
           >
-            <el-form-item
+          <el-form-item
               prop="phone"
-              label="经营年限"
+              label="申诉类型"
               :rules="[
-      { required: true, message: '请输入经营年限', trigger: 'blur' }
+      { required: true, message: '请输入申诉类型', trigger: 'blur' }
     ]"
             >
               <el-input v-model="loginForm.phone"></el-input>
             </el-form-item>
             <el-form-item
               prop="password"
-              label="人员构成"
+              label="申诉内容"
               :rules="[
-      { required: true, message: '请输入人员构成', trigger: 'blur' }
+      { required: true, message: '请输入申诉内容', trigger: 'blur' }
     ]"
             >
               <el-input :rows="8" type="textarea" v-model="loginForm.password"></el-input>
             </el-form-item>
             <el-form-item
               prop="password"
-              label="制作流程"
+              label="申诉材料"
               :rules="[
-      { required: true, message: '请输入制作流程', trigger: 'blur' }
+      { required: true, message: '', trigger: 'blur' }
     ]"
             >
               <el-upload
@@ -127,8 +133,7 @@
                 :file-list="fileList"
                 :auto-upload="false"
               >
-                <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-                <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                <el-button slot="trigger" size="small" type="primary">上传文档</el-button>
               </el-upload>
             </el-form-item>
           </el-form>
@@ -143,7 +148,7 @@
 </template>
 <script>
 export default {
-  name: "form",
+  name: "form5",
   data() {
     return {
       loginForm: {
@@ -152,6 +157,11 @@ export default {
       },
       imageUrl: ""
     };
+  },
+  methods: {
+    goRouter(path) {
+      this.$router.push(path);
+    }
   }
 };
 </script>
@@ -177,7 +187,7 @@ export default {
   }
   .container {
     width: 1201px;
-    height: 1286px;
+    height: 1106px;
     margin: 10px auto;
     background: rgba(255, 255, 255, 1);
     border: 1px solid rgba(229, 229, 229, 1);

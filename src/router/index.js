@@ -102,6 +102,12 @@ const newsDetail = resolve => {
   })
 }
 
+const newsDetail2 = resolve => {
+  import("@/components/details/newsDetail2").then(module => {
+    resolve(module)
+  })
+}
+
 const integrityDetail = resolve => {
   import("@/components/details/integrityDetail").then(module => {
     resolve(module)
@@ -128,6 +134,60 @@ const storeDetail = resolve => {
 
 const goodsDetail = resolve => {
   import("@/components/details/goodsDetail").then(module => {
+    resolve(module)
+  })
+}
+
+const form = resolve => {
+  import("@/components/common/form").then(module => {
+    resolve(module)
+  })
+}
+const form2= resolve => {
+  import("@/components/common/form2").then(module => {
+    resolve(module)
+  })
+}
+const form3 = resolve => {
+  import("@/components/common/form3").then(module => {
+    resolve(module)
+  })
+}
+const form4 = resolve => {
+  import("@/components/common/form4").then(module => {
+    resolve(module)
+  })
+}
+
+const form5 = resolve => {
+  import("@/components/common/form5").then(module => {
+    resolve(module)
+  })
+}
+// 酒企申述
+
+const accusation1 = resolve => {
+  import("@/components/common/accusation1").then(module => {
+    resolve(module)
+  })
+}
+
+const accusation2 = resolve => {
+  import("@/components/common/accusation2").then(module => {
+    resolve(module)
+  })
+}
+// 图谱关系
+
+const contact = resolve => {
+  import("@/components/common/contact").then(module => {
+    resolve(module)
+  })
+}
+
+// 风险
+const riskInfo = resolve => {
+  import("@/components/common/riskInfo").then(module => {
     resolve(module)
   })
 }
@@ -184,9 +244,44 @@ export default new Router({
           component: Declare
         },
         {
+          path: "/declare/form",
+          name: "form",
+          component: form
+        },
+        {
+          path: "/declare/form2",
+          name: "form2",
+          component: form2
+        },
+        {
+          path: "/declare/form3",
+          name: "form3",
+          component: form3
+        },
+        {
+          path: "/declare/form4",
+          name: "form4",
+          component: form4
+        },
+        {
+          path: "/declare/form5",
+          name: "form5",
+          component: form5
+        },
+        {
           path: "/accusation",
           name: "Accusation",
           component: Accusation
+        },
+        {
+          path: "/accusation/accusation1",
+          name: "accusation1",
+          component: accusation1
+        },
+        {
+          path: "/accusation/accusation2",
+          name: "accusation2",
+          component: accusation2
         },
         {
           path: "/hotSpot",
@@ -220,6 +315,11 @@ export default new Router({
           component: newsDetail
         },
         {
+          path: "/search/newsDetail2",
+          name: "newsDetail2",
+          component: newsDetail2
+        },
+        {
           path: "/search/searchDetail",
           name: "searchDetail",
           component: searchDetail
@@ -228,6 +328,16 @@ export default new Router({
           path: "/search/integrityDetail",
           name: "integrityDetail",
           component: integrityDetail
+        },
+        {
+          path: "/search/integrityDetail/contact",
+          name: "contact",
+          component: contact
+        },
+        {
+          path: "/search/integrityDetail/riskInfo",
+          name: "riskInfo",
+          component: riskInfo
         },
         {
           path: "/detail/bussinessDetail",

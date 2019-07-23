@@ -35,7 +35,7 @@
         <img src="../assets/images/line-red.png" alt />
       </div>
       <div class="sub-title">“ 香型发展指数为各种香型对应品牌酒企诚信综合得分 ”</div>
-      <div class="chart-content">
+      <div class="chart-content" style="margin-top: 80px">
         <div id="chartDevelop"></div>
       </div>
     </div>
@@ -249,7 +249,7 @@ export default {
   .exponent-develop {
     height: 1053px;
     // border: 1px solid #ccc;
-    background: rgba(248, 248, 248, 1);
+    // background: rgba(248, 248, 248, 1);
     margin: 10px auto;
     .content-title {
       font-size: 30px;
@@ -296,6 +296,12 @@ export default {
         height: 100%;
       }
     }
+  }
+  .exponent-integrity{
+    background: #fff;
+  }
+  .exponent-develop{
+    background: #f8f8f8;
   }
 }
 </style>

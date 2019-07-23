@@ -3,12 +3,12 @@
     <div class="banner"></div>
     <div class="search-content">
       <div class="tab-panel">
-        <div @click="changeTab(1)" :class="{tab: true, tabBorder: activeName == 1}">
-          <img src="@/assets/images/search-people.png" alt />
+        <div @click="changeTab(1)" :class="{tab: true, tabBorder: activeName == 1}" style="margin-right: 40px">
+          <img src="@/assets/images/search-company.png" alt />
           <div :class="{'redColor': activeName == 1}">企业</div>
         </div>
         <div @click="changeTab(2)" :class="{tab: true, tabBorder: activeName == 2}">
-          <img src="@/assets/images/search-company.png" alt />
+          <img src="@/assets/images/search-people.png" alt />
           <div :class="{'redColor': activeName == 2}">法定代表人</div>
         </div>
       </div>
@@ -90,11 +90,12 @@ export default {
   }
 }
 .search-content {
+  height: 600px;
   width: 60%;
   margin: auto;
   .tab-panel {
     width: 280px;
-    margin: auto;
+    margin: 60px auto;
     display: flex;
     align-content: center;
     align-items: center;
@@ -129,7 +130,7 @@ export default {
     }
   }
   .input-panel {
-    width: 500px;
+    width: 770px;
     margin: 10px auto;
     display: flex;
     border: 1px solid rgba(224, 224, 224, 1);
@@ -151,6 +152,7 @@ export default {
     img {
       width: 54px;
       height: 64px;
+      margin-bottom: 20px;
     }
   }
   .item-content:hover {

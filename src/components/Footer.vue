@@ -29,7 +29,7 @@
         <div style="margin-bottom: 10px;text-align: left">
           <i class="el-icon-s-home"></i>shuzhilian@unionbigdata.com
         </div>
-        <div style="margin-bottom: 10px;text-align: left">
+        <div style="text-align: left">
           <i class="el-icon-message"></i>
           四川省成都市高新区吉泰五路88号香年广场T3栋5楼
         </div>
@@ -61,9 +61,10 @@ export default {
   background: rgba(69, 60, 60, 1);
   color: #fff;
   font-size: 14px;
+  color: #b2b0b0;
   width: 100%;
   .footer-top {
-    width: 80%;
+    width: 60%;
     margin: auto;
     height: 200px;
     display: flex;
@@ -72,13 +73,16 @@ export default {
     .footer-left {
       width: 60%;
       padding: 30px;
-      text-align: right;
+      // text-align: right;
       display: flex;
+      // width: 200px;
+      // margin-top: 10px;
+      text-align: left;
       div {
         width: 80%;
         margin-top: 10px;
         .content {
-          color: #c8c8c8;
+          color: #b2b0b0;;
         }
       }
     }
@@ -106,7 +110,7 @@ export default {
     font-size: 14px;
     font-family: MicrosoftYaHei;
     font-weight: 400;
-    color: rgba(255, 255, 255, 1);
+    color: #b2b0b0;;
     line-height: 24px;
     margin: 20px auto;
   }
