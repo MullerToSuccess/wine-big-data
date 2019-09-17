@@ -2,11 +2,11 @@
   <div id="accusation">
     <div class="banner"></div>
     <div class="content">
-      <div class="accusation-content" @click="goForm1">
+      <div class="accusation-content" @click="goAccusation">
         <div class="image-content content1"></div>
         <span class="title">消费者举报</span>
       </div>
-      <div class="accusation-content" @click="goForm2">
+      <div class="accusation-content" @click="goAppeal">
         <div class="image-content content2"></div>
         <span class="title">酒企申诉</span>
       </div>
@@ -16,16 +16,16 @@
 
 <script>
 export default {
-  name: "Accusation",
+  name: "AccusationAndAppeal",
   data() {
     return {};
   },
   methods: {
-    goForm1() {
-      this.$router.push({ name: "accusation1" });
+    goAccusation() {
+      this.$router.push({ name: "Accusation" });
     },
-    goForm2() {
-      this.$router.push({ name: "accusation2" });
+    goAppeal() {
+      this.$router.push({ name: "Appeal" });
     }
   }
 };
@@ -35,7 +35,7 @@ export default {
   .banner {
     width: 100%;
     height: 400px;
-    background: url("../assets/images/accusation-bg.png");
+    background: url("../../assets/images/accusation-bg.png");
   }
   .content {
     width: 1200px;
@@ -54,10 +54,10 @@ export default {
         background-size: 100% 100%;
       }
       .content1 {
-        background: url("../assets/images/accusation-1.png");
+        background: url("../../assets/images/accusation-1.png");
       }
       .content2 {
-        background: url("../assets/images/accusation-2.png");
+        background: url("../../assets/images/accusation-2.png");
       }
       .title {
         height: 40px;

@@ -16,7 +16,7 @@
           <ul>
             <li class="newLi" @click="goContent()" v-for="(item1, index1) in news" :key="index1">
               <span class="content-title">{{item1.title}}</span>
-              <span class="content-date">138937人参与</span>
+              <span class="content-date">{{item1.num}}人参与</span>
             </li>
           </ul>
         </div>
@@ -37,8 +37,9 @@
         <div class="news">
           <div class="title">行业突发新闻</div>
           <ul>
-            <li class="newLi" @click="goContent()" v-for="(item1, index1) in news" :key="index1">
+            <li class="newLi" @click="goContent()" v-for="(item1, index1) in news2" :key="index1">
               <span class="content-title">{{item1.title}}</span>
+              <span class="content-date">{{item1.date}}</span>
             </li>
           </ul>
         </div>
@@ -47,7 +48,7 @@
         </div>
       </div>
     </div>
-    <div v-show='activeTab == 2' class="container">
+    <div v-show="activeTab == 2" class="container">
       <div style="width: 90%;margin: -25px auto">
         <img
           style="width:1500px; height: 757px;margin: 20px auto"
@@ -65,46 +66,88 @@ export default {
   data() {
     return {
       activeTab: 1,
+      news2: [
+        {
+          title: "白酒股表现亮眼 11股获机构大比例持有",
+          date: "2019-07-23"
+        },
+        {
+          title: "白酒板块早盘集体下挫 资金不再抱团白酒股？",
+          date: "2019-07-23"
+        },
+        {
+          title: "日本酒对华出口量连年攀升",
+          date: "2019-07-19"
+        },
+        {
+          title: "白酒再掀涨价潮 国窖1573、第八代普五涨价",
+          date: "2019-07-19"
+        },
+        {
+          title: "首届长寿论坛贺州开幕 潘基文及诺奖得主“打卡”寿城",
+          date: "2019-07-13"
+        },
+        {
+          title: "白酒行业业绩继续增长 增速放缓",
+          date: "2019-07-13"
+        },
+        {
+          title: "白酒股开始跌了",
+          date: "2019-07-24"
+        },
+        {
+          title: "都说白酒业景气 今年首现亏损户",
+          date: "2019-07-23"
+        },
+        {
+          title: "茅台业绩放缓对白酒行业意味着什么",
+          date: "2019-07-23"
+        },
+        {
+          title: "白酒基金逆市涨嗨了：周期基金萎靡不振 这可咋整？",
+          date: "2019-07-23"
+        }
+      ],
       news: [
         {
-          title: "怎么从产量看五粮液的稀缺度？",
-          date: "2018-5-12"
+          title: "第八代五粮液，天猫官网1199，值得够买么",
+          num: "138937"
         },
         {
-          title: "怎么从产量看五粮液的稀缺度？",
-          date: "2018-5-12"
+          title: "请问375ml金色瓶（猴）52度五粮液与普五有什么区别？",
+          num: "112389"
         },
         {
-          title: "怎么从产量看五粮液的稀缺度？",
-          date: "2018-5-12"
+          title: "寻找五粮液系列酒五状元",
+          num: "138937"
         },
         {
-          title: "怎么从产量看五粮液的稀缺度？",
-          date: "2018-5-12"
+          title: "五粮液八代上市后，第七代会降价吗？",
+          num: "138937"
         },
         {
-          title: "怎么从产量看五粮液的稀缺度？",
-          date: "2018-5-12"
+          title: "五粮液加盟怎么做？有没有懂的朋友",
+          num: "138937"
         },
         {
-          title: "怎么从产量看五粮液的稀缺度？",
-          date: "2018-5-12"
+          title: "京东拍卖拍了2瓶2017年浓香型五粮液52度500ml，1850元2瓶亏了么",
+          num: "138937"
         },
         {
-          title: "怎么从产量看五粮液的稀缺度？",
-          date: "2018-5-12"
+          title: "2017年的浓香型52度500ml五粮液，值不值钱",
+          num: "138937"
         },
         {
-          title: "怎么从产量看五粮液的稀缺度？",
-          date: "2018-5-12"
+          title: "各位吧友请帮忙估算一一下这版锦绣前程的价格 找了好久没有市场",
+          num: "138937"
         },
         {
-          title: "怎么从产量看五粮液的稀缺度？",
-          date: "2018-5-12"
+          title: "五粮液密鉴（红）求问这款酒价格。 为什么网上搜不到。。？",
+          num: "138937"
         },
         {
-          title: "怎么从产量看五粮液的稀缺度？",
-          date: "2018-5-12"
+          title: "宜宾五粮液公司CIQA定制酒 现在多少钱一瓶？",
+          num: "138937"
         }
       ],
       option: {
@@ -119,7 +162,7 @@ export default {
         legend: {
           orient: "vertical",
           x: "left",
-          data: ["主题1", "主题2", "主题3", "主题4", "主题5"]
+          data: ["微信", "微博", "网易", "今日头条", "腾讯新闻"]
         },
         series: [
           {
@@ -146,11 +189,11 @@ export default {
               }
             },
             data: [
-              { value: 335, name: "主题1" },
-              { value: 310, name: "主题2" },
-              { value: 234, name: "主题3" },
-              { value: 135, name: "主题4" },
-              { value: 1548, name: "主题5" }
+              { value: 1548, name: "微信" },
+              { value: 310, name: "微博" },
+              { value: 234, name: "网易" },
+              { value: 135, name: "今日头条" },
+              { value: 315, name: "腾讯新闻" }
             ]
           }
         ]
@@ -360,10 +403,13 @@ export default {
         background: rgba(255, 255, 255, 1);
         border: 1px solid rgba(204, 209, 223, 1);
         li {
-          padding-right: 40px;
+          padding-right: 10px;
           height: 40px;
           // width: 400px;
           line-height: 40px;
+          .content-title{
+            width: 330px !important;
+          }
         }
       }
       .echart-ditch {
@@ -413,7 +459,7 @@ export default {
         margin-bottom: 20px;
         li {
           height: 40px;
-          padding-right: 40px;
+          padding-right: 10px;
           // width: 400px;
           line-height: 40px;
         }
@@ -438,6 +484,15 @@ export default {
         .content-date {
           margin-left: 30px;
           float: right;
+        }
+        .content-title {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-weight: 400;
+          width: 330px;
+          text-align: left;
+          display: inline-block;
         }
       }
     }

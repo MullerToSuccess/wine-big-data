@@ -44,11 +44,13 @@
                 </div>
                 <div class="right">
                   <span class="right-tip">企业评分与评级</span>
-                  <span><img style="margin-top: 30px" src="../../assets/images/echart-1.png" alt=""></span>
+                  <span>
+                    <img style="margin-top: 30px" src="../../assets/images/echart-1.png" alt />
+                  </span>
                   <span class="name-item contact" @click="goContact">
-                    <img src="../../assets/images/icon-contact.png">
+                    <img src="../../assets/images/icon-contact.png" />
                     <div>关联图谱分析</div>
-                    </span>
+                  </span>
                 </div>
               </div>
               <div class="risk">
@@ -150,159 +152,159 @@
               <div class="title">
                 <div class="tip-gap"></div>行政许可
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="行政许可决定文书"></el-table-column>
-                <el-table-column prop="name" label="审批类别"></el-table-column>
-                <el-table-column prop="name" label="许可内容"></el-table-column>
-                <el-table-column prop="name" label="许可机关"></el-table-column>
-                <el-table-column prop="name" label="许可决定日"></el-table-column>
-                <el-table-column prop="name" label="许可截止日"></el-table-column>
+              <el-table :data="tableData6" style="width: 100%">
+                <el-table-column prop="index" label="序号"></el-table-column>
+                <el-table-column prop="more1" label="行政许可决定文书"></el-table-column>
+                <el-table-column prop="more2" label="审批类别"></el-table-column>
+                <el-table-column prop="more3" label="许可内容"></el-table-column>
+                <el-table-column prop="more4" label="许可机关"></el-table-column>
+                <el-table-column prop="more5" label="许可决定日"></el-table-column>
+                <el-table-column prop="more6" label="许可截止日"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>招标
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="所属行业"></el-table-column>
-                <el-table-column prop="name" label="地区"></el-table-column>
-                <el-table-column prop="name" label="发布日期"></el-table-column>
+              <el-table :data="tableData7" style="width: 100%">
+                <el-table-column prop="name" label="项目名称"></el-table-column>
+                <el-table-column prop="more1" label="所属行业"></el-table-column>
+                <el-table-column prop="more2" label="地区"></el-table-column>
+                <el-table-column prop="more3" label="发布日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>中标
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="项目名称"></el-table-column>
-                <el-table-column prop="name" label="所属行业"></el-table-column>
-                <el-table-column prop="name" label="地区"></el-table-column>
-                <el-table-column prop="name" label="发布日期"></el-table-column>
+              <el-table :data="tableData8" style="width: 100%">
+                <el-table-column prop="more1" label="项目名称"></el-table-column>
+                <el-table-column prop="more2" label="所属行业"></el-table-column>
+                <el-table-column prop="more3" label="地区"></el-table-column>
+                <el-table-column prop="more4" label="发布日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>经营异常
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="列入经营异常目录原因"></el-table-column>
-                <el-table-column prop="name" label="作出决定机关"></el-table-column>
-                <el-table-column prop="name" label="列入日期"></el-table-column>
-                <el-table-column prop="name" label="列出日期"></el-table-column>
+              <el-table :data="tableData9" style="width: 100%">
+                <el-table-column prop="more1" label="序号"></el-table-column>
+                <el-table-column prop="more2" label="列入经营异常目录原因"></el-table-column>
+                <el-table-column prop="more3" label="作出决定机关"></el-table-column>
+                <el-table-column prop="more4" label="列入日期"></el-table-column>
+                <el-table-column prop="more5" label="列出日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>行政处罚
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="文书号"></el-table-column>
-                <el-table-column prop="name" label="违法事实"></el-table-column>
-                <el-table-column prop="name" label="处罚依据"></el-table-column>
-                <el-table-column prop="name" label="处罚机关"></el-table-column>
-                <el-table-column prop="name" label="发布日期"></el-table-column>
+              <el-table :data="tableData10" style="width: 100%">
+                <el-table-column prop="more1" label="序号"></el-table-column>
+                <el-table-column prop="more2" label="文书号"></el-table-column>
+                <el-table-column prop="more3" label="违法事实"></el-table-column>
+                <el-table-column prop="more4" label="处罚依据"></el-table-column>
+                <el-table-column prop="more5" label="处罚机关"></el-table-column>
+                <el-table-column prop="more6" label="发布日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>欠税信息
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="欠税税种"></el-table-column>
-                <el-table-column prop="name" label="欠税金额"></el-table-column>
-                <el-table-column prop="name" label="税务机关"></el-table-column>
-                <el-table-column prop="name" label="当前状态"></el-table-column>
-                <el-table-column prop="name" label="列出日期"></el-table-column>
+              <el-table :data="tableData11" style="width: 100%">
+                <el-table-column prop="more1" label="序号"></el-table-column>
+                <el-table-column prop="more2" label="欠税税种"></el-table-column>
+                <el-table-column prop="more3" label="欠税金额"></el-table-column>
+                <el-table-column prop="more4" label="税务机关"></el-table-column>
+                <el-table-column prop="more5" label="当前状态"></el-table-column>
+                <el-table-column prop="more6" label="列出日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>清算信息
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="债券承接人"></el-table-column>
-                <el-table-column prop="name" label="债务承接人"></el-table-column>
-                <el-table-column prop="name" label="清算组负责人"></el-table-column>
-                <el-table-column prop="name" label="清算完结情况"></el-table-column>
-                <el-table-column prop="name" label="清算完结日期"></el-table-column>
+              <el-table :data="tableData12" style="width: 100%">
+                <el-table-column prop="more1" label="序号"></el-table-column>
+                <el-table-column prop="more2" label="债券承接人"></el-table-column>
+                <el-table-column prop="more3" label="债务承接人"></el-table-column>
+                <el-table-column prop="more4" label="清算组负责人"></el-table-column>
+                <el-table-column prop="more5" label="清算完结情况"></el-table-column>
+                <el-table-column prop="more6" label="清算完结日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>股权冻结
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="冻结文号"></el-table-column>
-                <el-table-column prop="name" label="冻结金额（万元)"></el-table-column>
-                <el-table-column prop="name" label="冻结机关"></el-table-column>
-                <el-table-column prop="name" label="冻结起始日"></el-table-column>
-                <el-table-column prop="name" label="冻结截止日"></el-table-column>
-                <el-table-column prop="name" label="解冻机关"></el-table-column>
-                <el-table-column prop="name" label="解冻日期"></el-table-column>
+              <el-table :data="tableData13" style="width: 100%">
+                <el-table-column prop="more1" label="序号"></el-table-column>
+                <el-table-column prop="more2" label="冻结文号"></el-table-column>
+                <el-table-column prop="more3" label="冻结金额（万元)"></el-table-column>
+                <el-table-column prop="more4" label="冻结机关"></el-table-column>
+                <el-table-column prop="more5" label="冻结起始日"></el-table-column>
+                <el-table-column prop="more6" label="冻结截止日"></el-table-column>
+                <el-table-column prop="more7" label="解冻机关"></el-table-column>
+                <el-table-column prop="more8" label="解冻日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>股权质押
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="登记编号"></el-table-column>
-                <el-table-column prop="name" label="出质人"></el-table-column>
-                <el-table-column prop="name" label="质权人"></el-table-column>
-                <el-table-column prop="name" label="出质金额"></el-table-column>
-                <el-table-column prop="name" label="状态"></el-table-column>
-                <el-table-column prop="name" label="备案日期"></el-table-column>
+              <el-table :data="tableData14" style="width: 100%">
+                <el-table-column prop="more1" label="序号"></el-table-column>
+                <el-table-column prop="more2" label="登记编号"></el-table-column>
+                <el-table-column prop="more3" label="出质人"></el-table-column>
+                <el-table-column prop="more4" label="质权人"></el-table-column>
+                <el-table-column prop="more5" label="出质金额"></el-table-column>
+                <el-table-column prop="more6" label="状态"></el-table-column>
+                <el-table-column prop="more7" label="备案日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
-                <div class="tip-gap"></div>动产抵押
+                <div class="tip-gap"></div>招聘
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="登记编号"></el-table-column>
-                <el-table-column prop="name" label="抵押权人"></el-table-column>
-                <el-table-column prop="name" label="被担保债权数额（万元）"></el-table-column>
-                <el-table-column prop="name" label="被担保主债权种类"></el-table-column>
-                <el-table-column prop="name" label="登记机关"></el-table-column>
-                <el-table-column prop="name" label="登记日期"></el-table-column>
+              <el-table :data="tableData15" style="width: 100%">
+                <el-table-column prop="more1" label="序号"></el-table-column>
+                <el-table-column prop="more2" label="登记编号"></el-table-column>
+                <el-table-column prop="more3" label="抵押权人"></el-table-column>
+                <el-table-column prop="more4" label="被担保债权数额（万元）"></el-table-column>
+                <el-table-column prop="more5" label="被担保主债权种类"></el-table-column>
+                <el-table-column prop="more6" label="登记机关"></el-table-column>
+                <el-table-column prop="more7" label="登记日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
-                <div class="tip-gap"></div>股权质押
+                <div class="tip-gap"></div>
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="登记编号"></el-table-column>
-                <el-table-column prop="name" label="出质人"></el-table-column>
-                <el-table-column prop="name" label="质权人"></el-table-column>
-                <el-table-column prop="name" label="出质金额"></el-table-column>
-                <el-table-column prop="name" label="状态"></el-table-column>
-                <el-table-column prop="name" label="备案日期"></el-table-column>
-              </el-table>
+              <!-- <el-table :data="tableData14" style="width: 100%">
+                <el-table-column prop="more1" label="序号"></el-table-column>
+                <el-table-column prop="more2" label="登记编号"></el-table-column>
+                <el-table-column prop="more3" label="出质人"></el-table-column>
+                <el-table-column prop="more4" label="质权人"></el-table-column>
+                <el-table-column prop="more5" label="出质金额"></el-table-column>
+                <el-table-column prop="more6" label="状态"></el-table-column>
+                <el-table-column prop="more7" label="备案日期"></el-table-column>
+              </el-table> -->
             </div>
             <div class="detail-item">
               <div class="title">
-                <div class="tip-gap"></div>股权质押
+                <div class="tip-gap"></div>
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="登记编号"></el-table-column>
-                <el-table-column prop="name" label="出质人"></el-table-column>
-                <el-table-column prop="name" label="质权人"></el-table-column>
-                <el-table-column prop="name" label="出质金额"></el-table-column>
-                <el-table-column prop="name" label="状态"></el-table-column>
-                <el-table-column prop="name" label="备案日期"></el-table-column>
-              </el-table>
+              <!-- <el-table :data="tableData17" style="width: 100%">
+                <el-table-column prop="more1" label="序号"></el-table-column>
+                <el-table-column prop="more2" label="登记编号"></el-table-column>
+                <el-table-column prop="more3" label="出质人"></el-table-column>
+                <el-table-column prop="more4" label="质权人"></el-table-column>
+                <el-table-column prop="more5" label="出质金额"></el-table-column>
+                <el-table-column prop="more6" label="状态"></el-table-column>
+                <el-table-column prop="more7" label="备案日期"></el-table-column>
+              </el-table> -->
             </div>
           </div>
 
@@ -311,86 +313,74 @@
             <div class="content-name">司法信息</div>
             <div class="detail-item">
               <div class="title">
-                <div class="tip-gap"></div>商标
+                <div class="tip-gap"></div>开庭公告
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="登记编号"></el-table-column>
-                <el-table-column prop="name" label="出质人"></el-table-column>
-                <el-table-column prop="name" label="质权人"></el-table-column>
-                <el-table-column prop="name" label="出质金额"></el-table-column>
-                <el-table-column prop="name" label="状态"></el-table-column>
-                <el-table-column prop="name" label="备案日期"></el-table-column>
+              <el-table :data="tableData16" style="width: 100%">
+                <el-table-column prop="more1" label="案号"></el-table-column>
+                <el-table-column prop="more2" label="当事人"></el-table-column>
+                <el-table-column prop="more3" label="案由"></el-table-column>
+                <el-table-column prop="more4" label="审查法院"></el-table-column>
+                <el-table-column prop="more5" label="开庭日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
-                <div class="tip-gap"></div>商标
+                <div class="tip-gap"></div>法院公告
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="登记编号"></el-table-column>
-                <el-table-column prop="name" label="出质人"></el-table-column>
-                <el-table-column prop="name" label="质权人"></el-table-column>
-                <el-table-column prop="name" label="出质金额"></el-table-column>
-                <el-table-column prop="name" label="状态"></el-table-column>
-                <el-table-column prop="name" label="备案日期"></el-table-column>
+              <el-table :data="tableData17" style="width: 100%">
+                <el-table-column prop="more1" label="公告内容"></el-table-column>
+                <el-table-column prop="more2" label="公告类型"></el-table-column>
+                <el-table-column prop="more3" label="公告人"></el-table-column>
+                <el-table-column prop="more4" label="公告日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
-                <div class="tip-gap"></div>商标
+                <div class="tip-gap"></div>裁判文书
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="登记编号"></el-table-column>
-                <el-table-column prop="name" label="出质人"></el-table-column>
-                <el-table-column prop="name" label="质权人"></el-table-column>
-                <el-table-column prop="name" label="出质金额"></el-table-column>
-                <el-table-column prop="name" label="状态"></el-table-column>
-                <el-table-column prop="name" label="备案日期"></el-table-column>
+              <el-table :data="tableData18" style="width: 100%">
+                <el-table-column prop="more1" label="案号"></el-table-column>
+                <el-table-column prop="more2" label="目标公司在案件中的当事人类型"></el-table-column>
+                <el-table-column prop="more3" label="案件标题"></el-table-column>
+                <el-table-column prop="more4" label="案由"></el-table-column>
+                <el-table-column prop="more5" label="对方当事人"></el-table-column>
+                <el-table-column prop="more6" label="案件结果"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
-                <div class="tip-gap"></div>商标
+                <div class="tip-gap"></div>被执行人
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="登记编号"></el-table-column>
-                <el-table-column prop="name" label="出质人"></el-table-column>
-                <el-table-column prop="name" label="质权人"></el-table-column>
-                <el-table-column prop="name" label="出质金额"></el-table-column>
-                <el-table-column prop="name" label="状态"></el-table-column>
-                <el-table-column prop="name" label="备案日期"></el-table-column>
+              <el-table :data="tableData19" style="width: 100%">
+                <el-table-column prop="more1" label="案号"></el-table-column>
+                <el-table-column prop="more2" label="执行标的"></el-table-column>
+                <el-table-column prop="more3" label="执行法院"></el-table-column>
+                <el-table-column prop="more4" label="状态"></el-table-column>
+                <el-table-column prop="more5" label="立案日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
-                <div class="tip-gap"></div>商标
+                <div class="tip-gap"></div>失信被执行人
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="登记编号"></el-table-column>
-                <el-table-column prop="name" label="出质人"></el-table-column>
-                <el-table-column prop="name" label="质权人"></el-table-column>
-                <el-table-column prop="name" label="出质金额"></el-table-column>
-                <el-table-column prop="name" label="状态"></el-table-column>
-                <el-table-column prop="name" label="备案日期"></el-table-column>
+              <el-table :data="tableData20" style="width: 100%">
+                <el-table-column prop="more1" label="案号"></el-table-column>
+                <el-table-column prop="more2" label="失信被执行人行为具体情形"></el-table-column>
+                <el-table-column prop="more3" label="执行法院"></el-table-column>
+                <el-table-column prop="more4" label="发布日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
-                <div class="tip-gap"></div>商标
+                <div class="tip-gap"></div>司法拍卖
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="登记编号"></el-table-column>
-                <el-table-column prop="name" label="出质人"></el-table-column>
-                <el-table-column prop="name" label="质权人"></el-table-column>
-                <el-table-column prop="name" label="出质金额"></el-table-column>
-                <el-table-column prop="name" label="状态"></el-table-column>
-                <el-table-column prop="name" label="备案日期"></el-table-column>
+              <el-table :data="tableData21" style="width: 100%">
+                <el-table-column prop="more1" label="序号"></el-table-column>
+                <el-table-column prop="more2" label="标题"></el-table-column>
+                <el-table-column prop="more3" label="起拍价"></el-table-column>
+                <el-table-column prop="more4" label="拍卖法院"></el-table-column>
+                <el-table-column prop="more5" label="处置依据"></el-table-column>
+                <el-table-column prop="more6" label="拍卖日期"></el-table-column>
               </el-table>
             </div>
           </div>
@@ -402,42 +392,38 @@
               <div class="title">
                 <div class="tip-gap"></div>专利
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="登记编号"></el-table-column>
-                <el-table-column prop="name" label="出质人"></el-table-column>
-                <el-table-column prop="name" label="质权人"></el-table-column>
-                <el-table-column prop="name" label="出质金额"></el-table-column>
-                <el-table-column prop="name" label="状态"></el-table-column>
-                <el-table-column prop="name" label="备案日期"></el-table-column>
+              <el-table :data="tableData22" style="width: 100%">
+                <el-table-column prop="more1" label="序号"></el-table-column>
+                <el-table-column prop="more2" label="名称"></el-table-column>
+                <el-table-column prop="more3" label="公开号"></el-table-column>
+                <el-table-column prop="more4" label="发明人"></el-table-column>
+                <el-table-column prop="more5" label="公开日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>软件著作权
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="登记编号"></el-table-column>
-                <el-table-column prop="name" label="出质人"></el-table-column>
-                <el-table-column prop="name" label="质权人"></el-table-column>
-                <el-table-column prop="name" label="出质金额"></el-table-column>
-                <el-table-column prop="name" label="状态"></el-table-column>
-                <el-table-column prop="name" label="备案日期"></el-table-column>
+              <el-table :data="tableData23" style="width: 100%">
+                <el-table-column prop="more1" label="序号"></el-table-column>
+                <el-table-column prop="more2" label="名称"></el-table-column>
+                <el-table-column prop="more3" label="登记号"></el-table-column>
+                <el-table-column prop="more4" label="分类号"></el-table-column>
+                <el-table-column prop="more5" label="版本号"></el-table-column>
+                <el-table-column prop="more6" label="登记日期"></el-table-column>
               </el-table>
             </div>
             <div class="detail-item">
               <div class="title">
                 <div class="tip-gap"></div>商标
               </div>
-              <el-table :data="tableData" style="width: 100%">
-                <el-table-column prop="date" label="序号"></el-table-column>
-                <el-table-column prop="name" label="登记编号"></el-table-column>
-                <el-table-column prop="name" label="出质人"></el-table-column>
-                <el-table-column prop="name" label="质权人"></el-table-column>
-                <el-table-column prop="name" label="出质金额"></el-table-column>
-                <el-table-column prop="name" label="状态"></el-table-column>
-                <el-table-column prop="name" label="备案日期"></el-table-column>
+              <el-table :data="tableData24" style="width: 100%">
+                <el-table-column prop="more1" label="序号"></el-table-column>
+                <el-table-column prop="more2" label="商标"></el-table-column>
+                <el-table-column prop="more3" label="名称"></el-table-column>
+                <el-table-column prop="more4" label="注册号"></el-table-column>
+                <el-table-column prop="more5" label="类别"></el-table-column>
+                <el-table-column prop="more6" label="申请日期"></el-table-column>
               </el-table>
             </div>
           </div>
@@ -678,8 +664,18 @@ export default {
         { name: "邱萍对", date: "监事" }
       ],
       tableData3: [
-        { name: "四川省宜宾五粮液酒厂", address:'宜宾市岷江西路150号', date: "王国春", index:1},
-        { name: "四川省宜宾五粮液供销有限公司", address:'四川省宜宾市岷江西路150号', date: "李曙光", index: 2},
+        {
+          name: "四川省宜宾五粮液酒厂",
+          address: "宜宾市岷江西路150号",
+          date: "王国春",
+          index: 1
+        },
+        {
+          name: "四川省宜宾五粮液供销有限公司",
+          address: "四川省宜宾市岷江西路150号",
+          date: "李曙光",
+          index: 2
+        }
       ],
       tableData4: [
         { name: "宜宾五粮液创艺酒产业有限公司", date: "2015-01-19" },
@@ -687,8 +683,245 @@ export default {
         { name: "河南五谷春酒业股份有限公司", date: "2014-11-28" }
       ],
       tableData5: [
-        { name: "五粮液集团有限公司", more1: "进出口贸易" , index: 1, more2:'中国香港', more3:'2018/7/5'}
+        {
+          name: "五粮液集团有限公司",
+          more1: "进出口贸易",
+          index: 1,
+          more2: "中国香港",
+          more3: "2018/7/5"
+        }
       ],
+      tableData6: [
+        {
+          index: 1,
+          more1: "(京)字第00208号",
+          more2: "食品经营许可证",
+          more3: "--",
+          more4: "变更",
+          more5: "成都市食品药品监督管理局",
+          more6: "2017/10/17",
+          more7: "2022/10/16"
+        }
+      ],
+      tableData7: [
+        {
+          name:
+            "宜宾五粮液股份有限公司质量检测中心CNAS实验室改造及配套设备采购项目—实验室改造比选公告",
+          more1: "--",
+          more2: "四川省",
+          more3: "2019/6/12"
+        }
+      ],
+      tableData8: [
+        {
+          more1:
+            "四川省旅游局信息中心旅游大数据分析平台服务采购项目单一来源结果公告",
+          more2: "网络设备",
+          more3: "四川省",
+          more4: "2017/7/28"
+        },
+        {
+          more1:
+            "四川省成都市金融工作办公室成都市防范非法集资大数据监测预警系统建设采购项目（二次）公开招标结果公告",
+          more2: "--",
+          more3: "四川省",
+          more4: "2017/7/28"
+        },
+        {
+          more1:
+            "四川省旅游信息中心四川旅游大数据分析平台建设项目公开招标结果公告",
+          more2: "--",
+          more3: "四川省",
+          more4: "2017/7/28"
+        },
+        {
+          more1:
+            "四川省旅游信息中心四川旅游大数据分析平台建设项目公开招标结果公告",
+          more2: "标签、标牌",
+          more3: "四川省",
+          more4: "2017/7/28"
+        }
+      ],
+      tableData9: [
+        {
+          more1: "1",
+          more2: "通过登记的住所或者经营场所无法联系的",
+          more3: "北京市工商行政管理局朝阳分局",
+          more4: "2018/10/8",
+          more5: "2018/10/8"
+        }
+      ],
+      tableData10: [
+        {
+          more1: "1",
+          more2: "(德阳)应急罚〔2019〕15号",
+          more3:
+            "违反了《中华人民共和国安全生产法》第二十二条第二、五、六项和《四川省安全生产条例》第四条的规定",
+          more4:
+            "依据《四川省安全生产条例》第七十八条第一款第（三）项的规定，决定给予罚款人民币20000.00元（大写：贰万元整）的行政处罚",
+          more5: "成都市食品药品监督管理局",
+          more6: "2018/10/8"
+        }
+      ],
+      tableData11: [
+        {
+          more1: "1",
+          more2: "增值税",
+          more3: "6540826.14",
+          more4: "国家税务总局",
+          more5: "未结清",
+          more6: "2018/10/8"
+        }
+      ],
+      tableData12: [
+        {
+          more1: "1",
+          more2: "张清林",
+          more3: "刘东红",
+          more4: "童剑波",
+          more5: "处理中",
+          more6: "2018/10/8"
+        }
+      ],
+      tableData13: [
+        {
+          more1: "1",
+          more2: "Edrc47564",
+          more3: "500",
+          more4: "成都市锦江区人民法院",
+          more5: "2018/10/8",
+          more6: "2018/10/8",
+          more7: "--",
+          more8: "--"
+        }
+      ],
+      tableData14: [
+        {
+          more1: "1",
+          more2: "登字（2017）第9号",
+          more3: "叶卿",
+          more4: "证券股份有限公司",
+          more5: "4500",
+          more6: "--",
+          more7: "2018/10/8"
+        }
+      ],
+      tableData15: [
+        {
+          more1: "1",
+          more2: "登字（2017）第9号",
+          more3: "中国农业银行",
+          more4: "1000",
+          more5: "流动资金贷款",
+          more6: "成都市工商行政管理局",
+          more7: "2018/10/8"
+        }
+      ],
+      //司法信息
+      tableData16: [
+        {
+          more1: "（2017）沪民初24号",
+          more2: "宜宾五粮液股份有限公司;栾川县城关镇永昌副食门市部",
+          more3: "侵害商标权纠纷",
+          more4: "洛阳市中级人民法院",
+          more5: "2019-07-19"
+        }
+      ],
+      tableData17: [
+        {
+          more1: "张宜妹：本院受理宜宾五粮液股份有限公司诉张宜妹侵害商标权纠纷",
+          more2: "起诉状副本及开庭传票",
+          more3: "南京铁路运输法院",
+          more4: "2017-10-29"
+        }
+      ],
+      tableData18: [
+        {
+          more1: "（2018）湘0521执恢55号",
+          more2: "原告",
+          more3:
+            "宜宾五粮液股份有限公司、邵东县两市镇和天下名烟名酒酒店知识产权",
+          more4: "知识产权权属、侵权纠纷",
+          more5: "邵东县两市镇和天下名烟名酒酒店",
+          more6: "执行终结"
+        }
+      ],
+      tableData19: [
+        {
+          more1: "（2016）浙0381执1267号",
+          more2: "--",
+          more3: "瑞安市人民法院",
+          more4: "审理中",
+          more5: "2016-03-01"
+        }
+      ],
+      tableData20: [
+        {
+          more1: "（2018）苏0115执4822号",
+          more2: "有履行能力而拒不履行生效法律文书确定义务",
+          more3: "南京市江宁区人民法院",
+          more4: "2018-10-17"
+        },
+        {
+          more1: "（2018）京03执670号",
+          more2: "提出强制执行申请且被法院受理的执行案件",
+          more3: "北京市第三中级人民法院",
+          more4: "--"
+        }
+      ],
+      tableData21: [
+        {
+          more1: "1",
+          more2: "赤水市人民法院关于吴洪所有的19瓶扣押酒（第一次拍卖）的公告",
+          more3: "490,000",
+          more4: "成都市人民法院",
+          more5: "司法裁定",
+          more6: "2016-03-01"
+        }
+      ],
+      //产品信息
+      tableData22: [
+        {
+          more1: "1",
+          more2: "包装盒（五粮液10-礼盒装181）",
+          more3: "CN305135029S",
+          more4: "徐涛;梁盛华;罗璇;毛光富;漆雯;黎才科",
+          more5: "2019-04-30"
+        },{
+          more1: "2",
+          more2: "酒瓶（圣酒-佳品套装181）",
+          more3: "CN305134930S",
+          more4: "徐涛;罗玉龙;曾芸;李威贤;黄廿",
+          more5: "2019-04-30"
+        }
+      ],
+      tableData23:[
+        {
+          more1: "1",
+          more2: "五粮液营销地图系统",
+          more3: "2017SR36416",
+          more4: "30200-0000",
+          more5: "v2.0",
+          more6: '2019-04-30'
+        }
+      ],
+      tableData24:[
+        {
+          more1: "1",
+          more2: "--",
+          more3: "习香国色",
+          more4: "26493073",
+          more5: "33-酒精饮料",
+          more6: '2017-09-19'
+        },{
+          more1: "2",
+          more2: "--",
+          more3: "习酒臻品",
+          more4: "26496197",
+          more5: "33-酒精饮料",
+          more6: '2017-09-19'
+        }
+      ]
     };
   },
   mounted() {
@@ -955,7 +1188,7 @@ export default {
             align-items: center;
             // text-align: center;
             // margin: auto;
-            img{
+            img {
               margin-left: 20px;
               margin-right: 2px;
             }

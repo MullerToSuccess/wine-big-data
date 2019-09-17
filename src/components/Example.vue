@@ -14,7 +14,7 @@
         </div>
       </div>
       <el-table :data="tableData" style="width: 100%" @row-click="clickBusiness">
-        <el-table-column label type="index" show-overflow-tooltip width="100">
+        <el-table-column label="序号" type="index" show-overflow-tooltip width="100">
           <template slot-scope="scope">
             <img
               v-if="scope.row.rank == 1"
@@ -55,12 +55,12 @@
       </div>
       <div class="tab2-content-item">
         <div class="item-aim" v-for="(item, index) in aims" :key="index" @click="clickBoss">
-          <img src="@/assets/images/boss.png" style="width: 125px;height: 125px" />
+          <img :src="item.src" style="width: 125px;height: 125px;border-radius:50%"/>
           <div>
             <span class="item-name">{{ item.name }}</span>
-            <span>/ 副总裁</span>
+            <span>{{item.content}}</span>
           </div>
-          <div class="item-content">宜宾五粮液股份有限公司</div>
+          <div class="item-content">{{item.company}}</div>
         </div>
       </div>
     </div>
@@ -76,7 +76,7 @@
           <img src="../assets/images/line-red.png" />
         </div>
       </div>
-      <el-table :data="tableData" style="width: 100%" @row-click="clickGoods">
+      <el-table :data="tableData3" style="width: 100%" @row-click="clickGoods">
         <el-table-column label type="index" show-overflow-tooltip width="100">
           <template slot-scope="scope">
             <img
@@ -118,13 +118,14 @@
       </div>
       <div class="tab4-content-item">
         <div class="item-aim" v-for="(item, index) in wines" :key="index" @click="clickQuality">
-          <img style="width:100%;height: 180px" src="@/assets/images/wine-icon.png" />
+          <img style="width:100%;height: 180px" :src="item.src" />
           <div class="item-name" style="margin-top: 20px">
-            <span style="float: left; margin-left: 20px;">52度五粮国宾酒精品500ml</span>
-            <span style="float:right;margin-right:20px;color: #c8c8c8;">酱香型</span>
+            <span style="float: left; margin-left: 20px;">{{ item.name }}</span>
+            <span style="float:right;margin-right:20px;color: #c8c8c8;">{{ item.type }}</span>
           </div>
+          <br />
           <div class="item-content">
-            <span style="float: left; margin-left: 20px;">宜宾五粮液股份有限公司</span>
+            <span style="float: left; margin-left: 20px;">{{ item.company}}</span>
           </div>
         </div>
       </div>
@@ -178,6 +179,25 @@
   </div>
 </template>
 <script>
+// 引入图片（从后台来的静态图片路径）
+import boss1 from '../assets/images/boss-1.jpg';
+import boss2 from '../assets/images/boss-2.jpg';
+import boss3 from '../assets/images/boss-3.jpg';
+import boss4 from '../assets/images/boss-4.jpg';
+import boss5 from '../assets/images/boss-5.jpg';
+import boss6 from '../assets/images/boss-6.jpg';
+import boss7 from '../assets/images/boss-7.jpg';
+import boss8 from '../assets/images/boss8.png';
+import boss9 from '../assets/images/boss9.png';
+import boss10 from '../assets/images/boss10.png';
+
+import wine1 from '../assets/images/001.png';
+import wine2 from '../assets/images/002.png';
+import wine3 from '../assets/images/003.png';
+import wine4 from '../assets/images/004.png';
+import wine5 from '../assets/images/005.png';
+import wine6 from '../assets/images/006.png';
+
 function ZoomControl() {
   // 设置默认停靠位置和偏移量
   this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
@@ -208,134 +228,247 @@ export default {
       ],
       tableData: [
         {
-          date: "宜宾五粮液股份有限公司",
-          name: "宜宾五粮液股份有限公司",
-          address: "四川省宜宾市",
+          date: "",
+          name: "中国贵州茅台酒厂有限责任公司",
+          address: "贵州省",
           code: "913502063028548455",
           grade: "AAA",
-          number: "201907601100062",
+          number: "520000000068409",
           rank: 1
         },
         {
-          date: "宜宾五粮液股份有限公司",
-          name: "宜宾五粮液股份有限公司",
-          address: "四川省宜宾市",
-          code: "913502063028548455",
+          date: "",
+          name: "五粮液集团有限公司",
+          address: "四川省",
+          code: "91511500709066998M",
           grade: "AAA",
-          number: "201907601100062",
+          number: "511500000052322",
           rank: 2
         },
         {
-          date: "宜宾五粮液股份有限公司",
-          name: "宜宾五粮液股份有限公司",
-          address: "四川省宜宾市",
-          code: "913502063028548455",
+          date: "",
+          name: "江西李渡酒业有限公司",
+          address: "江西省",
+          code: "91360100736364018D",
           grade: "AAA",
-          number: "201907601100062",
+          number: "360100520001805",
           rank: 3
         },
         {
-          date: "宜宾五粮液股份有限公司",
-          name: "宜宾五粮液股份有限公司",
-          address: "四川省宜宾市",
+          date: "",
+          name: "山西汾酒股份有限公司",
+          address: "山西省",
+          code: "911400001123599660",
+          grade: "AAA",
+          number: "140000100028286",
+          rank: 4
+        },{
+          date: "",
+          name: "泸州老窖集团有限责任公司",
+          address: "四川省",
+          code: "91510500723203346U",
+          grade: "AAA",
+          number: "510500000001710",
+          rank: 5
+        },{
+          date: "",
+          name: "陕西省凤翔县西凤酒厂",
+          address: "陕西省",
+          code: "91610300221307065G",
+          grade: "AAA",
+          number: "610300000002229",
+          rank: 6
+        }
+        // ,{
+        //   date: "",
+        //   name: "四川剑南春集团有限责任公司",
+        //   address: "四川省",
+        //   code: "915106837175377539",
+        //   grade: "AAA",
+        //   number: "510683000001409",
+        //   rank: 7
+        // }
+      ],
+
+      tableData3: [
+        {
+          date: "",
+          name: "成都市宏森文富酒业有限公司",
+          address: "四川省",
           code: "913502063028548455",
           grade: "AAA",
-          number: "201907601100062",
-          rank: 4
+          number: "520000000068409",
+          rank: 1
         },
         {
-          date: "宜宾五粮液股份有限公司",
-          name: "宜宾五粮液股份有限公司",
-          address: "四川省宜宾市",
-          code: "913502063028548455",
+          date: "",
+          name: "成都弘基进出口贸易发展有限公司",
+          address: "四川省",
+          code: "91511500709066998M",
           grade: "AAA",
-          number: "201907601100062",
+          number: "511500000052322",
+          rank: 2
+        },
+        {
+          date: "",
+          name: "成都宏兴金果子商贸有限公司",
+          address: "四川省",
+          code: "91360100736364018D",
+          grade: "AAA",
+          number: "360100520001805",
+          rank: 3
+        },
+        {
+          date: "",
+          name: "宜宾市开元酒业有限责任公司(简阳店)",
+          address: "四川省",
+          code: "911400001123599660",
+          grade: "AAA",
+          number: "140000100028286",
+          rank: 4
+        },{
+          date: "",
+          name: "四川省广安市糖酒有限责任公司",
+          address: "四川省",
+          code: "91510500723203346U",
+          grade: "AAA",
+          number: "510500000001710",
           rank: 5
+        },{
+          date: "",
+          name: "阆中市瑞峰酒业有限公司（专）",
+          address: "四川省",
+          code: "91610300221307065G",
+          grade: "AAA",
+          number: "610300000002229",
+          rank: 6
+        },{
+          date: "",
+          name: "阆中市瑞峰酒业有限公司（旗）",
+          address: "四川省",
+          code: "91610300221355065G",
+          grade: "AAA",
+          number: "610300088002229",
+          rank: 7
+        },{
+          date: "",
+          name: "仪陇县新政镇宇弘食品经营部",
+          address: "四川省",
+          code: "91610300221388065G",
+          grade: "AAA",
+          number: "610300000006629",
+          rank: 8
+        },{
+          date: "",
+          name: "南部县昌平酒业有限公司",
+          address: "四川省",
+          code: "91610300221366065G",
+          grade: "AAA",
+          number: "610300000002449",
+          rank: 9
+        },{
+          date: "",
+          name: "南充市三名酒业有限公司（南充专卖店）",
+          address: "四川省",
+          code: "916103002213070887",
+          grade: "AAA",
+          number: "610300000003339",
+          rank: 10
         }
       ],
       wines: [
         {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
+          src: wine1,
+          name: "五粮液 53%vol 500ml",
+          type: "浓香",
+          company:'五粮液集团有限公司'
+        },{
+          src: wine2,
+          name: "五粮液 53%vol 500ml",
+          type: "浓香",
+          company:'五粮液集团有限公司'
         },
         {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
-        },
-        {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
-        },
-        {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
-        },
-        {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
-        },
-        {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
+          src: wine3,
+          name: "五粮液  52%vol  500ml ",
+          type: "浓香",
+          company:'五粮液集团有限公司'
+        },{
+          src: wine4,
+          name: "五粮液	50%vol	500ml",
+          type: "浓香",
+          company:'五粮液集团有限公司'
+        },{
+          src: wine5,
+          name: "龙元素 52% 500ml",
+          type: "浓香",
+          company:'五粮液集团有限公司'
+        },{
+          src: wine6,
+          name: "五粮液 52度 500ml单瓶装",
+          type: "浓香",
+          company:'五粮液集团有限公司'
         }
       ],
       aims: [
         {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
+          src: boss1,
+          name: "李保芳",
+          content: "董事长/总经理",
+          company: '中国贵州茅台酒厂有限责任公司'
+        },
+        {  
+          src: boss2,
+          name: "李曙光",
+          content: "董事长",
+          company: '五粮液集团有限公司'
+        },
+        {  
+          src: boss3,
+          name: "谭忠豹",
+          content: "董事长",
+          company: '山西汾酒股份有限公司'
         },
         {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
+          src: boss4,
+          name: "张良",
+          content: "董事长",
+          company:'泸州老窖集团有限责任公司'
+        },{
+          src: boss5,
+          name: "乔天明",
+          content: "董事长",
+          company:'四川剑南春集团有限责任公司'
+        },{
+          src: boss6,
+          name: "梁金辉",
+          content: "董事长",
+          company:'安徽古井贡酒股份有限公司'
+        },{
+          src: boss7,
+          name: "周洪江",
+          content: "董事长",
+          company:'烟台张裕集团有限公司'
         },
         {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
+          src: boss8,
+          name: "梁金辉",
+          content: "董事长",
+          company:'古井贡酒股份有限公司'
         },
         {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
+          src: boss9,
+          name: "汪俊林",
+          content: "董事长",
+          company:'郎酒集团有限公司'
         },
         {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
+          src: boss10,
+          name: "陶石泉",
+          content: "董事长",
+          company:'江小白酒业股份有限公司'
         },
-        {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
-        },
-        {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
-        },
-        {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
-        },
-        {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
-        },
-        {
-          src: "@/assets/images/wine-icon.png",
-          name: "尹雪涛",
-          content: "副总裁"
-        }
+        
       ]
     };
   },
@@ -453,6 +586,7 @@ export default {
   .content-3 {
     width: 80%;
     padding-top: 20px;
+    height: 780px;
   }
   .content-4 {
     height: 840px;

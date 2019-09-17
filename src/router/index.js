@@ -38,6 +38,13 @@ const Supervision = resolve => {
   })
 }
 
+
+const supervisionDetail = resolve => {
+  import("@/components/details/supervisionDetail").then(module => {
+    resolve(module)
+  })
+}
+
 const Example = resolve => {
   import("@/components/Example").then(module => {
     resolve(module)
@@ -51,13 +58,13 @@ const Search = resolve => {
 }
 
 const Declare = resolve => {
-  import("@/components/Declare").then(module => {
+  import("@/pages/declare/index").then(module => {
     resolve(module)
   })
 }
 
-const Accusation = resolve => {
-  import("@/components/Accusation").then(module => {
+const AccusationAndAppeal = resolve => {
+  import("@/pages/AccusationAndAppeal/index").then(module => {
     resolve(module)
   })
 }
@@ -69,7 +76,7 @@ const HotSpot = resolve => {
 }
 
 const Science = resolve => {
-  import("@/components/Science").then(module => {
+  import("@/pages/science/index").then(module => {
     resolve(module)
   })
 }
@@ -114,6 +121,12 @@ const integrityDetail = resolve => {
   })
 }
 
+const ScienceDetail =  resolve => {
+  import("@/components/details/ScienceDetail").then(module => {
+    resolve(module)
+  })
+}
+
 const bussinessDetail = resolve => {
   import("@/components/details/bussinessDetail").then(module => {
     resolve(module)
@@ -138,42 +151,57 @@ const goodsDetail = resolve => {
   })
 }
 
-const form = resolve => {
-  import("@/components/common/form").then(module => {
-    resolve(module)
-  })
-}
-const form2= resolve => {
-  import("@/components/common/form2").then(module => {
-    resolve(module)
-  })
-}
-const form3 = resolve => {
-  import("@/components/common/form3").then(module => {
-    resolve(module)
-  })
-}
-const form4 = resolve => {
-  import("@/components/common/form4").then(module => {
+const accusationDetail = resolve => {
+  import("@/components/details/accusationDetail").then(module => {
     resolve(module)
   })
 }
 
-const form5 = resolve => {
-  import("@/components/common/form5").then(module => {
+/* 资质填报 */
+const QualificationForm = resolve => {
+  import("@/pages/declare/qualificationForm").then(module => {
+    resolve(module)
+  })
+}
+/* 奖励填报 */
+const PrizeForm= resolve => {
+  import("@/pages/declare/PrizeForm").then(module => {
+    resolve(module)
+  })
+}
+/* 财务数据填报 */
+const FinanceForm = resolve => {
+  import("@/pages/declare/FinanceForm").then(module => {
+    resolve(module)
+  })
+}
+/* 管理数据填报 */
+const ManagementForm = resolve => {
+  import("@/pages/declare/managementForm").then(module => {
+    resolve(module)
+  })
+}
+/* 酒企申述 */
+const AppealForm = resolve => {
+  import("@/pages/accusationAndAppeal/appealForm").then(module => {
+    resolve(module)
+  })
+}
+const AccusationForm = resolve => {
+  import("@/pages/accusationAndAppeal/accusationForm").then(module => {
     resolve(module)
   })
 }
 // 酒企申述
 
-const accusation1 = resolve => {
-  import("@/components/common/accusation1").then(module => {
+const Accusation = resolve => {
+  import("@/pages/accusationAndAppeal/accusation").then(module => {
     resolve(module)
   })
 }
 
-const accusation2 = resolve => {
-  import("@/components/common/accusation2").then(module => {
+const Appeal = resolve => {
+  import("@/pages/accusationAndAppeal/Appeal").then(module => {
     resolve(module)
   })
 }
@@ -217,6 +245,11 @@ export default new Router({
           component: Supervision
         },
         {
+          path: "/supervision/supervisionDetail",
+          name: "supervisionDetail",
+          component: supervisionDetail
+        },
+        {
           path: "/example",
           name: "Example",
           component: Example
@@ -239,49 +272,60 @@ export default new Router({
           // ]
         },
         {
-          path: "/declare",
+          path: "/Declare",
           name: "Declare",
           component: Declare
         },
         {
-          path: "/declare/form",
-          name: "form",
-          component: form
+          path: "/Declare/QualificationForm",
+          name: "QualificationForm",
+          component: QualificationForm
         },
         {
-          path: "/declare/form2",
-          name: "form2",
-          component: form2
+          path: "/Declare/PrizeForm",
+          name: "PrizeForm",
+          component: PrizeForm
         },
         {
-          path: "/declare/form3",
-          name: "form3",
-          component: form3
+          path: "/Declare/FinanceForm",
+          name: "FinanceForm",
+          component: FinanceForm
         },
         {
-          path: "/declare/form4",
-          name: "form4",
-          component: form4
+          path: "/Declare/ManagementForm",
+          name: "ManagementForm",
+          component: ManagementForm
         },
         {
-          path: "/declare/form5",
-          name: "form5",
-          component: form5
+          path: "/AccusationAndAppeal/Appeal/AccusationForm",
+          name: "AccusationForm",
+          component: AccusationForm
         },
         {
-          path: "/accusation",
+          path: "/AccusationAndAppeal/Appeal/AppealForm",
+          name: "AppealForm",
+          component: AppealForm
+        },
+        {
+          path: "/AccusationAndAppeal",
+          name: "AccusationAndAppeal",
+          component: AccusationAndAppeal
+        },
+        {
+          path: "/AccusationAndAppeal/Accusation",
           name: "Accusation",
           component: Accusation
         },
         {
-          path: "/accusation/accusation1",
-          name: "accusation1",
-          component: accusation1
+          path: "/AccusationAndAppeal/Appeal",
+          name: "Appeal",
+          component: Appeal
         },
         {
-          path: "/accusation/accusation2",
-          name: "accusation2",
-          component: accusation2
+          
+          path: "/accusation/accusationDetail",
+          name: "accusationDetail",
+          component: accusationDetail
         },
         {
           path: "/hotSpot",
@@ -289,7 +333,7 @@ export default new Router({
           component: HotSpot
         },
         {
-          path: "/science",
+          path: "/Science",
           name: "Science",
           component: Science
         },
@@ -328,6 +372,11 @@ export default new Router({
           path: "/search/integrityDetail",
           name: "integrityDetail",
           component: integrityDetail
+        },
+        {
+          path: "/Science/ScienceDetail",
+          name: "ScienceDetail",
+          component: ScienceDetail
         },
         {
           path: "/search/integrityDetail/contact",

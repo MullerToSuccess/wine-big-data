@@ -1,5 +1,30 @@
 <template>
-  <div class="content">
+  <div class="content" @mouseenter='hover2'>
+    <!-- v-show="document.body.scrollTop" -->
+    <div class="float-more" v-show="show2">
+      <div @click="hover4" class="close-btn" style="margin-top: 25px;margin-left:260px">关闭</div>
+    </div>
+    <div class="float-info" v-show="show1" @mouseleave='hover2'>
+      <div><img src="@/assets/images/info-1.png" alt=""> <a @click="hover3">在线答疑</a></div>
+      <div><img src="@/assets/images/info-2.png" alt="">联系电话：4008-777-818</div>
+      <div><img src="@/assets/images/info-3.png" alt="">电子邮箱：123456@qq.com</div>
+    </div>
+    <div class="float-top">
+      <div class="top" @mouseenter='hover1'>
+        <div class="top-bg"></div>
+        <!-- <img :src="src1" alt style="margin-top:10px" /> -->
+        <div style="text-align: center;margin-top:15px">
+          <span>联系</span>
+          <br />
+          <span>我们</span>
+        </div>
+      </div>
+      <div class="bottom" @click="toTop" @mouseenter='hover2'>
+        <div class="bottom-bg"></div>
+        <br />
+        <span>顶部</span>
+      </div>
+    </div>
     <swiper
       class="header-swiper"
       :options="swiperOption"
@@ -196,8 +221,8 @@
           <div class="text-item">
             <div class="top">C级</div>
             <div class="grade">CCC 诚信风险较高</div>
-            <div class="grade">CC 诚信水平很高</div>
-            <div class="grade">C 诚信水平极强</div>
+            <div class="grade">CC 诚信风险很高</div>
+            <div class="grade">C 诚信风险极高</div>
           </div>
         </div>
         <div
@@ -207,7 +232,7 @@
       <div class="content-tab-text" v-show="checkTab == 1">
         <div class="title">酒企评价维度</div>
         <div class="text-content" style="margin-top: 50px;">
-          <div class="text-item text-item2" >
+          <div class="text-item text-item2">
             <div class="top">
               <div>
                 <div style="text-align: center">企业资质</div>
@@ -311,9 +336,13 @@ background:rgba(255,255,255,1);margin:auto"></div>
         <div
           style="height: 460px; border:1px solid #ccc;margin-right:10px;border:1px solid rgba(224,224,224,1);"
         >
-          <div @click="goNews()" style="text-align: center; height: 170px;line-height: 170px" class="content content-1">——&nbsp;部委诚信新闻&nbsp;——</div>
+          <div
+            @click="goNews()"
+            style="text-align: center; height: 170px;line-height: 170px"
+            class="content content-1"
+          >——&nbsp;部委诚信新闻&nbsp;——</div>
           <ul>
-            <li @click="goDetail(item1)" v-for="(item1, index1) in dynamic[0].news" :key="index1">
+            <li @click="goDetail(item1)" v-for="(item1, index1) in news1" :key="index1">
               <span class="content-title-1">{{item1.title}}</span>
               <span class="content-date">{{ item1.date}}</span>
             </li>
@@ -322,18 +351,28 @@ background:rgba(255,255,255,1);margin:auto"></div>
         <div
           style="height: 460px; border:1px solid #ccc;margin:0 10px;border:1px solid rgba(224,224,224,1);"
         >
-          <div @click="goNews()" style="text-align: center;height: 170px;line-height: 170px" class="content content-2">——&nbsp;协会诚信资讯&nbsp;——</div>
+          <div
+            @click="goNews()"
+            style="text-align: center;height: 170px;line-height: 170px"
+            class="content content-2"
+          >——&nbsp;协会诚信资讯&nbsp;——</div>
           <ul>
-            <li @click="goDetail(item1)" v-for="(item1, index1) in dynamic[0].news" :key="index1">
+            <li @click="goDetail(item1)" v-for="(item1, index1) in news2" :key="index1">
               <span class="content-title-1">{{item1.title}}</span>
               <span class="content-date">{{ item1.date}}</span>
             </li>
           </ul>
         </div>
-        <div @click="goNews()" style="height: 460px; border:1px solid #ccc;border:1px solid rgba(224,224,224,1);">
-          <div style="text-align: center;height: 170px;line-height: 170px" class="content content-3">——&nbsp;地方诚信动态&nbsp;——</div>
+        <div
+          @click="goNews()"
+          style="height: 460px; border:1px solid #ccc;border:1px solid rgba(224,224,224,1);"
+        >
+          <div
+            style="text-align: center;height: 170px;line-height: 170px"
+            class="content content-3"
+          >——&nbsp;地方诚信动态&nbsp;——</div>
           <ul>
-            <li @click="goDetail(item1)" v-for="(item1, index1) in dynamic[0].news" :key="index1">
+            <li @click="goDetail(item1)" v-for="(item1, index1) in news3" :key="index1">
               <span class="content-title-1">{{item1.title}}</span>
               <span class="content-date">{{ item1.date}}</span>
             </li>
@@ -345,10 +384,21 @@ background:rgba(255,255,255,1);margin:auto"></div>
 </template>
 
 <script>
+import src1 from "@/assets/images/con-2.png";
+import src2 from "@/assets/images/con-1.png";
+import src3 from "@/assets/images/top-1.png";
+import src4 from "@/assets/images/top-2.png";
+import { mapMutations } from 'vuex';
 export default {
   name: "SystemSurvey",
   data() {
     return {
+      src1: src1,
+      src2: src2,
+      src3: src3,
+      src4: src4,
+      show1: false,
+      show2: false,
       swiperOption: {
         pagination: {
           el: ".swiper-pagination",
@@ -414,6 +464,112 @@ export default {
       ],
       tabPosition: "top",
       checkTab: 0,
+      news1: [
+        {
+          title: "国家市场监督管理总局成立",
+          date: "2018-03-26"
+        },
+        {
+          title: "国家食药监总局：重点整治农村市场“傍名牌食品”“山寨食品",
+          date: "2018-03-22"
+        },
+        {
+          title: "食药监总局有关负责人解读“史上最严奶粉政策”",
+          date: "2018-03-19"
+        },
+        {
+          title: "工商总局及时部署查处“3·15”晚会曝光有关案例",
+          date: "2018-03-19"
+        },
+        {
+          title:
+            "国家食品药品监督管理总局公布10起食品保健食品欺诈和虚假宣传典型案例",
+          date: "2018-03-15"
+        },
+        {
+          title: "通过科普宣传释放食品安全“正能量”",
+          date: "2018-03-02"
+        },
+        {
+          title:
+            "工信部批准发布《婴幼儿配方乳粉行业产品质量安全追溯体系规范》等154项行业标准",
+          date: "2018-02-28"
+        },
+        {
+          title:
+            "食品药品监管总局 公安部联合印发通知 严格落实食品药品违法行为处罚到人",
+          date: "2018-01-26"
+        }
+      ],
+      news2: [
+        {
+          title: "中国青稞酒研究院在青海互助成立",
+          date: "2019-07-18"
+        },
+        {
+          title: "中酒协党支部开展“不忘初心，牢记使命”主题党日活动",
+          date: "2019-07-02"
+        },
+        {
+          title: "老酒大阅兵，24000瓶名酒接受专家检验”",
+          date: "2019-07-08"
+        },
+        {
+          title: "同心同行，中国酒业协会工会组织开展“奥森健步行”活动",
+          date: "2019-05-08"
+        },
+        {
+          title: "制定陈年白酒鉴定标准 积极推进酒业诚信体系建设",
+          date: " 2019-05-07"
+        },
+        {
+          title: "三大签约！中酒协将在标准化、电商平台、投资领域大发力",
+          date: "2019-04-24"
+        },
+        {
+          title: "五粮液集团副董事长邹涛一行到访协会，共话老酒市场发展",
+          date: "2019-03-01"
+        },
+        {
+          title: "中国酒业协会主办“中国白酒3C计划”启动会议在京召开",
+          date: "2013-08-23"
+        }
+      ],
+      news3: [
+        {
+          title: "香港食安中心公布二月份食物安全报告",
+          date: "2018-03-30"
+        },
+        {
+          title: "四川德阳市食品药品安全监管今年重点铲除“潜规则”",
+          date: "2018-03-29"
+        },
+        {
+          title: "宁波：买进口“有机食品”要留心 有的系违规使用有机产品认证标志",
+          date: "2018-03-28"
+        },
+        {
+          title: "西宁市食药监提示：购买保健食品 还需擦亮眼睛",
+          date: "2018-03-28"
+        },
+        {
+          title: "衡阳市五措并举开展酒类产品专项整治",
+          date: "2018-03-27"
+        },
+        {
+          title: "武汉市开展春季校园食品安全专项检查",
+          date: "2018-03-27"
+        },
+        {
+          title: "鸡西市开展食品、保健食品欺诈和虚假宣传整治专项检查行动",
+          date: "2018-03-26"
+        },
+        {
+          title: "浙江吴兴四管齐下推进酒类产品质量安全专项整治",
+          date: "2018-03-26"
+        }
+      ],
+
       dynamic: [
         {
           news: [
@@ -529,9 +685,18 @@ export default {
   computed: {
     swiper() {
       return this.$refs.mySwiper.swiper;
+    },
+    fromTop(){
+      return document.body.scrollTop
+    },
+  },
+  watch:{
+    fromTop: function(val){
+      console.log(val)
     }
   },
   mounted() {
+    this.setCurrentNav('诚信体系概述')
     this.swiper.slideTo(0, 1000, false);
     var canvas = document.getElementById("cvs");
 
@@ -552,6 +717,26 @@ export default {
     context.stroke();
   },
   methods: {
+    ...mapMutations({
+      setCurrentNav: 'common/setCurrentNav'
+    }),
+    hover1(){
+      this.show1 = true;
+      console.log(this.show1)
+    },
+    hover2(){
+      this.show1 = false;
+    },
+    hover3(){
+      this.show2 = true;
+    },
+    hover4(){
+      this.show2 = false;
+    },
+    toTop(){
+      console.log(document.body.scrollTop)
+      document.documentElement.scrollTop = document.body.scrollTop = 0;
+    },
     scrollTab(index) {
       let farTop = this.$refs["content" + index].offsetHeight;
       console.log(11111111, farTop);
@@ -563,9 +748,11 @@ export default {
       this.$router.push({
         name: "newsDetail"
       });
+      // window.url = 'http://www.foodcredit.org.cn/gzdt/bwyw/201803/t20180326_170791.html'
     },
-    goNews(){
+    goNews() {
       this.$router.push("/dynamics");
+      // window.url = 'http://www.foodcredit.org.cn/gzdt/bwyw/201803/t20180326_170791.html'
     }
   }
 };
@@ -599,7 +786,7 @@ export default {
   margin: 10px 0;
 }
 .tab1-content {
-  height: 1029px;
+  height: 800px;
   background: url("../assets/images/policy-bg.png");
   font-size: 12px;
   .content-title {
@@ -847,10 +1034,10 @@ export default {
           height: 90px;
           line-height: 90px;
           background: #fff;
-          border-top: 1px solid rgba(229,229,229,1);
+          border-top: 1px solid rgba(229, 229, 229, 1);
           text-align: center;
         }
-        .grade:last-child{
+        .grade:last-child {
           border-bottom: 1px solid rgba(190, 43, 43, 1);
         }
       }
@@ -1043,5 +1230,97 @@ ul {
   background: url("../assets/images/triangle.png");
   background-size: 100% 100%;
   visibility: hidden;
+}
+.float-more{
+  width: 423px;
+  height: 443px;
+  background: url('../assets/images/hover-more.png');
+  z-index: 10001;
+  position: fixed;
+  bottom: 200px;
+  right: 170px;
+}
+.close-btn:hover{
+  cursor: pointer;
+}
+.float-info{
+  width: 300px;
+  height: 150px;
+  position: fixed;
+  bottom: 20px;
+  right: 170px;
+  z-index: 10001;
+  background: rgba(255, 255, 255, 1);
+  padding-top: 20px;
+  border: 1px solid #ccc;
+  // display: none;
+  div {
+    width: 100%;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 10px;
+    img{
+      margin-right: 10px;
+    }
+  }
+}
+.float-top {
+  width: 60px;
+  height: 170px;
+  background: rgba(255, 255, 255, 1);
+  position: fixed;
+  bottom: 20px;
+  right: 100px;
+  z-index: 10001;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: "MicrosoftYaHeiLight";
+  font-weight: 300;
+  .top {
+    height: 91px;
+    // background: red
+    padding-top: 10px;
+    .top-bg {
+      width: 19px;
+      margin: auto;
+      // padding-top:10px;
+      height: 19px;
+      background: url("../assets/images/con-2.png");
+      background-size: 100% 100%;
+    }
+  }
+  .top:hover {
+    background: rgba(227, 36, 42, 1);
+    cursor: pointer;
+    color: rgba(255, 255, 255, 1);
+    .top-bg {
+      background: url("../assets/images/con-1.png");
+      background-size: 100% 100%;
+    }
+    // .float-info{
+    //   display: block;
+    // }
+  }
+  .bottom {
+    height: 59px;
+    padding-top: 10px;
+    .bottom-bg{
+      width: 14px;
+      margin: auto;
+      // padding-top:10px;
+      height: 8px;
+      background: url("../assets/images/top-1.png");
+      background-size: 100% 100%;
+    }
+  }
+  .bottom:hover {
+    background: rgba(227, 36, 42, 1);
+    cursor: pointer;
+    color: rgba(255, 255, 255, 1);
+    .bottom-bg {
+      background: url("../assets/images/top-2.png");
+      background-size: 100% 100%;
+    }
+  }
 }
 </style>

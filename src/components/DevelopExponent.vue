@@ -2,7 +2,7 @@
   <div id="exponent">
     <div class="banner"></div>
     <div class="content exponent-integrity">
-      <div class="content-title">产品诚信指数</div>
+      <div class="content-title">产区诚信指数</div>
       <div class="en-title">Production area integrity index</div>
       <div class="line">
         <img src="../assets/images/line-red.png" alt />

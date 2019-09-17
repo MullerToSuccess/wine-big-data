@@ -32,15 +32,17 @@
             </div>
             <span class="name-item">
               <img src="@/assets/images/phone-small.png" />
-              统一社会信用代码:{{ scope.row.name }}
+              统一社会信用代码:{{ scope.row.more1 }}
             </span>
+            <br />
             <span class="name-item">
               <img src="@/assets/images/people-small.png" />
-              法定代表人:{{ scope.row.name }}
+              法定代表人:{{ scope.row.more2 }}
             </span>
+            <br />
             <span class="name-item">
               <img src="@/assets/images/address-small.png" />
-              地址:{{ scope.row.name }}
+              地址:{{ scope.row.more3 }}
             </span>
           </template>
         </el-table-column>
@@ -57,7 +59,7 @@
         <el-table-column label="操作">
           <template slot-scope="scope">
             <div class="operate-btn" @click="goSearch(scope.$index, scope.row)">
-              <span>查看企业诚信</span>
+              <span>查看企业诚信画像</span>
             </div>
             <!-- <el-button  @click="goSearch(scope.$index, scope.row)">查看企业诚信</el-button> -->
           </template>
@@ -98,44 +100,47 @@ export default {
         {
           name: "宜宾五粮液股份有限公司",
           rank: "AAA",
-          grade: "80",
-          status: 1
+          grade: "99",
+          status: 1,
+          more1:'91511500MA62A0WM8P',
+          more2:'刘中国',
+          more3:'四川省宜宾市翠屏区岷江西路150号'
         },
         {
-          name: "宜宾五粮液股份有限公司",
+          name: "贵州茅台酒厂有限责任公司",
           rank: "AAA",
-          grade: "80",
-          status: 1
+          grade: "98",
+          status: 1,
+          more1:'915200002149908473',
+          more2:'李保芳',
+          more3:'贵州省贵阳市云岩区外环东路东山巷4号'
         },
         {
-          name: "宜宾五粮液股份有限公司",
+          name: "泸州老窖股份有限公司",
           rank: "AAA",
-          grade: "80",
-          status: 0
+          grade: "96",
+          status: 0,
+          more1:'91510500204706718H',
+          more2:'刘淼',
+          more3:'四川泸州国窖广场'
         },
         {
-          name: "宜宾五粮液股份有限公司",
+          name: "陕西西凤酒股份有限公司",
           rank: "AAA",
-          grade: "80",
-          status: 0
+          grade: "95",
+          status: 0,
+          more1:'91610300713576579H',
+          more2:'张正',
+          more3:'陕西省宝鸡市凤翔县柳林镇'
         },
         {
-          name: "宜宾五粮液股份有限公司",
+          name: "四川剑南春（集团）有限责任公司",
           rank: "AAA",
-          grade: "80",
-          status: 0
-        },
-        {
-          name: "宜宾五粮液股份有限公司",
-          rank: "AAA",
-          grade: "80",
-          status: 0
-        },
-        {
-          name: "宜宾五粮液股份有限公司",
-          rank: "AAA",
-          grade: "80",
-          status: 0
+          grade: "94",
+          status: 0,
+          more1:'915106837175377539',
+          more2:'乔天明',
+          more3:'	绵竹市春溢街'
         }
       ]
     };
@@ -251,7 +256,7 @@ export default {
     margin-top: 20px;
   }
   .operate-btn {
-    width: 124px;
+    width: 144px;
     height: 35px;
     background: rgba(227, 36, 42, 1);
     border: 1px solid rgba(252, 13, 27, 1);

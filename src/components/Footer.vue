@@ -8,7 +8,7 @@
         </div>
         <div>
           <div>指导单位：</div>
-          <div class="content">国家信息中心</div>
+          <div class="content">中国酒业协会</div>
         </div>
         <div>
           <div>技术支持</div>

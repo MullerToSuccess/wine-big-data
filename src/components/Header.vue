@@ -1,18 +1,30 @@
 <template>
-  <div class="header">
+  <div class="header" @click="hoverStatus = false">
     <div class="header-top">
       <div class="header-title">
-        <img class="img-logo" src="@/assets/images/logo.png" />
+        <img class="img-logo" src="@/assets/images/logo.png" @click="goHome" />
       </div>
-      <div class="login-status">
+      <div class="login-status" v-if="!loginStatus">
         <a @click="goLogin">登录</a>
         <span style="color:#ccc">|</span>
         <a @click="goSign">注册</a>
       </div>
+      <div class="login-status" v-else>
+        <a>{{userName}}</a>
+        <a @click.stop="processHover">
+          <img class="head-image" :src="headImgUrl" />
+        </a>
+      </div>
+      <div class="modal">
+        <div :class="{'click-hover': true, 'visible': hoverStatus}">
+          <span @click="changePassword">修改密码</span>
+          <span @click="logout">退出登录</span>
+        </div>
+      </div>
     </div>
     <div class="nav-table">
       <a
-        :class="{'nav-item': true, activeNav: item.name == activeNav}"
+        :class="{'nav-item': true, activeNav: item.name == currentNav}"
         @click="goTo(item)"
         v-for="(item, index) in navs"
         :key="index"
@@ -23,10 +35,15 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
 export default {
   name: "Header",
   data() {
     return {
+      hoverStatus: false, // 隐藏操作栏
+      loginStatus: localStorage.getItem("loginStatus"), // 登录状态
+      headImgUrl: localStorage.getItem("headImgUrl"), // 用户头像
+      userName: localStorage.getItem("username"), // 用户名
       activeNav: "诚信体系概述",
       navs: [
         {
@@ -38,7 +55,7 @@ export default {
           path: "/developExponent"
         },
         {
-          name: "监管监督公式",
+          name: "监管监督公示",
           path: "/supervision"
         },
         {
@@ -55,7 +72,7 @@ export default {
         },
         {
           name: "诚信申述举报",
-          path: "/accusation"
+          path: "/AccusationAndAppeal"
         },
         {
           name: "诚信舆情热点",
@@ -63,7 +80,7 @@ export default {
         },
         {
           name: "诚信知识科普",
-          path: "/science"
+          path: "/Science"
         },
         {
           name: "平台服务支持",
@@ -72,26 +89,41 @@ export default {
       ]
     };
   },
-  // computed: {
-  //   swiper() {
-  //     return this.$refs.mySwiper.swiper;
-  //   }
-  // },
+  computed: {
+    ...mapGetters({
+      currentNav: "common/currentNav"
+    })
+  },
   mounted() {
     // console.log("this is current swiper instance object", this.swiper);
     // this.swiper.slideTo(0, 1000, false);
   },
   methods: {
+    ...mapMutations({
+      setCurrentNav: "common/setCurrentNav"
+    }),
     goTo(item) {
       this.$router.push(item.path);
       this.activeNav = item.name;
+      this.setCurrentNav(item.name); // 设置路由
     },
     goLogin() {
       this.$router.push("/login");
     },
     goSign() {
       this.$router.push("/sign");
-    }
+    },
+    goHome() {
+      this.$router.push("/systemSurvey");
+    },
+    logout() {
+      //登出接口
+      this.$router.push("/login");
+    },
+    processHover() {
+      this.hoverStatus = !this.hoverStatus;
+    },
+    changePassword() {}
   }
 };
 </script>
@@ -105,12 +137,14 @@ export default {
 .header-top {
   display: flex;
   align-content: center;
-  width: 70%;
-  margin: auto;
+  // width: 70%;
+  // margin: auto;
+  width: 1200px;
+  margin: 10px auto;
 }
 .header-title {
   text-align: left;
-  width: 40%;
+  width: 50%;
   height: 50px;
   line-height: 50px;
   font-size: 30px;
@@ -122,8 +156,12 @@ export default {
   //   height: 50px;
   // }
 }
+.head-image {
+  width: 40px;
+  height: 40px;
+}
 .login-status {
-  width: 40%;
+  width: 500px;
   height: 50px;
   line-height: 50px;
   text-align: right;
@@ -162,7 +200,9 @@ export default {
   height: 30px;
   line-height: 30px;
   margin-top: 20px;
-  width: 70%;
+  // width: 70%;
+  // margin: 10px auto;
+  width: 1200px;
   margin: 10px auto;
   .nav-item {
     width: 101px;
@@ -221,5 +261,33 @@ export default {
   height: 1px;
   background: rgba(0, 0, 0, 1);
   opacity: 0.1;
+}
+.click-hover {
+  z-index: 1000;
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 61px;
+  right: 447px;
+  font-size: 14px;
+  background: url("../assets/images/hover-bg.png");
+  background-size: 100% 100%;
+  width: 70px;
+  height: 74px;
+  span {
+    display: block;
+    cursor: pointer;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 5px;
+  }
+  span:hover {
+    color: #e62020;
+  }
+}
+.visible {
+  display: block;
 }
 </style>

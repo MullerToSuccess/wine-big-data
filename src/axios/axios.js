@@ -1,11 +1,13 @@
+'use strict'
 import axios from "axios"
-const baseUrl = "http://172.27.7.43:8080" // 
-// const baseUrl = "http://172.27.7.26:3010" // 
+import qs from 'qs'
+
+const baseUrl = "http://172.27.7.79:3333" //
+// const baseUrl = "http://" + window.document.location.host;
 
 axios.interceptors.request.use(
   config => {
-    config.headers["Content-Type"] = "application/json;charset=UTF-8"
-    console.log("请求配置", config)
+    // config.headers["Content-Type"] = "application/json;charset=UTF-8"
     return config
   },
   err => {
@@ -15,17 +17,25 @@ axios.interceptors.request.use(
 axios.defaults.timeout = 15000
 axios.interceptors.response.use(
   data => {
-    return data.data || data
-  },
+    return data
+  },  
   error => {
-    let response = { status: -404, statusText: "请检查网络或稍后重试" }
-    response = error.response || response
-    return Promise.reject(response)
+    if (error.response) {
+      return Promise.resolve(error.response)
+    } else {
+      let response = { status: -404, statusText: "请检查网络或稍后重试" }
+      return Promise.resolve(response)
+    }
   }
 )
 // 异常格式化
 function formatResponse(response) {
-  if (response) return response
+  // 如果http状态码正常，则直接返回数据
+  if (response && (response.status === 200 || response.status === 304)) {
+    return response.data
+  }
+  // 异常状态下，保持格式统一 
+  checkStatus(response) // 数据校验
   return {
     status: response.status,
     msg: response.statusText,
@@ -33,35 +43,14 @@ function formatResponse(response) {
   }
 }
 // 检测状态：
-function checkStatus(data, options) {
-  switch (data.code) {
-    // 成功
-    case "0":
-      Vue.prototype.$message({
-        message: data.message,
-        type: "success"
-      })
-      break
-    // 失败
-    case "1":
-      Vue.prototype.$message({
-        message: data.message,
-        type: "warning"
-      })
-      break
-    // 无数据
-    case "2":
-      Vue.prototype.$message({
-        message: data.message,
-        type: "info"
-      })
-      break
-    default:
-      break
-      // Vue.prototype.$message({
-      //   message: data.message,
-      //   type: "success"
-      // })
+function checkStatus(data) {
+  if(data.data.code == 401){
+    window.location.hash = "#/login"
+    Promise.reject(data.data.message)
+    Vue.prototype.$message({
+      message: data.data.message,
+      type: "warning"
+    })
   }
 }
 
@@ -76,17 +65,13 @@ export default {
     // token
     let token = localStorage.getItem("token") || ""
     if (token) {
-      let headers = options.headers
-      options["headers"] = {}
       options.auth
         ? // ? (options["headers"]["authorization"] = token)
           (options["headers"]["token"] = token)
         : (options["headers"]["token"] = token)
-      Object.assign(options.headers, headers)
       Object.assign(send.headers, options.headers)
     }
     return axios(send).then(res => {
-      checkStatus(res, options)
       return formatResponse(res)
     })
   },
@@ -94,25 +79,24 @@ export default {
     let send = {
       method: "post",
       url: baseUrl + url,
-      data: data,
-      headers: {}
+      data: options.dataType === 'json' ? JSON.stringify(data) : qs.stringify(data),
+      headers: {"Content-Type": 'application/json;charset=UTF-8'}
+      // headers: {}
     }
     // token
     let token = localStorage.getItem("token")
       ? localStorage.getItem("token")
       : ""
     if (token) {
-      let headers = options.headers
-      options["headers"] = {}
       options.auth
         ? (options["headers"]["token"] = token)
         : (options["headers"]["token"] = token)
-      Object.assign(options.headers, headers)
       Object.assign(send.headers, options.headers)
     }
     return axios(send).then(res => {
-      checkStatus(res, options)
       return formatResponse(res)
+    },
+    err => {
     })
   }
 }

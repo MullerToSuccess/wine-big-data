@@ -135,7 +135,7 @@ a:hover {
     color: rgba(22, 22, 22, 0.8);
     line-height: 24px;
   }
-  .el-table .cell{
+  .el-table .cell {
     margin-left: 10px;
   }
 }
@@ -150,22 +150,22 @@ a:hover {
     border-color: #ff0000;
   }
   .el-button--success {
-    color: #FFF;
-    background-color: #FF0000;
-    border-color: #FF0000;
-}
-.el-button--info {
-  color: rgba(169,169,169,1);;
-  background-color:rgba(232,232,232,1);
-  border-color: rgba(232,232,232,1);
-}
-  .form2 {
-    .el-form-item {
-      display: block;
-      width: 900px;
-      margin: 30px auto;
-    }
+    color: #fff;
+    background-color: #ff0000;
+    border-color: #ff0000;
   }
+  .el-button--info {
+    color: rgba(169, 169, 169, 1);
+    background-color: rgba(232, 232, 232, 1);
+    border-color: rgba(232, 232, 232, 1);
+  }
+  // .form2 {
+  //   .el-form-item {
+  //     display: block;
+  //     width: 900px;
+  //     margin: 30px auto;
+  //   }
+  // }
   .avatar-uploader .el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
@@ -190,7 +190,7 @@ a:hover {
     display: block;
   }
 }
-.form4 {
+.managementForm {
   .upload-demo {
     text-align: left;
     margin-left: 20px;
@@ -206,24 +206,40 @@ a:hover {
     text-align: left;
   }
 }
-.accusation1 {
+/* 诚信申诉举报模块 */
+.accusationForm,
+.appealForm {
   .el-form-item {
     display: block;
-    width: 900px;
-    margin: 30px auto;
+    width: 500px;
+    padding-left: 79px;
+    // margin: 30px auto;
     text-align: left;
+    input {
+      width: 329px !important;
+    }
   }
 }
-.accusation2 {
-  input {
-    height: 60px !important;
-    border-radius: 0;
-    border: 0;
+.appeal,
+.accusation {
+  .search-content {
+    input {
+      height: 60px !important;
+      border-radius: 0;
+      border: 0;
+    }
   }
   .search-select {
     input {
       border: 0 !important;
     }
+  }
+}
+.other-form {
+  .el-form-item {
+    display: block;
+    width: 900px;
+    margin: 30px auto;
   }
 }
 .tip-gap {
@@ -233,11 +249,97 @@ a:hover {
   background: rgba(255, 0, 0, 0.1);
   display: inline-block;
 }
-.swiper-pagination-bullet-active{
+.swiper-pagination-bullet-active {
   background: #fff !important;
 }
-.swiper-pagination-bullet{
+.swiper-pagination-bullet {
   height: 12px !important;
   width: 12px !important;
   margin-bottom: 10px !important;
+}
+.loginForm {
+  .el-form-item__content {
+    margin-left: 0 !important;
+  }
+  .el-input__inner {
+    height: 50px;
+  }
+}
+.signForm {
+  .el-form-item__label {
+    font-size: 14px;
+    font-family: "MicrosoftYaHeiLight";
+    font-weight: 300;
+  }
+  // input{
+  //   width: 329px;
+  // }
+  .upload {
+    .el-form-item__content {
+      width: 329px;
+      height: 168px;
+      border: 1px solid rgba(225, 225, 225, 1);
+    }
+  }
+}
+/* 注册 */
+.sign {
+  .el-upload {
+    width: 100%;
+    height: 100%;
+  }
+  .el-radio__inner{
+    background: url('../images/moren-icon.png')
+  }
+  .el-radio__input.is-checked .el-radio__inner{
+    background: url('../images/xuanzhong-icon.png');
+    border: none;
+  }
+  .el-radio__input.is-checked+.el-radio__label{
+    color: #161616;
+  }
+  .el-radio__inner:hover{
+    border: none;
+  }
+  
+  .el-radio, .el-radio__inner, .el-radio__input{
+    position: initial;
+  }
+}
+
+/* 分页样式 */
+.el-pagination__total,
+.el-pagination__jump {
+  height: 14px;
+  font-size: 14px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: rgba(106, 106, 106, 1);
+}
+.el-pager li.active {
+  color: #e3242a;
+  border: 1px solid #e3242a;
+}
+.el-pager li.active + li {
+  border: 1px solid #dcdcdc;
+}
+.el-pager li:hover {
+  color: #e3242a;
+}
+.el-pagination {
+  .number {
+    width: 26px;
+    height: 26px;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 2px;
+    margin-left: 4px;
+  }
+  margin-bottom: 10px;
+}
+
+/* upload样式 */
+.el-upload-list__item.is-success .el-upload-list__item-name:focus,
+.el-upload-list__item.is-success .el-upload-list__item-name:hover {
+  color: #e3242a
 }

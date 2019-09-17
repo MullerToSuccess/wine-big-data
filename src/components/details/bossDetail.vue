@@ -8,10 +8,10 @@
     </div>
     <div class="content">
       <div class="base">
-        <img src="@/assets/images/boss.png" alt />
+        <img src="@/assets/images/boss-2.jpg" style="width:126px;height:126px; border-radius:50%" />
         <div>
-          <span class="item-name">尹雪涛</span>
-          <span>/ 副总裁</span>
+          <span class="item-name">李曙光</span>
+          <span>/ 董事长</span>
           <img style="
             width: 108px;
             height: 19px;
@@ -27,10 +27,10 @@
         <div class="more-item">
           <div class="title" ><div class="tip-gap" style="margin-top: 40px"></div>基本履历<div class="tip-gap" style="margin-left:7px"></div></div>
           <div class="item-content">
-            <span>1989年 毕业于上海水产大学，获得学士学位</span>
-            <span>1983-1993 上海鱼品厂，获得上海市科技进步三等奖</span>
-            <span>1999-2008 锦江国际股份有限公司，获得工程师职称；</span>
-            <span>2008-至今 上海恩波露食品有限公司；</span>
+            <span>1992年7月任省经贸委办公室秘书科科长</span>
+            <span>1994年5月任省经贸委办公室副主任</span>
+            <span>2008年11月任省经委办公室主任、党组办主任</span>
+            <span>2017年3月，五粮液集团有限公司党委书记、董事长，五粮液股份有限公司党委书记</span>
           </div>
         </div>
         <div class="more-item">

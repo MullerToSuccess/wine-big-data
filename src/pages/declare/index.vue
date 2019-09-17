@@ -35,34 +35,54 @@
       <div :class="{finish: true, finishIcon: status4}"></div>
     </div>
     </div>
-    
   </div>
 </template>
 <script>
+import declare from './axios/index'
+import { truncate } from 'fs';
+import { mapMutations } from "vuex";
 export default {
   name: "Declare",
   data() {
     return {
-      status1: true,
-      status2: true,
+      status1: false,
+      status2: false,
       status3: false,
-      status4: false
+      status4: false,
+      declareInfo:{}, // 四个详情
     };
   },
+  mounted(){
+    this.sincerityAll()
+  },
   methods:{
+    ...mapMutations({
+      setDeclareInfo: 'declare/setDeclareInfo'
+    }), 
+    sincerityAll(){
+      declare.sincerityAll().then(res => {
+        //判断状态
+        this.setDeclareInfo(res.data)
+        this.declareInfo = res.data // 四个详情
+        if(res.data.qualificationInfo) this.status1 = true
+        if(res.data.prizeInfo) this.status2 = true
+        if(res.data.financeInfo) this.status3 = true
+        if(res.data.managementInfo) this.status4 = true
+      })
+    },
     goForm(index){
       switch(index){
         case 1:
-          this.$router.push({name: 'form'});
+          this.$router.push({name: 'QualificationForm'});
           break;
         case 2:
-          this.$router.push({name: 'form2'})
+          this.$router.push({name: 'PrizeForm'})
           break;
         case 3:
-          this.$router.push({name: 'form3'})
+          this.$router.push({name: 'FinanceForm'})
           break;
         case 4:
-          this.$router.push({name: 'form4'})
+          this.$router.push({name: 'ManagementForm'})
             break;
         default:
            break;
@@ -79,7 +99,7 @@ export default {
   .banner {
     width: 100%;
     height: 400px;
-    background: url("../assets/images/declare-bg.png");
+    background: url("../../assets/images/declare-bg.png");
   }
   .declare-form {
     margin: auto;
@@ -114,7 +134,7 @@ export default {
       
     }
     .finishIcon{
-      background: url('../assets/images/finish.png');
+      background: url('../../assets/images/finish.png');
       display: absolute;
       margin-top: -30px;
     }
