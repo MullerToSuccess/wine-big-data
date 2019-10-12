@@ -2,9 +2,10 @@
 import axios from "axios"
 import qs from 'qs'
 
-const baseUrl = "http://172.27.7.79:3333" //
+// const baseUrl = "http://172.27.7.79:3333" //
+const baseUrl = "" //
 // const baseUrl = "http://" + window.document.location.host;
-
+axios.defaults.withCredentials = true;
 axios.interceptors.request.use(
   config => {
     // config.headers["Content-Type"] = "application/json;charset=UTF-8"
@@ -44,7 +45,7 @@ function formatResponse(response) {
 }
 // 检测状态：
 function checkStatus(data) {
-  if(data.data.code == 401){
+  if(data.data && data.data.code == 401){
     window.location.hash = "#/login"
     Promise.reject(data.data.message)
     Vue.prototype.$message({

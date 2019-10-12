@@ -288,21 +288,23 @@ a:hover {
     width: 100%;
     height: 100%;
   }
-  .el-radio__inner{
-    background: url('../images/moren-icon.png')
+  .el-radio__inner {
+    background: url("../images/moren-icon.png");
   }
-  .el-radio__input.is-checked .el-radio__inner{
-    background: url('../images/xuanzhong-icon.png');
+  .el-radio__input.is-checked .el-radio__inner {
+    background: url("../images/xuanzhong-icon.png");
     border: none;
   }
-  .el-radio__input.is-checked+.el-radio__label{
+  .el-radio__input.is-checked + .el-radio__label {
     color: #161616;
   }
-  .el-radio__inner:hover{
+  .el-radio__inner:hover {
     border: none;
   }
-  
-  .el-radio, .el-radio__inner, .el-radio__input{
+
+  .el-radio,
+  .el-radio__inner,
+  .el-radio__input {
     position: initial;
   }
 }
@@ -341,5 +343,79 @@ a:hover {
 /* upload样式 */
 .el-upload-list__item.is-success .el-upload-list__item-name:focus,
 .el-upload-list__item.is-success .el-upload-list__item-name:hover {
-  color: #e3242a
+  color: #e3242a;
+}
+
+/* 全局弹框提示样式 */
+.m-dialog {
+  .el-dialog {
+    width: 440px;
+    .el-dialog__close {
+      background: url("../images/guanbi-icon.png");
+      background-size: 100% 100%;
+      width: 14px;
+      height: 13px;
+    }
+    .el-dialog__header {
+      height: 30px;
+      padding: 0px 20px;
+      padding-top: 10px;
+      background: rgba(227, 36, 42, 1);
+      text-align: left;
+      .el-dialog__title {
+        margin-top: -5px;
+        display: inline-block;
+        width: 33px;
+        height: 16px;
+        font-size: 16px;
+        font-family: FZLanTingHei-EL-GBK;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+        line-height: 30px;
+      }
+      .el-dialog__headerbtn {
+        top: 15px;
+      }
+    }
+    .el-dialog__body {
+      height: 45px;
+      span {
+        height: 19px;
+        font-size: 18px;
+        font-family: Microsoft YaHei;
+        font-weight: 400;
+        color: rgba(89, 81, 81, 1);
+      }
+    }
+    .el-dialog__footer {
+      .el-button--default {
+        width: 114px;
+        height: 40px;
+        background: rgba(232, 232, 232, 1);
+        border: 1px solid rgb(232, 232, 232);
+        border-radius: 4px;
+        span {
+          font-size: 16px;
+          font-family: Microsoft YaHei;
+          font-weight: 300;
+          color: rgba(106, 106, 106, 1);
+          // line-height: 22px;
+        }
+      }
+      .el-button--primary {
+        width: 114px;
+        height: 40px;
+        background: rgba(255, 0, 0, 1);
+        border: 1px solid rgba(255, 0, 0, 1);
+        border-radius: 4px;
+        span {
+          font-size: 16px;
+          font-family: Microsoft YaHei;
+          font-weight: 300;
+          color: rgba(255, 255, 255, 1);
+          // line-height: 22px;
+        }
+      }
+    }
+  }
 }

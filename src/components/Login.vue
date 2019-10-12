@@ -74,15 +74,9 @@ export default {
         });
         return;
       }
-      if (this.remeberStatus) {
-        this.setCookie(this.loginForm.username, this.loginForm.password, 7);
-      } else {
-        this.clearCookie();
-      }
-      return;
       common.login(this.loginForm).then(res => {
         //存储用户信息
-        if (res.data.code == "401") {
+        if (res.data && res.data.code == "401") {
           return;
         }
         localStorage.setItem("token", res.data.token);
@@ -90,6 +84,7 @@ export default {
         localStorage.setItem("nickname", res.data.nickname);
         localStorage.setItem("password", res.data.password);
         localStorage.setItem("headImgUrl", res.data.headImgUrl);
+        localStorage.setItem("userType", res.data.type);
         localStorage.setItem("loginStatus", true);
         this.$message({
           message: "登录成功",

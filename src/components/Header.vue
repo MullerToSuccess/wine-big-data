@@ -12,13 +12,15 @@
       <div class="login-status" v-else>
         <a>{{userName}}</a>
         <a @click.stop="processHover">
-          <img class="head-image" :src="headImgUrl" />
+          <img class="head-image" :src="headImgUrl" :onerror="userType == 0 ? defaultImg1 : userType == 1 ? defaultImg2 : defaultImg3" />
         </a>
       </div>
       <div class="modal">
         <div :class="{'click-hover': true, 'visible': hoverStatus}">
-          <span @click="changePassword">修改密码</span>
-          <span @click="logout">退出登录</span>
+          <span v-show="userType == 0 || userType == 1" @click="changePassword">修改密码</span>
+          <span v-show="userType == 0 || userType == 1" @click="logout">退出登录</span>
+          <span v-show="userType == 2" @click="goLogin">去登录</span>
+          <span v-show="userType == 2" @click="goSign">去注册</span>
         </div>
       </div>
     </div>
@@ -40,6 +42,10 @@ export default {
   name: "Header",
   data() {
     return {
+      userType: localStorage.getItem('userType'),
+      defaultImg1: 'this.src="' + require("@/assets/images/default-user1.png") +'";this.onerror=null',
+      defaultImg2: 'this.src="' + require("@/assets/images/default-user2.png") +'";this.onerror=null',
+      defaultImg3: 'this.src="' + require("@/assets/images/default-user3.png") +'";this.onerror=null',
       hoverStatus: false, // 隐藏操作栏
       loginStatus: localStorage.getItem("loginStatus"), // 登录状态
       headImgUrl: localStorage.getItem("headImgUrl"), // 用户头像
@@ -118,6 +124,14 @@ export default {
     },
     logout() {
       //登出接口
+      // 清缓存
+      localStorage.setItem("userType", 2);
+      localStorage.setItem("token", '');
+      localStorage.setItem("username", '游客');
+      localStorage.setItem("nickname", '游客');
+      localStorage.setItem("password", '');
+      localStorage.setItem("headImgUrl", '');
+      localStorage.setItem("loginStatus", false);
       this.$router.push("/login");
     },
     processHover() {
@@ -157,8 +171,8 @@ export default {
   // }
 }
 .head-image {
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
 }
 .login-status {
   width: 500px;

@@ -51,6 +51,13 @@ window.Vue = Vue
 
 // 页面跳转顶部
 router.beforeEach((to, from, next) => {    
+
+  // 判断当前登录用户类型
+  console.log('to', to)
+  // if(localStorage.getItem('userType') == 2 && to.name === 'Declare'){
+    
+  //   return ;
+  // }
   // chrome
   document.body.scrollTop = 0
   // firefox

@@ -132,6 +132,7 @@ export default {
       this.$router.push({ name: "AccusationForm" });
     },
     goDetail(detail) {
+      
       this.$router.push({ name: "AccusationForm", params: detail });
     },
     // 下载模板

@@ -30,25 +30,28 @@
           <el-input style="width: 329px" v-model="signForm.name"></el-input>
         </el-form-item>
         <el-form-item
-          prop="phone"
+          prop="email"
           label="邮箱注册"
           :rules="[
       {required: true,  validator: util.checkEmail, trigger: 'blur'}
     ]"
         >
-          <el-input style="width: 329px" v-model="signForm.phone"></el-input>
+          <el-input style="width: 329px" v-model="signForm.email"></el-input>
         </el-form-item>
         <!-- 邮箱验证 -->
         <el-form-item
           class="sendMessage"
-          prop="identifyCode"
+          prop="emailCode"
           label="验证码"
           :rules="[
       { required: true, message: '请输入验证码', trigger: 'blur' }
     ]"
         >
-          <el-input style="width: 183px" v-model="signForm.identifyCode"></el-input>
-          <el-button @click="getSmsCode" :loading="loadingMessage">获取验证码</el-button>
+          <el-input style="width: 183px" v-model="signForm.emailCode"></el-input>
+          <el-button :disabled="loadingMessage" @click="getEmailCode" >
+            <span v-if="!loadingMessage">获取验证码</span>
+            <span v-if="loadingMessage">{{ countNum2 }}s后重发</span>
+          </el-button>
         </el-form-item>
         <el-form-item
           style="margin-bottom: 10px;"
@@ -144,6 +147,7 @@ export default {
       status: false, // 注册状态
       checkStatus: false,
       countNum: 5, // 计数跳转登录
+      countNum2: 60, // 计时60s重新获取验证码
       signForm: {
         name: '',
         phone: '',
@@ -164,6 +168,11 @@ export default {
       if (newCount < 1) {
         this.goLogin();
       }
+    },
+    countNum2: function(newCount){
+      if(newCount < 1){
+        this.loadingMessage = false;
+      }
     }
   },
   computed: {
@@ -177,6 +186,11 @@ export default {
     count() {
       setInterval(() => {
         this.countNum -= 1;
+      }, 1000);
+    },
+    count2(){
+      setInterval(() => {
+        this.countNum2 -= 1;
       }, 1000);
     },
     /* 确认密码校验 */
@@ -196,17 +210,18 @@ export default {
         phone: this.signForm.phone,
         telephone: this.signForm.phone,
         username: this.signForm.name,
-        isCompanyUser: this.signForm.isCompanyUser
+        email: this.signForm.email,
+        emailCode: this.signForm.emailCode,
+        type: !this.signForm.isCompanyUser // 1: 普通用户 0： 酒企用户 
       };
       if (!this.checkStatus) {
         this.$message.error("请先阅读同意用户注册协议！");
         return;
       }
-      console.log(params)
-      // common.sign(params).then(res => {
-      //   this.status = true; // 注册成功
-      //   this.count();
-      // });
+      common.sign(params).then(res => {
+        this.status = true; // 注册成功
+        this.count();
+      });
     },
     goLogin() {
       this.$router.push("/login");
@@ -226,13 +241,15 @@ export default {
       return isLt2M;
     },
     /* 短信验证码 */
-    getSmsCode() {
+    getEmailCode() {
       common
-        .getSmsCode({
-          phone: this.signForm.phone
+        .getEmailCode({
+          email: this.signForm.email
         })
         .then(res => {
-          console.log(res);
+          // 60s 不再重复
+          this.loadingMessage = true;
+          this.count2();
         });
     }
   }

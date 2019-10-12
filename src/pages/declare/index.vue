@@ -35,6 +35,14 @@
       <div :class="{finish: true, finishIcon: status4}"></div>
     </div>
     </div>
+    <el-dialog class="m-dialog" title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
+      <span v-if="userType === '1'">该用户不是酒企用户，无访问权限！</span>
+      <span v-if="userType === '2'">此功能需要登录后操作！</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="goLogin">去登陆</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -50,9 +58,23 @@ export default {
       status3: false,
       status4: false,
       declareInfo:{}, // 四个详情
+      dialogVisible: false,
+      userType: localStorage.getItem("userType")
     };
   },
   mounted(){
+    // 判断用户类型
+    let userType = localStorage.getItem("userType");
+      // this.dialogVisible = true;
+      if (userType == 0) {
+        this.dialogVisible = false;
+        // return false;
+      } else if (userType == 1) {
+        this.dialogVisible = false;
+      } else {
+        this.dialogVisible = true;
+        return false;
+      }
     this.sincerityAll()
   },
   methods:{
@@ -71,6 +93,18 @@ export default {
       })
     },
     goForm(index){
+      // 判断用户类型
+    let userType = localStorage.getItem("userType");
+      // this.dialogVisible = true;
+      if (userType == 0) {
+        this.dialogVisible = false;
+        // return false;
+      } else if (userType == 1) {
+        this.dialogVisible = false;
+      } else {
+        this.dialogVisible = true;
+        return false;
+      }
       switch(index){
         case 1:
           this.$router.push({name: 'QualificationForm'});
@@ -87,6 +121,13 @@ export default {
         default:
            break;
       }
+    },
+    handleClose() {
+      this.dialogVisible = false;
+    },
+    goLogin() {
+      this.dialogVisible = false;
+      this.$router.push("/login");
     }
   }
 };
